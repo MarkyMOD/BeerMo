@@ -1,0 +1,3 @@
+rootProject.name = 'rn_Course_try_two'
+
+include ':app'
