@@ -10,6 +10,7 @@ const placeList = props => {
         <FlatList 
             style={styles.listContainer} 
             data={props.places}
+            keyExtractor={(item, index) => index.toString()}
             renderItem={(info) => (
                 <ListItem 
                     placeName={info.item.name} 
