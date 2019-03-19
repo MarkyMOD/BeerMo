@@ -1,15 +1,86 @@
 import React, { Component } from 'react'
-import { Text, View, Image, Button, StyleSheet } from 'react-native'
+import {
+    Text,
+    View,
+    Image,
+    Button,
+    StyleSheet,
+    Dimensions
+} from 'react-native'
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 
 class PickLocation extends Component {
+    state = {
+        focusedLocation: {
+            latitude: 40.0119612,
+            longitude: -105.2604922,
+            latitudeDelta: 0.0499,
+            longitudeDelta: Dimensions.get("window").width / Dimensions.get("window").height * 0.0499
+        },
+        locationChosen: false
+    }
+
+    pickLocationHandler = event => {
+        const coords = event.nativeEvent.coordinate
+        this.map.animateToRegion({
+            ...this.state.focusedLocation,
+            latitude: coords.latitude,
+            longitude: coords.longitude
+        })
+        this.setState(prevState => {
+            return {
+                focusedLocation: {
+                    ...prevState.focusedLocation,
+                    latitude: coords.latitude,
+                    longitude: coords.longitude
+                },
+                locationChosen: true
+            }
+        })
+        this.props.onLocationPick({
+            latitude: coords.latitude,
+            longitude: coords.longitude
+        })
+    }
+
+    getLocationHandler = () => {
+        navigator.geolocation.getCurrentPosition(pos => {
+            const coordsEvent = {
+                nativeEvent: {
+                    coordinate: {
+                        latitude: pos.coords.latitude,
+                        longitude: pos.coords.longitude
+                    }
+                }
+            }
+            this.pickLocationHandler(coordsEvent)
+        }, 
+        err => {
+            console.log(err)
+            alert("failes")
+        })
+    }
+
     render () {
+        let marker = null
+
+        if(this.state.locationChosen){
+            marker = <MapView.Marker coordinate={this.state.focusedLocation} />
+        }
+
         return (
             <View style={styles.container}>
-                <View style={styles.placeHolder}>
-                    <Text>Map</Text>
-                </View>
+                <MapView 
+                    provider={PROVIDER_GOOGLE}
+                    initialRegion={this.state.focusedLocation}
+                    style={styles.map}
+                    onPress={this.pickLocationHandler}
+                    ref={ref => this.map = ref}
+                >
+                    {marker}
+                </MapView>
                 <View style={styles.button} >
-                    <Button title="Locate Me" onPress={() => alert("hey")} />
+                    <Button title="Locate Me" onPress={this.getLocationHandler} />
                 </View>
             </View>
         )
@@ -21,12 +92,9 @@ const styles = StyleSheet.create({
         width: "100%",
         alignItems: "center"
     },
-    placeHolder: {
-        borderWidth: 1,
-        borderColor: "black",
-        backgroundColor: "#eee",
-        width: "80%",
-        height: 150
+    map: {
+        width: "100%",
+        height: 250
     },
     button: {
         margin: 8

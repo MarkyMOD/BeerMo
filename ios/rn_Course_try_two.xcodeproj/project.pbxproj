@@ -36,11 +36,32 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* rn_Course_try_twoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* rn_Course_try_twoTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
+		5E73BA283F6843D381640E3C /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D21271C3C42B48D6AACD3F10 /* libAirMaps.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		C182321422349C1100E5B76B /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C182321122349BC700E5B76B /* libRNVectorIcons.a */; };
 		C182321822349CEB00E5B76B /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C182321722349CEB00E5B76B /* Ionicons.ttf */; };
 		C182321F2234BFCE00E5B76B /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C182321E2234BFAC00E5B76B /* libReactNativeNavigation.a */; };
+		C1CB7AFA223B155600809212 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7AF9223B155600809212 /* Accelerate.framework */; };
+		C1CB7AFC223B156100809212 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7AFB223B156000809212 /* CoreData.framework */; };
+		C1CB7AFE223B156A00809212 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7AFD223B156A00809212 /* CoreGraphics.framework */; };
+		C1CB7B00223B157400809212 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7AFF223B157400809212 /* CoreImage.framework */; };
+		C1CB7B02223B157E00809212 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7B01223B157E00809212 /* CoreLocation.framework */; };
+		C1CB7B04223B158700809212 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7B03223B158700809212 /* CoreTelephony.framework */; };
+		C1CB7B06223B159900809212 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7B05223B159900809212 /* CoreText.framework */; };
+		C1CB7B08223B15A300809212 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7B07223B15A300809212 /* GLKit.framework */; };
+		C1CB7B0A223B15AE00809212 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7B09223B15AE00809212 /* ImageIO.framework */; };
+		C1CB7B0C223B15C100809212 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7B0B223B15C100809212 /* libc++.tbd */; };
+		C1CB7B0E223B15CD00809212 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7B0D223B15CD00809212 /* libz.tbd */; };
+		C1CB7B10223B15D800809212 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7B0F223B15D800809212 /* OpenGLES.framework */; };
+		C1CB7B12223B15E200809212 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7B11223B15E200809212 /* QuartzCore.framework */; };
+		C1CB7B14223B15EC00809212 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7B13223B15EC00809212 /* SystemConfiguration.framework */; };
+		C1CB7B16223B15F600809212 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7B15223B15F600809212 /* UIKit.framework */; };
+		C1CB7B1C223B1F4200809212 /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7B1B223B1F4200809212 /* GoogleMapsBase.framework */; };
+		C1CB7B1E223B1F5900809212 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7B1D223B1F5900809212 /* GoogleMaps.framework */; };
+		C1CB7B20223B1F6400809212 /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7B1F223B1F6400809212 /* GoogleMapsCore.framework */; };
+		C1CB7B22223B20A700809212 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C1CB7B21223B20A700809212 /* GoogleMaps.bundle */; };
+		C1E26229223C7A85001472D2 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E26226223C7A55001472D2 /* libRNImagePicker.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 /* End PBXBuildFile section */
@@ -312,6 +333,13 @@
 			remoteGlobalIDString = D8AFADBD1BEE6F3F00A4592D;
 			remoteInfo = ReactNativeNavigation;
 		};
+		C182325A223B10C900E5B76B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26CDF1BC46D14FFE8D243521 /* AirMaps.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
+			remoteInfo = AirMaps;
+		};
 		C1DC35EB22304540009AFBBF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -340,6 +368,13 @@
 			remoteGlobalIDString = ED296FEE214C9CF800B7C4FE;
 			remoteInfo = "jsiexecutor-tvOS";
 		};
+		C1E26225223C7A55001472D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1E261FA223C7A55001472D2 /* RNImagePicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
+			remoteInfo = RNImagePicker;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -362,6 +397,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = rn_Course_try_two/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = rn_Course_try_two/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		26CDF1BC46D14FFE8D243521 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* rn_Course_try_two-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rn_Course_try_two-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* rn_Course_try_two-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "rn_Course_try_two-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -372,6 +408,27 @@
 		C18231E622349BC700E5B76B /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		C182321722349CEB00E5B76B /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		C18232192234BFAC00E5B76B /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
+		C1CB7AF9223B155600809212 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		C1CB7AFB223B156000809212 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C1CB7AFD223B156A00809212 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C1CB7AFF223B157400809212 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		C1CB7B01223B157E00809212 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C1CB7B03223B158700809212 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		C1CB7B05223B159900809212 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		C1CB7B07223B15A300809212 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		C1CB7B09223B15AE00809212 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		C1CB7B0B223B15C100809212 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		C1CB7B0D223B15CD00809212 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		C1CB7B0F223B15D800809212 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		C1CB7B11223B15E200809212 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C1CB7B13223B15EC00809212 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C1CB7B15223B15F600809212 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C1CB7B1B223B1F4200809212 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsBase.framework; sourceTree = "<group>"; };
+		C1CB7B1D223B1F5900809212 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		C1CB7B1F223B1F6400809212 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsCore.framework; sourceTree = "<group>"; };
+		C1CB7B21223B20A700809212 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		C1E261FA223C7A55001472D2 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
+		D21271C3C42B48D6AACD3F10 /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -389,9 +446,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1E26229223C7A85001472D2 /* libRNImagePicker.a in Frameworks */,
+				C1CB7B16223B15F600809212 /* UIKit.framework in Frameworks */,
+				C1CB7B14223B15EC00809212 /* SystemConfiguration.framework in Frameworks */,
+				C1CB7B12223B15E200809212 /* QuartzCore.framework in Frameworks */,
+				C1CB7B10223B15D800809212 /* OpenGLES.framework in Frameworks */,
+				C1CB7B0E223B15CD00809212 /* libz.tbd in Frameworks */,
+				C1CB7B0C223B15C100809212 /* libc++.tbd in Frameworks */,
+				C1CB7B0A223B15AE00809212 /* ImageIO.framework in Frameworks */,
+				C1CB7B08223B15A300809212 /* GLKit.framework in Frameworks */,
+				C1CB7B06223B159900809212 /* CoreText.framework in Frameworks */,
+				C1CB7B04223B158700809212 /* CoreTelephony.framework in Frameworks */,
+				C1CB7B02223B157E00809212 /* CoreLocation.framework in Frameworks */,
+				C1CB7B00223B157400809212 /* CoreImage.framework in Frameworks */,
+				C1CB7AFE223B156A00809212 /* CoreGraphics.framework in Frameworks */,
+				C1CB7AFC223B156100809212 /* CoreData.framework in Frameworks */,
+				C1CB7AFA223B155600809212 /* Accelerate.framework in Frameworks */,
 				C182321F2234BFCE00E5B76B /* libReactNativeNavigation.a in Frameworks */,
 				C182321422349C1100E5B76B /* libRNVectorIcons.a in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
+				C1CB7B1E223B1F5900809212 /* GoogleMaps.framework in Frameworks */,
+				C1CB7B20223B1F6400809212 /* GoogleMapsCore.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -403,7 +478,9 @@
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
+				C1CB7B1C223B1F4200809212 /* GoogleMapsBase.framework in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				5E73BA283F6843D381640E3C /* libAirMaps.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +630,21 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C1CB7B15223B15F600809212 /* UIKit.framework */,
+				C1CB7B13223B15EC00809212 /* SystemConfiguration.framework */,
+				C1CB7B11223B15E200809212 /* QuartzCore.framework */,
+				C1CB7B0F223B15D800809212 /* OpenGLES.framework */,
+				C1CB7B0D223B15CD00809212 /* libz.tbd */,
+				C1CB7B0B223B15C100809212 /* libc++.tbd */,
+				C1CB7B09223B15AE00809212 /* ImageIO.framework */,
+				C1CB7B07223B15A300809212 /* GLKit.framework */,
+				C1CB7B05223B159900809212 /* CoreText.framework */,
+				C1CB7B03223B158700809212 /* CoreTelephony.framework */,
+				C1CB7B01223B157E00809212 /* CoreLocation.framework */,
+				C1CB7AFF223B157400809212 /* CoreImage.framework */,
+				C1CB7AFD223B156A00809212 /* CoreGraphics.framework */,
+				C1CB7AFB223B156000809212 /* CoreData.framework */,
+				C1CB7AF9223B155600809212 /* Accelerate.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
@@ -581,6 +673,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C1E261FA223C7A55001472D2 /* RNImagePicker.xcodeproj */,
 				C18232192234BFAC00E5B76B /* ReactNativeNavigation.xcodeproj */,
 				C18231E622349BC700E5B76B /* RNVectorIcons.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
@@ -595,6 +688,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				26CDF1BC46D14FFE8D243521 /* AirMaps.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -611,12 +705,14 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				C1CB7B19223B1EE600809212 /* my-frameworks */,
 				C182321722349CEB00E5B76B /* Ionicons.ttf */,
 				13B07FAE1A68108700A75B9A /* rn_Course_try_two */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* rn_Course_try_twoTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				C182322E223B10C700E5B76B /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -656,6 +752,49 @@
 			isa = PBXGroup;
 			children = (
 				C182321E2234BFAC00E5B76B /* libReactNativeNavigation.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C182322E223B10C700E5B76B /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				D21271C3C42B48D6AACD3F10 /* libAirMaps.a */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		C1823257223B10C900E5B76B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C182325B223B10C900E5B76B /* libAirMaps.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C1CB7B19223B1EE600809212 /* my-frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1CB7B1A223B1F1400809212 /* GoogleMaps */,
+			);
+			path = "my-frameworks";
+			sourceTree = "<group>";
+		};
+		C1CB7B1A223B1F1400809212 /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				C1CB7B21223B20A700809212 /* GoogleMaps.bundle */,
+				C1CB7B1F223B1F6400809212 /* GoogleMapsCore.framework */,
+				C1CB7B1D223B1F5900809212 /* GoogleMaps.framework */,
+				C1CB7B1B223B1F4200809212 /* GoogleMapsBase.framework */,
+			);
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		C1E261FB223C7A55001472D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1E26226223C7A55001472D2 /* libRNImagePicker.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -741,7 +880,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -775,6 +914,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = C1823257223B10C900E5B76B /* Products */;
+					ProjectRef = 26CDF1BC46D14FFE8D243521 /* AirMaps.xcodeproj */;
+				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
@@ -826,6 +969,10 @@
 				{
 					ProductGroup = C182321A2234BFAC00E5B76B /* Products */;
 					ProjectRef = C18232192234BFAC00E5B76B /* ReactNativeNavigation.xcodeproj */;
+				},
+				{
+					ProductGroup = C1E261FB223C7A55001472D2 /* Products */;
+					ProjectRef = C1E261FA223C7A55001472D2 /* RNImagePicker.xcodeproj */;
 				},
 				{
 					ProductGroup = C18231E722349BC700E5B76B /* Products */;
@@ -1095,6 +1242,13 @@
 			remoteRef = C182321D2234BFAC00E5B76B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C182325B223B10C900E5B76B /* libAirMaps.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAirMaps.a;
+			remoteRef = C182325A223B10C900E5B76B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C1DC35EC22304540009AFBBF /* libjsi.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1123,6 +1277,13 @@
 			remoteRef = C1DC35F122304540009AFBBF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C1E26226223C7A55001472D2 /* libRNImagePicker.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNImagePicker.a;
+			remoteRef = C1E26225223C7A55001472D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1140,6 +1301,7 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				C182321822349CEB00E5B76B /* Ionicons.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				C1CB7B22223B20A700809212 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1262,9 +1424,17 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+				);
 				INFOPLIST_FILE = rn_Course_try_twoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1280,9 +1450,17 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+				);
 				INFOPLIST_FILE = rn_Course_try_twoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1302,7 +1480,15 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 28C6C992UD;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-navigation/ios/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/my-frameworks/GoogleMaps",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+				);
 				INFOPLIST_FILE = rn_Course_try_two/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1325,7 +1511,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 28C6C992UD;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-navigation/ios/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/my-frameworks/GoogleMaps",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+				);
 				INFOPLIST_FILE = rn_Course_try_two/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1352,8 +1546,16 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+				);
 				INFOPLIST_FILE = "rn_Course_try_two-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1378,8 +1580,16 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+				);
 				INFOPLIST_FILE = "rn_Course_try_two-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1403,8 +1613,16 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+				);
 				INFOPLIST_FILE = "rn_Course_try_two-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1428,8 +1646,16 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+				);
 				INFOPLIST_FILE = "rn_Course_try_two-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1491,6 +1717,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1536,6 +1763,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
