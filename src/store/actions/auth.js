@@ -1,9 +1,13 @@
 import { AsyncStorage } from 'react-native'
 
-import { TRY_AUTH, AUTH_SET_TOKEN } from './actionTypes'
+import { TRY_AUTH, AUTH_SET_TOKEN, AUTH_REMOVE_TOKEN } from './actionTypes'
 import { uiStartLoading, uiStopLoading } from './index'
 
 import startMainTabs from '../../screens/MainTabs/startMainTabs'
+import App from '../../../App'
+
+const API_KEY = "AIzaSyCT7U-QQ5ekM5pQb44tx4rk3sv4a3Qi2_M"
+
 
 export const tryAuth = (authData, authMode) => {
     // return {
@@ -13,11 +17,10 @@ export const tryAuth = (authData, authMode) => {
 
     return dispatch => {
         dispatch(uiStartLoading())
-        let apiKey = "AIzaSyCT7U-QQ5ekM5pQb44tx4rk3sv4a3Qi2_M"
-        let url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + apiKey
+        let url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + API_KEY
         if (authMode === "signup") {
-            url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=" + apiKey
-        } 
+            url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=" + API_KEY
+        }
         fetch(url, {
             method: "POST",
             body: JSON.stringify({
@@ -29,39 +32,45 @@ export const tryAuth = (authData, authMode) => {
                 "Content-Type": "application/json"
             }
         })
-        .then(res => res.json())
-        .then(parsedRes => {
-            dispatch(uiStopLoading())
-            if (!parsedRes.idToken) {
+            .then(res => res.json())
+            .then(parsedRes => {
+                dispatch(uiStopLoading())
+                if (!parsedRes.idToken) {
+                    alert("Auth failed")
+                } else {
+                    dispatch(authStoreToken(
+                        parsedRes.idToken,
+                        parsedRes.expiresIn,
+                        parsedRes.refreshToken
+                    ))
+                    startMainTabs()
+                }
+                console.log(parsedRes)
+            })
+            .catch(err => {
+                console.log(err)
                 alert("Auth failed")
-            } else {
-                dispatch(authStoreToken(parsedRes.idToken, parsedRes.expiresIn))
-                startMainTabs()
-            }
-            console.log(parsedRes)
-        })
-        .catch(err => {
-            console.log(err)
-            alert("Auth failed")
-            dispatch(uiStopLoading())
-        })
+                dispatch(uiStopLoading())
+            })
     }
 }
 
-export const authStoreToken = (token, expiresIn) => {
+export const authStoreToken = (token, expiresIn, refreshToken) => {
     return dispatch => {
-        dispatch(authSetToken(token))
         const now = new Date()
-        const expiryDate = now.getTime() + expiresIn * 1000
+        const expiryDate = now.getTime() + expiresIn * 1000;
+        dispatch(authSetToken(token, expiryDate))
         AsyncStorage.setItem("beerMo:auth:token", token)
         AsyncStorage.setItem("beerMo:auth:expiryDate", expiryDate.toString())
+        AsyncStorage.setItem("beerMo:auth:refreshToken", refreshToken)
     }
 }
 
-export const authSetToken = token => {
+export const authSetToken = (token, expiryDate) => {
     return {
         type: AUTH_SET_TOKEN,
-        token: token
+        token: token,
+        expiryDate: expiryDate
     }
 }
 
@@ -69,7 +78,8 @@ export const authGetToken = () => {
     return (dispatch, getState) => {
         const promise = new Promise((resolve, reject) => {
             const token = getState().auth.token
-            if (!token) {
+            const expiryDate = getState().auth.expiryDate
+            if (!token || new Date(expiryDate) <= new Date) {
                 let fetchedToken;
                 AsyncStorage.getItem("beerMo:auth:token")
                 .catch(err => reject())
@@ -96,10 +106,40 @@ export const authGetToken = () => {
                 resolve(token)
             }           
         })
-        promise.catch(err => {
-            dispatch(authClearStorage())
+        return promise.catch(err => {
+            return AsyncStorage.getItem("beerMo:auth:refreshToken")
+                .then(refreshToken => {
+                    return fetch("https://securetoken.googleapis.com/v1/token?key=" + API_KEY, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        body: "grant_type=refresh_token&refresh_token=" + refreshToken
+                        
+                    })
+                })
+                .then(res => res.json())
+                .then(parsedRes => {
+                    if (parsedRes.id_token) {
+                        console.log("REFRESH!!! works")
+                        dispatch(authStoreToken(
+                            parsedRes.id_token, 
+                            parsedRes.expires_in, 
+                            parsedRes.refresh_token
+                        ))
+                        return parsedRes.id_token;
+                    } else {
+                        dispatch(authClearStorage());
+                    }
+                })
         })
-        return promise
+        .then(token => {
+            if (!token) {
+                throw(new Error())
+            } else {
+                return token
+            }
+        })
     }
 }
 
@@ -117,5 +157,22 @@ export const authClearStorage = () => {
     return dispatch => {
         AsyncStorage.removeItem("beerMo:auth:token")
         AsyncStorage.removeItem("beerMo:auth:expiryDate")
+        return AsyncStorage.removeItem("beerMo:auth:refreshToken")
+    }
+}
+
+export const authLogout = () => {
+    return dispatch => {
+        dispatch(authClearStorage())
+            .then(() => {
+                App()
+            })
+        dispatch(authRemoveToken())
+    }
+}
+
+export const authRemoveToken = () => {
+    return {
+        type: AUTH_REMOVE_TOKEN
     }
 }
