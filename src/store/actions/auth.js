@@ -1,22 +1,24 @@
-import { TRY_AUTH } from './actionTypes'
+import { AsyncStorage } from 'react-native'
+
+import { TRY_AUTH, AUTH_SET_TOKEN } from './actionTypes'
 import { uiStartLoading, uiStopLoading } from './index'
 
+import startMainTabs from '../../screens/MainTabs/startMainTabs'
 
-export const tryAuth = authData => {
+export const tryAuth = (authData, authMode) => {
     // return {
     //     type: TRY_AUTH,
     //     authData: authData
     // }
 
     return dispatch => {
-        dispatch(authSignup(authData))
-    }
-}
-
-export const authSignup = authData => {
-    return dispatch => {
         dispatch(uiStartLoading())
-        fetch("https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyCT7U-QQ5ekM5pQb44tx4rk3sv4a3Qi2_M", {
+        let apiKey = "AIzaSyCT7U-QQ5ekM5pQb44tx4rk3sv4a3Qi2_M"
+        let url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + apiKey
+        if (authMode === "signup") {
+            url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=" + apiKey
+        } 
+        fetch(url, {
             method: "POST",
             body: JSON.stringify({
                 email: authData.email,
@@ -27,15 +29,93 @@ export const authSignup = authData => {
                 "Content-Type": "application/json"
             }
         })
+        .then(res => res.json())
+        .then(parsedRes => {
+            dispatch(uiStopLoading())
+            if (!parsedRes.idToken) {
+                alert("Auth failed")
+            } else {
+                dispatch(authStoreToken(parsedRes.idToken, parsedRes.expiresIn))
+                startMainTabs()
+            }
+            console.log(parsedRes)
+        })
         .catch(err => {
             console.log(err)
             alert("Auth failed")
             dispatch(uiStopLoading())
         })
-        .then(res => res.json())
-        .then(parsedRes => {
-            console.log(parsedRes)
-            dispatch(uiStopLoading())
+    }
+}
+
+export const authStoreToken = (token, expiresIn) => {
+    return dispatch => {
+        dispatch(authSetToken(token))
+        const now = new Date()
+        const expiryDate = now.getTime() + expiresIn * 1000
+        AsyncStorage.setItem("beerMo:auth:token", token)
+        AsyncStorage.setItem("beerMo:auth:expiryDate", expiryDate.toString())
+    }
+}
+
+export const authSetToken = token => {
+    return {
+        type: AUTH_SET_TOKEN,
+        token: token
+    }
+}
+
+export const authGetToken = () => {
+    return (dispatch, getState) => {
+        const promise = new Promise((resolve, reject) => {
+            const token = getState().auth.token
+            if (!token) {
+                let fetchedToken;
+                AsyncStorage.getItem("beerMo:auth:token")
+                .catch(err => reject())
+                .then(tokenFromStorage => {
+                    fetchedToken = tokenFromStorage
+                    if (!tokenFromStorage) {
+                        reject()
+                        return
+                    }
+                    return AsyncStorage.getItem("beerMo:auth:expiryDate")
+                })
+                .then(expiryDate => {
+                    const parsedExpiryDate = new Date(parseInt(expiryDate))
+                    const now = new Date()
+                    if (parsedExpiryDate > now) {
+                        dispatch(authSetToken(fetchedToken))
+                        resolve(fetchedToken)
+                    } else {
+                        reject()
+                    }
+                })
+                .catch(err => reject())
+            } else {
+                resolve(token)
+            }           
         })
+        promise.catch(err => {
+            dispatch(authClearStorage())
+        })
+        return promise
+    }
+}
+
+export const authAutoSignin = () => {
+    return dispatch => {
+        dispatch(authGetToken())
+        .then(token => {
+            startMainTabs()
+        })
+        .catch(err => console.log("No USER"))
+    }
+}
+
+export const authClearStorage = () => {
+    return dispatch => {
+        AsyncStorage.removeItem("beerMo:auth:token")
+        AsyncStorage.removeItem("beerMo:auth:expiryDate")
     }
 }
