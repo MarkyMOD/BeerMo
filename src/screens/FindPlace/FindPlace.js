@@ -87,7 +87,7 @@ class FindPlaceScreen extends Component{
             >
                 <TouchableOpacity onPress={this.placesSearchHandler} >
                     <View style={styles.searchButton} >
-                        <Text style={styles.searchButtonText} >Find Places</Text>
+                        <Text style={styles.searchButtonText} >Find Beer</Text>
                     </View>
                 </TouchableOpacity>
             </Animated.View>

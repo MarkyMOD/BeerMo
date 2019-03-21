@@ -27,7 +27,7 @@ const startTabs = () => {
                     }
                 },
                 {
-                    screen: "BeerMo.SharePlaceScreen",
+                    screen: "BeerMo.ProfileScreen",
                     label: "Profile",
                     title: "My Profile",
                     icon: sources[1],
