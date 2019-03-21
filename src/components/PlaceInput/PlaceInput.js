@@ -12,58 +12,6 @@ const placeInput = props => (
         onChangeText={props.onChangeText} 
     />
 )
-        
-        
-    // state = {
-    //     placeName: ''
-    // }
 
-    // placeNameChangedHandler = val => {
-    //     this.setState({
-    //     placeName: val
-    //     })
-    // }
-
-    // placeSubmitHandler = () => {
-    //     if (this.state.placeName.trim() === "") {
-    //         return
-    //     }
-
-    //     this.props.onPlaceAdded(this.state.placeName)
-    // }
-    // render(){
-    //     return(
-    //         <View style={styles.inputContainer}>
-    //             <TextInput 
-    //                 placeholder="Awesome"
-    //                 value={this.state.placeName} 
-    //                 onChangeText={this.placeNameChangedHandler} 
-    //                 style={styles.placeInput}
-    //                 />
-    //             <Button 
-    //                 title="Add"
-    //                 color="#841584"
-    //                 onPress={this.placeSubmitHandler}
-    //             />
-    //         </View>
-    //     )
-    // }
-
-
-// const styles = StyleSheet.create({
-//     inputContainer: {
-//         // flex: 1,
-//         width: "100%",
-//         flexDirection: "row",
-//         justifyContent: "space-between",
-//         alignItems: "center"
-//     },
-//     placeInput: {
-//         width: "70%"
-//     },
-//     placeButton: {
-//         width: "30%"
-//     },
-// })
 
 export default placeInput
