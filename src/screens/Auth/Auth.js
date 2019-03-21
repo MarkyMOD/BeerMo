@@ -252,7 +252,7 @@ class AuthScreen extends Component {
                                 >
                                     <DefaultInput 
                                         placeholder = "Password" 
-                                        style={[styles.input, {borderColor: "red"}]}
+                                        style={[styles.input]}
                                         value={this.state.controls.password.value}
                                         onChangeText={(val) => this.updateInputState("password", val)}
                                         valid={this.state.controls.password.valid}
@@ -282,7 +282,10 @@ const styles = StyleSheet.create({
     },
     input: {
         backgroundColor: "#eee",
-        borderColor: "#bbb"
+        borderColor: "#bbb",
+        borderColor: "orange",
+        borderRadius: 10,
+        borderWidth: 2
     },
     backgroundImage: {
         width: "100%",
