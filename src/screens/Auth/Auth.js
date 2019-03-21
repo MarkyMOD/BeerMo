@@ -25,17 +25,11 @@ import backgroundImage from '../../assets/images/barleywine.jpg'
 class AuthScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "red",
-        statusBarColor: "orange",
-        navBarBackgroundColor: "orange"
+        statusBarColor: "#FF6600",
+        navBarBackgroundColor: "#FF6600"
     }
 
     state = {
-        // respStyles: {
-        //     pwContainerDirection: "column",
-        //     pwContainerJustifyContent: "flex-start",
-        //     pwWrapperWidth: "100%"
-        // }
-
         viewMode: Dimensions.get("window").height > 500 ? "portrait" : "landscape",
         authMode: "login",
         controls: {
@@ -89,12 +83,6 @@ class AuthScreen extends Component {
 
     updateStyles = (dims) => {
         this.setState({
-            // respStyles: {
-            //     pwContainerDirection: Dimensions.get("window").height > 500 ? "column" : "row",
-            //     pwContainerJustifyContent: Dimensions.get("window").height > 500 ? "flex-start" : "space-between",
-            //     pwWrapperWidth: Dimensions.get("window").height > 500 ? "100%" : "45%"
-            // }
-
             viewMode: dims.window.height > 500 ? "portrait" : "landscape"
         })
     }
@@ -153,7 +141,7 @@ class AuthScreen extends Component {
         let confirmPasswordControl = null
         let submitButton = (
             <CustomButton 
-                color="orange" 
+                color = "#FF6600"
                 onPress={this.authHandler} 
                 disable={
                     (!this.state.controls.email.valid &&
@@ -179,10 +167,6 @@ class AuthScreen extends Component {
         if(this.state.authMode === "signup"){
             confirmPasswordControl = (
                 <View style={
-                    // {
-                    // width: this.state.respStyles.pwWrapperWidth
-                    // }
-
                     this.state.viewMode === "portrait" 
                     ? styles.portraitPasswordWrapper 
                     : styles.landscapePasswordWrapper
@@ -213,7 +197,7 @@ class AuthScreen extends Component {
                 >
                     {headingText}
                     <CustomButton 
-                        color="orange" 
+                        color = "#FF6600"
                         style={{marginTop: 10}}
                         onPress={this.switchAuthModeHandler} 
                     > 
@@ -233,21 +217,12 @@ class AuthScreen extends Component {
                                 keyboardType="email-address"
                             />
                             <View style={
-                                // {
-                                // flexDirection: this.state.respStyles.pwContainerDirection,
-                                // justifyContent: this.state.respStyles.pwContainerJustifyContent
-                                // }
-
                                 this.state.viewMode === "portrait" || this.state.authMode === "login"
                                 ? styles.portraitPasswordContainer 
                                 : styles.landscapePasswordContainer
                             } 
                             >
                                 <View style={
-                                    // {
-                                    // width: this.state.respStyles.pwWrapperWidth
-                                    // }
-
                                     this.state.viewMode === "portrait" || this.state.authMode === "login"
                                     ? styles.portraitPasswordWrapper 
                                     : styles.landscapePasswordWrapper
@@ -285,8 +260,7 @@ const styles = StyleSheet.create({
     },
     input: {
         backgroundColor: "#eee",
-        borderColor: "#bbb",
-        borderColor: "orange",
+        borderColor: "#FF6600",
         borderRadius: 10,
         borderWidth: 2
     },
