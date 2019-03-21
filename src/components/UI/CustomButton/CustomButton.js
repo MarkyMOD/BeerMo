@@ -13,7 +13,8 @@ const customButton = props => {
         <View style={[
             styles.button, 
             {backgroundColor: props.color}, 
-            props.disable ? styles.disable : null
+            props.disable ? styles.disable : null,
+            props.style
             ]} 
         >
             <Text style={props.disable ? styles.disableText : null} >{props.children}</Text>

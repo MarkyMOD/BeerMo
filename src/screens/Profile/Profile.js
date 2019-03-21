@@ -20,11 +20,11 @@ import PickImage from '../../components/PickImage/PickImage'
 import PickLocation from '../../components/PickLocation/PickLocation'
 import validate from '../../utility/validation'
 
-class SharePlaceScreen extends Component {
+class ProfileScreen extends Component {
     static navigatorStyle = {
-        navBarButtonColor: "red",
-        statusBarColor: "orange",
-        navBarBackgroundColor: "orange"
+        navBarButtonColor: "#FFFF00",
+        statusBarColor: "#FF6600",
+        navBarBackgroundColor: "#FF6600"
     }
 
     constructor(props) {
@@ -212,4 +212,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SharePlaceScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen)

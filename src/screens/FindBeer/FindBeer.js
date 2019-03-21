@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 
 import PlaceList from '../../components/PlaceList/PlaceList'
 
-class FindPlaceScreen extends Component{
+class FindBeerScreen extends Component {
     static navigatorStyle = {
-        navBarButtonColor: "red",
-        statusBarColor: "orange",
-        navBarBackgroundColor: "orange"
+        navBarButtonColor: "#FFFF00",
+        statusBarColor: "#FF6600",
+        navBarBackgroundColor: "#FF6600"
     }
 
     state = {
@@ -45,10 +45,6 @@ class FindPlaceScreen extends Component{
     }
 
     placesSearchHandler = () => {
-        // this.setState({
-        //     placesLoaded: true
-        // })
-
         Animated.timing(this.state.removeAnim, {
             toValue: 0,
             duration: 500,
@@ -87,7 +83,7 @@ class FindPlaceScreen extends Component{
             >
                 <TouchableOpacity onPress={this.placesSearchHandler} >
                     <View style={styles.searchButton} >
-                        <Text style={styles.searchButtonText} >Find Places</Text>
+                        <Text style={styles.searchButtonText} >Find Beer</Text>
                     </View>
                 </TouchableOpacity>
             </Animated.View>
@@ -118,13 +114,13 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     searchButton: {
-        borderColor: "orange",
+        borderColor: "#FF6600",
         borderWidth: 3,
         borderRadius: 50,
         padding: 20
     },
     searchButtonText: {
-        color: "orange",
+        color: "#FF6600",
         fontWeight: "bold",
         fontSize: 26
     }
@@ -136,4 +132,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(FindPlaceScreen)
+export default connect(mapStateToProps)(FindBeerScreen)

@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
         marginBottom: 8
     },
     invalid: {
-        backgroundColor: "red",
-        borderColor: "red"
+        backgroundColor: "#FF6600",
+        borderColor: "#FF6600"
     }
 })
 

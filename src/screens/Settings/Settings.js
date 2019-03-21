@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 
 class SettingsScreen extends Component {
     static navigatorStyle = {
-        navBarButtonColor: "red",
-        statusBarColor: "orange",
-        navBarBackgroundColor: "orange"
+        navBarButtonColor: "#FFFF00",
+        statusBarColor: "#FF6600",
+        navBarBackgroundColor: "#FF6600"
     }
     
     render () {

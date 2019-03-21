@@ -20,22 +20,16 @@ import MainText from '../../components/UI/MainText/MainText'
 import CustomButton from '../../components/UI/CustomButton/CustomButton'
 import validate from '../../utility/validation'
 import { tryAuth, authAutoSignin } from '../../store/actions/index'
-import backgroundImage from '../../assets/images/milky-way.jpeg'
+import backgroundImage from '../../assets/images/barleywine.jpg'
 
 class AuthScreen extends Component {
     static navigatorStyle = {
-        navBarButtonColor: "red",
-        statusBarColor: "orange",
-        navBarBackgroundColor: "orange"
+        navBarButtonColor: "#FFFF00",
+        statusBarColor: "#FF6600",
+        navBarBackgroundColor: "#FF6600"
     }
 
     state = {
-        // respStyles: {
-        //     pwContainerDirection: "column",
-        //     pwContainerJustifyContent: "flex-start",
-        //     pwWrapperWidth: "100%"
-        // }
-
         viewMode: Dimensions.get("window").height > 500 ? "portrait" : "landscape",
         authMode: "login",
         controls: {
@@ -89,12 +83,6 @@ class AuthScreen extends Component {
 
     updateStyles = (dims) => {
         this.setState({
-            // respStyles: {
-            //     pwContainerDirection: Dimensions.get("window").height > 500 ? "column" : "row",
-            //     pwContainerJustifyContent: Dimensions.get("window").height > 500 ? "flex-start" : "space-between",
-            //     pwWrapperWidth: Dimensions.get("window").height > 500 ? "100%" : "45%"
-            // }
-
             viewMode: dims.window.height > 500 ? "portrait" : "landscape"
         })
     }
@@ -153,7 +141,7 @@ class AuthScreen extends Component {
         let confirmPasswordControl = null
         let submitButton = (
             <CustomButton 
-                color="#29aaf4" 
+                color = "#FF6600"
                 onPress={this.authHandler} 
                 disable={
                     (!this.state.controls.email.valid &&
@@ -169,7 +157,9 @@ class AuthScreen extends Component {
         if(this.state.viewMode === "portrait"){
             headingText = (
                 <MainText>
-                    <HeadingText>Please Log In</HeadingText>
+                    <HeadingText >
+                        Please {this.state.authMode === "login" ? "Login" : "Sign Up"}
+                    </HeadingText>
                 </MainText>
             )
         }
@@ -177,17 +167,14 @@ class AuthScreen extends Component {
         if(this.state.authMode === "signup"){
             confirmPasswordControl = (
                 <View style={
-                    // {
-                    // width: this.state.respStyles.pwWrapperWidth
-                    // }
-
                     this.state.viewMode === "portrait" 
                     ? styles.portraitPasswordWrapper 
                     : styles.landscapePasswordWrapper
                 } 
                 >
                     <DefaultInput 
-                        placeholder = "Confirm Password" 
+                        placeholder = "Confirm Password"
+                        placeholderTextColor = "#FF6600"
                         style={styles.input}
                         value={this.state.controls.confirmPassword.value}
                         onChangeText={(val) => this.updateInputState("confirmPassword", val)}
@@ -211,7 +198,8 @@ class AuthScreen extends Component {
                 >
                     {headingText}
                     <CustomButton 
-                        color="#29aaf4" 
+                        color = "#FF6600"
+                        style={{marginTop: 10}}
                         onPress={this.switchAuthModeHandler} 
                     > 
                         Switch to {this.state.authMode === "login" ? "Sign Up" : "Login"} 
@@ -220,6 +208,7 @@ class AuthScreen extends Component {
                         <View style={styles.inputContainer} >
                             <DefaultInput 
                                 placeholder="Your email address" 
+                                placeholderTextColor = "#FF6600"
                                 style={styles.input}
                                 value={this.state.controls.email.value}
                                 onChangeText={(val) => this.updateInputState("email", val)}
@@ -230,21 +219,12 @@ class AuthScreen extends Component {
                                 keyboardType="email-address"
                             />
                             <View style={
-                                // {
-                                // flexDirection: this.state.respStyles.pwContainerDirection,
-                                // justifyContent: this.state.respStyles.pwContainerJustifyContent
-                                // }
-
                                 this.state.viewMode === "portrait" || this.state.authMode === "login"
                                 ? styles.portraitPasswordContainer 
                                 : styles.landscapePasswordContainer
                             } 
                             >
                                 <View style={
-                                    // {
-                                    // width: this.state.respStyles.pwWrapperWidth
-                                    // }
-
                                     this.state.viewMode === "portrait" || this.state.authMode === "login"
                                     ? styles.portraitPasswordWrapper 
                                     : styles.landscapePasswordWrapper
@@ -252,7 +232,8 @@ class AuthScreen extends Component {
                                 >
                                     <DefaultInput 
                                         placeholder = "Password" 
-                                        style={[styles.input, {borderColor: "red"}]}
+                                        placeholderTextColor = "#FF6600"
+                                        style={[styles.input]}
                                         value={this.state.controls.password.value}
                                         onChangeText={(val) => this.updateInputState("password", val)}
                                         valid={this.state.controls.password.valid}
@@ -282,7 +263,9 @@ const styles = StyleSheet.create({
     },
     input: {
         backgroundColor: "#eee",
-        borderColor: "#bbb"
+        borderColor: "#FF6600",
+        borderRadius: 10,
+        borderWidth: 2
     },
     backgroundImage: {
         width: "100%",
