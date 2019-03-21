@@ -153,7 +153,7 @@ class AuthScreen extends Component {
         let confirmPasswordControl = null
         let submitButton = (
             <CustomButton 
-                color="#29aaf4" 
+                color="orange" 
                 onPress={this.authHandler} 
                 disable={
                     (!this.state.controls.email.valid &&
@@ -213,7 +213,7 @@ class AuthScreen extends Component {
                 >
                     {headingText}
                     <CustomButton 
-                        color="#29aaf4" 
+                        color="orange" 
                         onPress={this.switchAuthModeHandler} 
                     > 
                         Switch to {this.state.authMode === "login" ? "Sign Up" : "Login"} 
