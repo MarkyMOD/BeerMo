@@ -24,7 +24,7 @@ import backgroundImage from '../../assets/images/barleywine.jpg'
 
 class AuthScreen extends Component {
     static navigatorStyle = {
-        navBarButtonColor: "red",
+        navBarButtonColor: "#FFFF00",
         statusBarColor: "#FF6600",
         navBarBackgroundColor: "#FF6600"
     }

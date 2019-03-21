@@ -6,7 +6,7 @@ import PlaceList from '../../components/PlaceList/PlaceList'
 
 class FindBeerScreen extends Component {
     static navigatorStyle = {
-        navBarButtonColor: "red",
+        navBarButtonColor: "#FFFF00",
         statusBarColor: "#FF6600",
         navBarBackgroundColor: "#FF6600"
     }
@@ -114,13 +114,13 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     searchButton: {
-        borderColor: "orange",
+        borderColor: "#FF6600",
         borderWidth: 3,
         borderRadius: 50,
         padding: 20
     },
     searchButtonText: {
-        color: "orange",
+        color: "#FF6600",
         fontWeight: "bold",
         fontSize: 26
     }
