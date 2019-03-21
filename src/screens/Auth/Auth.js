@@ -169,7 +169,7 @@ class AuthScreen extends Component {
         if(this.state.viewMode === "portrait"){
             headingText = (
                 <MainText>
-                    <HeadingText style={{color: "orange"}}>
+                    <HeadingText >
                         Please {this.state.authMode === "login" ? "Login" : "Sign Up"}
                     </HeadingText>
                 </MainText>
@@ -214,6 +214,7 @@ class AuthScreen extends Component {
                     {headingText}
                     <CustomButton 
                         color="orange" 
+                        style={{marginTop: 10}}
                         onPress={this.switchAuthModeHandler} 
                     > 
                         Switch to {this.state.authMode === "login" ? "Sign Up" : "Login"} 
