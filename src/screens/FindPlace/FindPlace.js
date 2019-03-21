@@ -6,7 +6,9 @@ import PlaceList from '../../components/PlaceList/PlaceList'
 
 class FindPlaceScreen extends Component{
     static navigatorStyle = {
-        navBarButtonColor: "red"
+        navBarButtonColor: "red",
+        statusBarColor: "orange",
+        navBarBackgroundColor: "orange"
     }
 
     state = {
@@ -62,7 +64,7 @@ class FindPlaceScreen extends Component{
     itemSelectedHandler = key => {
         const selPlace = this.props.places.find(place => place.key === key)
         this.props.navigator.push({
-            screen: "awesome-places.PlaceDetailScreen",
+            screen: "BeerMo.PlaceDetailScreen",
             title: selPlace.name,
             passProps: {
                 selectedPlace: selPlace

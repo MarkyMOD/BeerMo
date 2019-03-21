@@ -10,14 +10,21 @@ import {
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 
 class PickLocation extends Component {
-    state = {
-        focusedLocation: {
-            latitude: 40.0119612,
-            longitude: -105.2604922,
-            latitudeDelta: 0.0499,
-            longitudeDelta: Dimensions.get("window").width / Dimensions.get("window").height * 0.0499
-        },
-        locationChosen: false
+
+    componentWillMount = () => {
+        this.reset()
+    }
+
+    reset = () => {
+        this.setState({
+            focusedLocation: {
+                latitude: 40.0119612,
+                longitude: -105.2604922,
+                latitudeDelta: 0.0499,
+                longitudeDelta: Dimensions.get("window").width / Dimensions.get("window").height * 0.0499
+            },
+            locationChosen: false
+        })
     }
 
     pickLocationHandler = event => {
@@ -73,6 +80,7 @@ class PickLocation extends Component {
                 <MapView 
                     provider={PROVIDER_GOOGLE}
                     initialRegion={this.state.focusedLocation}
+                    region={this.state.focusedLocation}
                     style={styles.map}
                     onPress={this.pickLocationHandler}
                     ref={ref => this.map = ref}

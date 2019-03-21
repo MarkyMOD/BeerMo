@@ -23,6 +23,12 @@ import { tryAuth, authAutoSignin } from '../../store/actions/index'
 import backgroundImage from '../../assets/images/milky-way.jpeg'
 
 class AuthScreen extends Component {
+    static navigatorStyle = {
+        navBarButtonColor: "red",
+        statusBarColor: "orange",
+        navBarBackgroundColor: "orange"
+    }
+
     state = {
         // respStyles: {
         //     pwContainerDirection: "column",

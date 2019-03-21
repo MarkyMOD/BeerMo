@@ -9,20 +9,22 @@ export const addPlace = (placeName, location, image) => {
         //     location: location,
         //     image: image
         // }
-        
-        // fetch("https://us-central1-beermo-1552602774929.cloudfunctions.net/storeImage", {
-        //     method: "POST",
-        //     body: JSON.stringify({
-        //         image: image.base64
-        //     })
-        // })
-        
-        // .then(res => res.json())
-        // .then(parsedRes => {
-        // .catch(err => {
-        //     console.log(err)
-        //     dispatch(uiStopLoading())
-        // })
+    // return dispatch => {    
+    //     fetch("https://us-central1-beermo-1552602774929.cloudfunctions.net/storeImage", {
+    //         method: "POST",
+    //         body: JSON.stringify({
+    //             image: image.base64
+    //         })
+    //     })
+    //         .then(res => res.json())
+    //         .then(parsedRes => {
+                
+    //         })
+    //         .catch(err => {
+    //             console.log(err)
+    //             dispatch(uiStopLoading())
+    //         })
+    // }
 
         // One Way to Use Token
     // return (dispatch, getState) => {

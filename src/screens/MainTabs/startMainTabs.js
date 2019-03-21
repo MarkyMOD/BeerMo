@@ -6,14 +6,15 @@ const startTabs = () => {
     Promise.all([
         Icon.getImageSource(Platform.OS === "android" ? "md-map" : "ios-map", 30),
         Icon.getImageSource(Platform.OS === "android" ? "md-share-alt" : "ios-share", 30),
+        Icon.getImageSource(Platform.OS === "android" ? "md-menu" : "ios-menu", 30),
         Icon.getImageSource(Platform.OS === "android" ? "md-menu" : "ios-menu", 30)
     ]).then(sources => {
         Navigation.startTabBasedApp({
             tabs: [
                 {
-                    screen: "awesome-places.FindPlaceScreen",
-                    label: "Find Place",
-                    title: "Find Place",
+                    screen: "BeerMo.FindPlaceScreen",
+                    label: "Find Beer",
+                    title: "Find Beer",
                     icon: sources[0],
                     navigatorButtons: {
                         leftButtons: [
@@ -26,9 +27,9 @@ const startTabs = () => {
                     }
                 },
                 {
-                    screen: "awesome-places.SharePlaceScreen",
-                    label: "Share Place",
-                    title: "Share Place",
+                    screen: "BeerMo.SharePlaceScreen",
+                    label: "Profile",
+                    title: "My Profile",
                     icon: sources[1],
                     navigatorButtons: {
                         leftButtons: [
@@ -39,6 +40,19 @@ const startTabs = () => {
                             }
                         ]
                     }
+                }, 
+                {
+                    screen: "BeerMo.SettingsScreen",
+                    label: "Settings",
+                    title: "Settings",
+                    icon: sources[3],
+                    navigatorButtons: {
+                        leftButtons: [{
+                            icon: sources[2],
+                            title: "Menu",
+                            id: "sideDrawerToggle"
+                        }]
+                    }
                 }
             ],
             tabsStyle: {
@@ -46,7 +60,7 @@ const startTabs = () => {
             },
             drawer: {
                 left: {
-                    screen: "awesome-places.SideDrawer"
+                    screen: "BeerMo.SideDrawer"
                 }
             },
             appStyle: {
