@@ -20,7 +20,7 @@ import MainText from '../../components/UI/MainText/MainText'
 import CustomButton from '../../components/UI/CustomButton/CustomButton'
 import validate from '../../utility/validation'
 import { tryAuth, authAutoSignin } from '../../store/actions/index'
-import backgroundImage from '../../assets/images/milky-way.jpeg'
+import backgroundImage from '../../assets/images/barleywine.jpg'
 
 class AuthScreen extends Component {
     static navigatorStyle = {
