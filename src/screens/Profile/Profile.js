@@ -23,8 +23,8 @@ import validate from '../../utility/validation'
 class ProfileScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "red",
-        statusBarColor: "orange",
-        navBarBackgroundColor: "orange"
+        statusBarColor: "#FF6600",
+        navBarBackgroundColor: "#FF6600"
     }
 
     constructor(props) {

@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 
 import PlaceList from '../../components/PlaceList/PlaceList'
 
-class FindPlaceScreen extends Component{
+class FindBeerScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "red",
-        statusBarColor: "orange",
-        navBarBackgroundColor: "orange"
+        statusBarColor: "#FF6600",
+        navBarBackgroundColor: "#FF6600"
     }
 
     state = {
@@ -45,10 +45,6 @@ class FindPlaceScreen extends Component{
     }
 
     placesSearchHandler = () => {
-        // this.setState({
-        //     placesLoaded: true
-        // })
-
         Animated.timing(this.state.removeAnim, {
             toValue: 0,
             duration: 500,
@@ -136,4 +132,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(FindPlaceScreen)
+export default connect(mapStateToProps)(FindBeerScreen)

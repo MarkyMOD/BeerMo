@@ -12,7 +12,7 @@ const startTabs = () => {
         Navigation.startTabBasedApp({
             tabs: [
                 {
-                    screen: "BeerMo.FindPlaceScreen",
+                    screen: "BeerMo.FindBeerScreen",
                     label: "Find Beer",
                     title: "Find Beer",
                     icon: sources[0],

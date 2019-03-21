@@ -173,7 +173,8 @@ class AuthScreen extends Component {
                 } 
                 >
                     <DefaultInput 
-                        placeholder = "Confirm Password" 
+                        placeholder = "Confirm Password"
+                        placeholderTextColor = "#FF6600"
                         style={styles.input}
                         value={this.state.controls.confirmPassword.value}
                         onChangeText={(val) => this.updateInputState("confirmPassword", val)}
@@ -207,6 +208,7 @@ class AuthScreen extends Component {
                         <View style={styles.inputContainer} >
                             <DefaultInput 
                                 placeholder="Your email address" 
+                                placeholderTextColor = "#FF6600"
                                 style={styles.input}
                                 value={this.state.controls.email.value}
                                 onChangeText={(val) => this.updateInputState("email", val)}
@@ -230,6 +232,7 @@ class AuthScreen extends Component {
                                 >
                                     <DefaultInput 
                                         placeholder = "Password" 
+                                        placeholderTextColor = "#FF6600"
                                         style={[styles.input]}
                                         value={this.state.controls.password.value}
                                         onChangeText={(val) => this.updateInputState("password", val)}
