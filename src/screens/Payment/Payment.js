@@ -5,7 +5,6 @@ import HeadingText from '../../components/UI/HeadingText/HeadingText'
 
 import { addCard } from '../../store/actions/index'
 
-
 import { connect } from 'react-redux' 
 
 class PaymentScreen extends Component {
@@ -18,7 +17,11 @@ class PaymentScreen extends Component {
     constructor(props) {
         super(props)
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
-    }    
+    }   
+    
+    state = {
+        valid: false
+    }
 
     onNavigatorEvent = event => {
         if (event.type === "NavBarButtonPress") {
@@ -30,11 +33,6 @@ class PaymentScreen extends Component {
         }
     }
 
-    change = () => {
-
-    }
-    
-
     cardAddedHandler = (valid, params) => {
         // this.props.onAddPlace(
         //     this.state.controls.placeName.value, 
@@ -45,21 +43,20 @@ class PaymentScreen extends Component {
         // this.imagePicker.reset()
         // this.locationPicker.reset()
         // this.props.navigator.switchToTab({tabIndex: 0})
-        console.log("valid", valid, "params", params)
         if (valid) {
-
+            this.setState({
+                valid: true
+            })
         }
     }
 
     render() {
         let submitButton = (
             < Button
-                title = "Share Place"
-                onPress = { this.placeAddedHandler }
+                title = "Add Card"
+                onPress = { this.cardAddedHandler }
                 disabled = {
-                    !this.state.controls.placeName.valid ||
-                    !this.state.controls.location.valid ||
-                    !this.state.controls.image.valid
+                    !this.state.controls.valid
                 }
             />
         )
@@ -83,6 +80,7 @@ class PaymentScreen extends Component {
                     disabled={false}
                     onParamsChange={this.cardAddedHandler}
                 />
+                <Text>{submitButton}</Text>
             </View>
         )
     }
