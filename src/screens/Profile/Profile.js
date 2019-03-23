@@ -32,25 +32,13 @@ class ProfileScreen extends Component {
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
     }
 
-    componentWillMount = () => {
+    componentWillMount() {
         this.reset()
     }
 
     reset = () => {
         return this.setState({
             controls: {
-                placeName: {
-                    value: "",
-                    valid: false,
-                    touched: false,
-                    validationRules: {
-                        notEmpty: true
-                    }
-                },
-                location: {
-                    value: null,
-                    valid: false
-                },
                 image: {
                     value: null,
                     valid: true
@@ -74,36 +62,6 @@ class ProfileScreen extends Component {
         }       
     }
 
-    placeNameChangedHandler = val => {
-        this.setState(prevState => {
-            return {
-                controls: {
-                    ...prevState.controls,
-                    placeName: {
-                        ...prevState.controls.placeName,
-                        value: val,
-                        valid: validate(val, prevState.controls.placeName.validationRules),
-                        touched: true
-                    }
-                }
-            }
-        })
-    }
-
-    locationPickedHandler = location => {
-        this.setState(prevState => {
-            return {
-                controls: {
-                    ...prevState.controls,
-                    location: {
-                        value: location,
-                        valid: true
-                    }
-                }
-            }
-        })
-    }
-
     imagePickedHandler = image => {
         this.setState(prevState => {
             return {
@@ -118,34 +76,34 @@ class ProfileScreen extends Component {
         })
     }
 
-    placeAddedHandler = () => {
-        this.props.onAddPlace(
-            this.state.controls.placeName.value, 
-            this.state.controls.location.value,
-            this.state.controls.image.value
-        )
-        this.reset()
-        this.imagePicker.reset()
-        this.locationPicker.reset()
-        this.props.navigator.switchToTab({tabIndex: 0})
-    }
+    // placeAddedHandler = () => {
+    //     this.props.onUpdateUser(
+    //         this.state.controls.placeName.value, 
+    //         this.state.controls.location.value,
+    //         this.state.controls.image.value
+    //     )
+    //     this.reset()
+    //     this.imagePicker.reset()
+    //     this.locationPicker.reset()
+    //     this.props.navigator.switchToTab({tabIndex: 0})
+    // }
 
     render () {
-        let submitButton = (
-            < Button
-                title = "Share Place"
-                onPress = { this.placeAddedHandler }
-                disabled = {
-                    !this.state.controls.placeName.valid ||
-                    !this.state.controls.location.valid ||
-                    !this.state.controls.image.valid
-                }
-            />
-        )
+        // let submitButton = (
+        //     < Button
+        //         title = "Share Place"
+        //         onPress = { this.placeAddedHandler }
+        //         disabled = {
+        //             !this.state.controls.placeName.valid ||
+        //             !this.state.controls.location.valid ||
+        //             !this.state.controls.image.valid
+        //         }
+        //     />
+        // )
 
-        if (this.props.isLoading) {
-            submitButton = <ActivityIndicator />
-        }
+        // if (this.props.isLoading) {
+        //     submitButton = <ActivityIndicator />
+        // }
 
         return (
             <ScrollView >
@@ -154,23 +112,15 @@ class ProfileScreen extends Component {
                     behavior = "padding" 
                 >
                     <MainText>
-                        <HeadingText>Share a Place!</HeadingText>
+                        <HeadingText>Profile Picture</HeadingText>
                     </MainText>
                     <PickImage 
                         onImagePicked={this.imagePickedHandler}
-                        ref = {ref => (this.imagePicker = ref)}
+                        // ref = {ref => (this.imagePicker = ref)}
                     />
-                    <PickLocation 
-                        onLocationPick={this.locationPickedHandler} 
-                        ref = {ref => (this.locationPicker = ref)}
-                    />
-                    <PlaceInput 
-                        placeData={this.state.controls.placeName} 
-                        onChangeText={this.placeNameChangedHandler} 
-                    />
-                    <View style={styles.button} >
+                    {/* <View style={styles.button} >
                         {submitButton}
-                    </View>
+                    </View> */}
                 </KeyboardAvoidingView>
             </ScrollView>
         )
@@ -201,13 +151,13 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
     return {
-        isLoading: state.ui.isLoading
+        isLoading: state.ui.isLoading,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddPlace: (placeName, location, image) => dispatch(addPlace(placeName, location, image)) 
+        onUpdateUser: (placeName, location, image) => dispatch(updateUser(placeName, location, image)) 
         
     }
 }

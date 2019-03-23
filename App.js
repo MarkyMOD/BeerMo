@@ -7,7 +7,16 @@ import FindBeerScreen from './src/screens/FindBeer/FindBeer'
 import PlaceDetailScreen from './src/screens/PlaceDetail/PlaceDetail'
 import SideDrawer from './src/screens/SideDrawer/SideDrawer'
 import SettingsScreen from './src/screens/Settings/Settings'
+import VenuesScreen from './src/screens/Venues/Venues'
+import PaymentScreen from './src/screens/Payment/Payment.js'
+import TokensScreen from './src/screens/Tokens/Tokens.js'
 import configureStore from './src/store/configureStore'
+import stripe from 'tipsi-stripe'
+
+
+stripe.setOptions({
+  publishableKey: 'pk_test_DkIxaemOoJsNKejcTXVif5Hs00gjcPuUVn',
+})
 
 const store = configureStore()
 
@@ -18,6 +27,10 @@ Navigation.registerComponent("BeerMo.FindBeerScreen", () => FindBeerScreen, stor
 Navigation.registerComponent("BeerMo.PlaceDetailScreen", () => PlaceDetailScreen, store, Provider)
 Navigation.registerComponent("BeerMo.SideDrawer", () => SideDrawer, store, Provider)
 Navigation.registerComponent("BeerMo.SettingsScreen", () => SettingsScreen)
+Navigation.registerComponent("BeerMo.VenuesScreen", () => VenuesScreen)
+Navigation.registerComponent("BeerMo.PaymentScreen", () => PaymentScreen, store, Provider)
+Navigation.registerComponent("BeerMo.TokensScreen", () => TokensScreen)
+
 
 
 

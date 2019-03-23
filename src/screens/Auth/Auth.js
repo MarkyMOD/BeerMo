@@ -297,6 +297,7 @@ const mapDispatchToProps = dispatch => {
     return {
         onTryAuth: (authData, authMode) => dispatch(tryAuth(authData, authMode)),
         onAutoSignin: () => dispatch(authAutoSignin()) 
+        
     }
 }
 

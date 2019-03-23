@@ -18,8 +18,8 @@ class PickLocation extends Component {
     reset = () => {
         this.setState({
             focusedLocation: {
-                latitude: 40.0119612,
-                longitude: -105.2604922,
+                latitude: 40.0164401,
+                longitude: -105.2812565,
                 latitudeDelta: 0.0499,
                 longitudeDelta: Dimensions.get("window").width / Dimensions.get("window").height * 0.0499
             },
@@ -69,15 +69,12 @@ class PickLocation extends Component {
     }
 
     render () {
-        let marker = null
-
-        if(this.state.locationChosen){
-            marker = <MapView.Marker coordinate={this.state.focusedLocation} />
-        }
+        let marker = <MapView.Marker coordinate={this.state.focusedLocation} />
 
         return (
             <View style={styles.container}>
                 <MapView 
+                    text="hi"
                     provider={PROVIDER_GOOGLE}
                     initialRegion={this.state.focusedLocation}
                     region={this.state.focusedLocation}

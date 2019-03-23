@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native'
-import { connect } from 'react-redux'
 
 import PlaceList from '../../components/PlaceList/PlaceList'
+import PickLocation from '../../components/PickLocation/PickLocation'
+
 
 class FindBeerScreen extends Component {
     static navigatorStyle = {
@@ -14,16 +15,18 @@ class FindBeerScreen extends Component {
     state = {
         placesLoaded: false,
         removeAnim: new Animated.Value(1),
-        placesAnim: new Animated.Value(0)
+        placesAnim: new Animated.Value(0),
+        controls: {
+            location: {
+            value: null,
+            valid: false
+            }
+        }
     }
 
     constructor(props) {
         super(props)
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
-    }
-
-    componentDidMount = () => {
-        
     }
 
     onNavigatorEvent = event => {
@@ -34,6 +37,20 @@ class FindBeerScreen extends Component {
                 })
             }
         }
+    }
+
+    locationPickedHandler = location => {
+        this.setState(prevState => {
+            return {
+                controls: {
+                    ...prevState.controls,
+                    location: {
+                        value: location,
+                        valid: true
+                    }
+                }
+            }
+        })
     }
 
     placesLoadedHandler = () => {
@@ -94,7 +111,11 @@ class FindBeerScreen extends Component {
                     opacity: this.state.placesAnim,
                     }} 
                 >
-                    <PlaceList places={this.props.places} onItemSelected={this.itemSelectedHandler} />
+                    <View style={{paddingTop: 190}} >
+                        <PickLocation 
+                            onLocationPick={this.locationPickedHandler} 
+                        />
+                    </View>
                 </Animated.View>
             )
         }
@@ -126,10 +147,4 @@ const styles = StyleSheet.create({
     }
 })
 
-const mapStateToProps = state => {
-    return {
-        places: state.places.places
-    }
-}
-
-export default connect(mapStateToProps)(FindBeerScreen)
+export default FindBeerScreen
