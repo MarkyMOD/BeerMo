@@ -40,7 +40,16 @@ export const addCard = (card, localId) => {
 
 export const getCards = (localId) => {
     return dispatch => {
-
+        let id = localId
+        dispatch(authGetToken())
+            .then(token => {
+                return fetch(`https://beermo-1552602774929.firebaseio.com/cards.json?auth=${token}&orderBy="localId"&equalTo="${id}"&print=pretty`, 
+                {
+                    method: "GET"
+                })
+                .then(res => console.log("res", res))
+                .catch(err => console.log("err", err))
+            })
     }
 }
 

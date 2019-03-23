@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Button, StyleSheet } from 'react-native'
+import { View, Text, Button, StyleSheet } from 'react-native'
 import { PaymentCardTextField } from 'tipsi-stripe'
 import HeadingText from '../../components/UI/HeadingText/HeadingText'
 
@@ -60,6 +60,7 @@ class PaymentScreen extends Component {
     cardAddedHandler = () => {
         this.props.onAddCard(this.state.controls.card, this.props.localId)
         this.reset()
+        this.props.navigator.pop()
     }
 
     validHandler = (valid, params) => {
@@ -111,7 +112,7 @@ class PaymentScreen extends Component {
                     disabled={false}
                     onParamsChange={this.validHandler}
                 />
-                {submitButton}
+                { submitButton }
             </View>
         )
     }

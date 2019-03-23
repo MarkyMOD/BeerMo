@@ -32,18 +32,18 @@ export const userGetId = () => {
                     resolve(fetchedLocalId)
                 })
                 .catch(err => reject())
-                .then(localId => {
-                    if (localId) {
-                        console.log("id works")
-                        dispatch(storeLocalId(localId))
-                        return localId;
-                    } else {
-                        dispatch(userClearStorage());
-                    }
-                })
             } else {
                 resolve(id)
             }           
+        })
+        .then(localId => {
+            if (localId) {
+                console.log("id works")
+                dispatch(storeLocalId(localId))
+                return localId;
+            } else {
+                dispatch(userClearStorage());
+            }
         })
         promise.catch(err => {
             console.log(err)

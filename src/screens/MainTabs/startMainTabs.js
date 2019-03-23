@@ -70,7 +70,7 @@ const startTabs = () => {
                     }
                 }, 
                 {
-                    screen: "BeerMo.PaymentScreen",
+                    screen: "BeerMo.CreditCardsScreen",
                     label: "Send Beer",
                     title: "Gift A Beer",
                     icon: sources[5],
