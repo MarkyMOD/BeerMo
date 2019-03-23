@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native'
-import { connect } from 'react-redux'
 
 import PlaceList from '../../components/PlaceList/PlaceList'
 import PickLocation from '../../components/PickLocation/PickLocation'
@@ -112,9 +111,11 @@ class FindBeerScreen extends Component {
                     opacity: this.state.placesAnim,
                     }} 
                 >
-                    <PickLocation 
-                        onLocationPick={this.locationPickedHandler} 
-                    />
+                    <View style={{paddingTop: 190}} >
+                        <PickLocation 
+                            onLocationPick={this.locationPickedHandler} 
+                        />
+                    </View>
                 </Animated.View>
             )
         }
@@ -146,10 +147,4 @@ const styles = StyleSheet.create({
     }
 })
 
-const mapStateToProps = state => {
-    return {
-        places: state.places.places
-    }
-}
-
-export default connect(mapStateToProps)(FindBeerScreen)
+export default FindBeerScreen

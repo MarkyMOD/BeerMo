@@ -74,6 +74,7 @@ class PickLocation extends Component {
         return (
             <View style={styles.container}>
                 <MapView 
+                    text="hi"
                     provider={PROVIDER_GOOGLE}
                     initialRegion={this.state.focusedLocation}
                     region={this.state.focusedLocation}

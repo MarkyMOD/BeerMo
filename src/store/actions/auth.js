@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native'
 
-import { TRY_AUTH, AUTH_SET_TOKEN, AUTH_REMOVE_TOKEN } from './actionTypes'
-import { uiStartLoading, uiStopLoading } from './index'
+import { TRY_AUTH, AUTH_SET_TOKEN, AUTH_REMOVE_TOKEN, SIGN_IN } from './actionTypes'
+import { uiStartLoading, uiStopLoading, setLocalId } from './index'
 
 import startMainTabs from '../../screens/MainTabs/startMainTabs'
 import App from '../../../App'
@@ -10,11 +10,6 @@ const API_KEY = "AIzaSyCT7U-QQ5ekM5pQb44tx4rk3sv4a3Qi2_M"
 
 
 export const tryAuth = (authData, authMode) => {
-    // return {
-    //     type: TRY_AUTH,
-    //     authData: authData
-    // }
-
     return dispatch => {
         dispatch(uiStartLoading())
         let url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + API_KEY
@@ -44,6 +39,9 @@ export const tryAuth = (authData, authMode) => {
                         parsedRes.refreshToken
                     ))
                     startMainTabs()
+                }
+                if (parsedRes.localId) {
+                    dispatch(setLocalId(parsedRes.localId))
                 }
                 console.log(parsedRes)
             })

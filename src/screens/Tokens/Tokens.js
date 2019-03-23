@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class SettingsScreen extends Component {
+class TokensScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",
         statusBarColor: "#FF6600",
@@ -11,7 +11,7 @@ class SettingsScreen extends Component {
         super(props)
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
     }
-    
+
     onNavigatorEvent = event => {
         if (event.type === "NavBarButtonPress") {
             if (event.id === "sideDrawerToggle") {
@@ -22,9 +22,9 @@ class SettingsScreen extends Component {
         }
     }
 
-    render () {
+    render() {
         return null
     }
 }
 
-export default SettingsScreen
+export default TokensScreen
