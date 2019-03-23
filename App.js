@@ -8,8 +8,9 @@ import PlaceDetailScreen from './src/screens/PlaceDetail/PlaceDetail'
 import SideDrawer from './src/screens/SideDrawer/SideDrawer'
 import SettingsScreen from './src/screens/Settings/Settings'
 import VenuesScreen from './src/screens/Venues/Venues'
-import PaymentScreen from './src/screens/Payment/Payment.js'
-import TokensScreen from './src/screens/Tokens/Tokens.js'
+import PaymentScreen from './src/screens/Payment/Payment'
+import TokensScreen from './src/screens/Tokens/Tokens'
+import CreditCardsScreen from './src/screens/CreditCards/CreditCards'
 import configureStore from './src/store/configureStore'
 import stripe from 'tipsi-stripe'
 
@@ -30,6 +31,8 @@ Navigation.registerComponent("BeerMo.SettingsScreen", () => SettingsScreen)
 Navigation.registerComponent("BeerMo.VenuesScreen", () => VenuesScreen)
 Navigation.registerComponent("BeerMo.PaymentScreen", () => PaymentScreen, store, Provider)
 Navigation.registerComponent("BeerMo.TokensScreen", () => TokensScreen)
+Navigation.registerComponent("BeerMo.CreditCardsScreen", () => CreditCardsScreen)
+
 
 
 
