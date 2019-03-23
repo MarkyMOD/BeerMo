@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native'
 
 import { TRY_AUTH, AUTH_SET_TOKEN, AUTH_REMOVE_TOKEN, SIGN_IN } from './actionTypes'
-import { uiStartLoading, uiStopLoading, storeLocalId } from './index'
+import { uiStartLoading, uiStopLoading, storeLocalId, userGetId } from './index'
 
 import startMainTabs from '../../screens/MainTabs/startMainTabs'
 import App from '../../../App'
@@ -141,7 +141,8 @@ export const authGetToken = () => {
 
 export const authAutoSignin = () => {
     return dispatch => {
-        dispatch(authGetToken())
+            dispatch(userGetId())
+            // dispatch(authGetToken())
         .then(token => {
             startMainTabs()
         })
