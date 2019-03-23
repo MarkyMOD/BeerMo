@@ -13,8 +13,13 @@ class CardDetail extends Component {
     }
 
     onDeleteHandler = () => {
+        const selPlace = this.props.selectedPlace
         this.props.navigator.push({
-            screen: "BeerMo.DeleteConfirmationScreen"
+            screen: "BeerMo.DeleteConfirmationScreen",
+            title: "Delete Card?",
+            passProps: {
+                selectedPlace: selPlace
+            }
         })
     }
 

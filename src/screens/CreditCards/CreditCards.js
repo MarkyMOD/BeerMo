@@ -42,7 +42,7 @@ class CreditCardsScreen extends Component {
         const selPlace = this.props.cards.find(card => card.number === number)
         this.props.navigator.push({
             screen: "BeerMo.CardDetailScreen",
-            title: selPlace.name,
+            title: "Saved Card",
             passProps: {
                 selectedPlace: selPlace
             }
