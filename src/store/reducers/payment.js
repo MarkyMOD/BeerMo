@@ -1,4 +1,4 @@
-import { ADD_CARD, DELETE_CARD } from '../actions/actionTypes'
+import { ADD_CARD, DELETE_CARD, GET_CARDS } from '../actions/actionTypes'
 
 const intialState = {
     cards: []
@@ -6,7 +6,7 @@ const intialState = {
 
 const reducer = (state = intialState, action) => {
     switch (action.type) {
-        case ADD_CARD:
+        case GET_CARDS:
             return {
                 ...state,
                 cards: state.places.concat({
