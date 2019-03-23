@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { Button } from 'react-native'
+import { View, Button } from 'react-native'
 
 import { connect } from 'react-redux'
+
+import CardList from '../../components/CardList/CardList'
 import { getCards } from '../../store/actions';
 
 class CreditCardsScreen extends Component {
@@ -38,17 +40,21 @@ class CreditCardsScreen extends Component {
 
     render() {
         return (
-            < Button
-                title = "Add A Card"
-                onPress = { this.paymentScreenHandler }
-            />
+            <View>
+                < Button
+                    title = "Add A Card"
+                    onPress = { this.paymentScreenHandler }
+                />
+                <CardList cards={this.props.cards} />
+            </View>
         )
     }
 }
 
 const mapStateToProps = state => {
     return {
-        localId: state.user.localId
+        localId: state.user.localId,
+        cards: state.cards.cards
     }
 }
 

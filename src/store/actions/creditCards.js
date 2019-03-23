@@ -1,4 +1,4 @@
-import { ADD_CARD, DELETE_CARD } from './actionTypes'
+import { ADD_CARD, DELETE_CARD, GET_CARDS } from './actionTypes'
 import { uiStartLoading, uiStopLoading, authGetToken } from './index'
 
 
@@ -46,7 +46,12 @@ export const getCards = (localId) => {
                 })
                 .then(res => res.json())
                 .then(parsedRes => {
-                    dispatch(listCreditCards(parsedRes))
+                    let cardList = []
+                    for(let key in parsedRes){
+                        cardList.push(parsedRes[key])
+                    }
+                    console.log(cardList)
+                    dispatch(listCreditCards(cardList))
                 })
                 .catch(err => console.log("err", err))
             })

@@ -5,16 +5,12 @@ const intialState = {
 }
 
 const reducer = (state = intialState, action) => {
+    console.log(state, action)
     switch (action.type) {
         case GET_CARDS:
             return {
                 ...state,
-                cards: state.places.concat({
-                    number: action.number,
-                    expMonth: action.expMonth,
-                    expYear: action.expYear,
-                    cvc: action.cvc
-                })
+                cards: action.cardList
                 }
         case DELETE_CARD:
             return {

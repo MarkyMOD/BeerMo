@@ -4,8 +4,10 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 const listItem = (props) => (
     <TouchableOpacity onPress={props.onItemPressed}>
         <View style={styles.listItem} onPress={props.onItemPressed}>
-            <Image resizeMode="contain" source={props.placeImage} style={styles.placeImage} />
-            <Text>{props.placeName}</Text>
+            <Text >Card Number: {props.number}</Text>   
+            {/* <Text >Card Number:{props.number} Exp:{props.expMonth}/{props.expYear} CVC:{props.cvc}</Text>             */}
+
+
         </View>
     </TouchableOpacity>
 )

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native'
 
-import PlaceList from '../../components/PlaceList/PlaceList'
+import CardList from '../../components/CardList/CardList'
 import PickLocation from '../../components/PickLocation/PickLocation'
 
 
