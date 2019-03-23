@@ -12,15 +12,23 @@ class CardDetail extends Component {
         this.props.navigator.pop()
     }
 
+    onDeleteHandler = () => {
+        this.props.navigator.push({
+            screen: "BeerMo.DeleteConfirmationScreen"
+        })
+    }
+
     render () {
         return (
             <View style={styles.container} >
                 <View style={styles.subContainer}>
                     <View>
-                        <Text >{this.props.selectedPlace.number}</Text>
+                        <Text >Card Number: {this.props.selectedPlace.number}</Text>
+                        <Text >Expiration: {this.props.selectedPlace.expMonth}/{this.props.selectedPlace.expYear}</Text >
+                        <Text >CVC: {this.props.selectedPlace.cvc}</Text >
                     </View>
                     <View>
-                        <TouchableOpacity onPress={this.placeDeletedHandler} >
+                        <TouchableOpacity onPress={this.onDeleteHandler} >
                             <View style={styles.deleteButton} >
                                 <Icon size={30} name={Platform.OS === "android" ? "md-trash" : "ios-trash"} color="red" />
                             </View>

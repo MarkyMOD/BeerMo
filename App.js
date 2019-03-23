@@ -11,6 +11,7 @@ import VenuesScreen from './src/screens/Venues/Venues'
 import PaymentScreen from './src/screens/Payment/Payment'
 import TokensScreen from './src/screens/Tokens/Tokens'
 import CreditCardsScreen from './src/screens/CreditCards/CreditCards'
+import DeleteConfirmationScreen from './src/screens/DeleteConfirmation/DeleteConfirmation'
 import configureStore from './src/store/configureStore'
 import stripe from 'tipsi-stripe'
 
@@ -21,7 +22,6 @@ stripe.setOptions({
 
 const store = configureStore()
 
-// Register Screens
 Navigation.registerComponent("BeerMo.AuthScreen", () => AuthScreen, store, Provider)
 Navigation.registerComponent("BeerMo.ProfileScreen", () => ProfileScreen, store, Provider)
 Navigation.registerComponent("BeerMo.FindBeerScreen", () => FindBeerScreen, store, Provider)
@@ -32,12 +32,8 @@ Navigation.registerComponent("BeerMo.VenuesScreen", () => VenuesScreen)
 Navigation.registerComponent("BeerMo.PaymentScreen", () => PaymentScreen, store, Provider)
 Navigation.registerComponent("BeerMo.TokensScreen", () => TokensScreen)
 Navigation.registerComponent("BeerMo.CreditCardsScreen", () => CreditCardsScreen, store, Provider)
+Navigation.registerComponent("BeerMo.DeleteConfirmationScreen", () => DeleteConfirmationScreen, store, Provider)
 
-
-
-
-
-// Start a App
 export default () => Navigation.startSingleScreenApp({
   screen: {
     screen: "BeerMo.AuthScreen",
