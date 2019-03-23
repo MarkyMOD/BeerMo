@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import AuthScreen from './src/screens/Auth/Auth'
 import ProfileScreen from './src/screens/Profile/Profile'
 import FindBeerScreen from './src/screens/FindBeer/FindBeer'
-import PlaceDetailScreen from './src/screens/PlaceDetail/PlaceDetail'
+import CardDetailScreen from './src/screens/CardDetail/CardDetail'
 import SideDrawer from './src/screens/SideDrawer/SideDrawer'
 import SettingsScreen from './src/screens/Settings/Settings'
 import VenuesScreen from './src/screens/Venues/Venues'
@@ -25,7 +25,7 @@ const store = configureStore()
 Navigation.registerComponent("BeerMo.AuthScreen", () => AuthScreen, store, Provider)
 Navigation.registerComponent("BeerMo.ProfileScreen", () => ProfileScreen, store, Provider)
 Navigation.registerComponent("BeerMo.FindBeerScreen", () => FindBeerScreen, store, Provider)
-Navigation.registerComponent("BeerMo.PlaceDetailScreen", () => PlaceDetailScreen, store, Provider)
+Navigation.registerComponent("BeerMo.CardDetailScreen", () => CardDetailScreen, store, Provider)
 Navigation.registerComponent("BeerMo.SideDrawer", () => SideDrawer, store, Provider)
 Navigation.registerComponent("BeerMo.SettingsScreen", () => SettingsScreen)
 Navigation.registerComponent("BeerMo.VenuesScreen", () => VenuesScreen)

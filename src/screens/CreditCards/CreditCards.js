@@ -38,6 +38,17 @@ class CreditCardsScreen extends Component {
         })
     }
 
+    cardSelectedHandler = number => {
+        const selPlace = this.props.cards.find(card => card.number === number)
+        this.props.navigator.push({
+            screen: "BeerMo.CardDetailScreen",
+            title: selPlace.name,
+            passProps: {
+                selectedPlace: selPlace
+            }
+        })
+    }
+
     render() {
         return (
             <View>
@@ -45,7 +56,7 @@ class CreditCardsScreen extends Component {
                     title = "Add A Card"
                     onPress = { this.paymentScreenHandler }
                 />
-                <CardList cards={this.props.cards} />
+                <CardList cards={this.props.cards} onCardSelected={this.cardSelectedHandler} />
             </View>
         )
     }

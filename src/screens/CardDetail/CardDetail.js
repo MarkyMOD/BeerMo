@@ -6,26 +6,7 @@ import MapView, { PROVIDER_GOOGLE} from 'react-native-maps'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { deletePlace } from '../../store/actions/index'
 
-class PlaceDetail extends Component {
-    state = {
-        viewMode: Dimensions.get("window").height > 500 ? "portrait" : "landscape"
-    }
-
-    constructor(props) {
-        super(props)
-        Dimensions.addEventListener("change", this.updateStyles)
-    }
-
-    componentWillUnmount = dims => {
-        Dimensions.removeEventListener("change", this.updateStyles)
-    }
-
-    updateStyles = dims => {
-        this.setState({
-            viewMode: dims.window.height > 500 ? "portrait" : "landscape"
-        })
-    }
-
+class CardDetail extends Component {
     placeDeletedHandler = () => {
         this.props.onDeletePlace(this.props.selectedPlace.key)
         this.props.navigator.pop()
@@ -33,11 +14,6 @@ class PlaceDetail extends Component {
 
     render () {
         return (
-        // <Modal 
-        //     onRequestClose={props.onModalClosed} 
-        //     visible={props.selectedPlace !== null} 
-        //     animationType="slide" 
-        // >
             <View style={[
                 styles.container,
                 this.state.viewMode === "portrait"
@@ -123,4 +99,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(PlaceDetail)
+export default connect(null, mapDispatchToProps)(CardDetail)

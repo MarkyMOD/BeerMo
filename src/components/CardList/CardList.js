@@ -17,7 +17,7 @@ const cardList = props => {
                     expMonth={info.item.expMonth}
                     expYear={info.item.expYear}
                     cvc={info.item.cvc}
-                    onItemPressed={() => props.onItemSelected(info.item.key)} 
+                    onItemPressed={() => props.onCardSelected(info.item.number)} 
                 />
             )}
         />
