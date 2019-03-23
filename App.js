@@ -31,7 +31,7 @@ Navigation.registerComponent("BeerMo.SettingsScreen", () => SettingsScreen)
 Navigation.registerComponent("BeerMo.VenuesScreen", () => VenuesScreen)
 Navigation.registerComponent("BeerMo.PaymentScreen", () => PaymentScreen, store, Provider)
 Navigation.registerComponent("BeerMo.TokensScreen", () => TokensScreen)
-Navigation.registerComponent("BeerMo.CreditCardsScreen", () => CreditCardsScreen)
+Navigation.registerComponent("BeerMo.CreditCardsScreen", () => CreditCardsScreen, store, Provider)
 
 
 

@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { Button } from 'react-native'
 
-class TokensScreen extends Component {
+import { connect } from 'react-redux'
+import { getCards } from '../../store/actions';
+
+class CreditCardsScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",
         statusBarColor: "#FF6600",
@@ -11,6 +14,10 @@ class TokensScreen extends Component {
     constructor(props) {
         super(props)
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
+    }
+
+    componentDidMount() {
+        this.props.onLoad(this.props.localId)
     }
 
     onNavigatorEvent = event => {
@@ -39,4 +46,16 @@ class TokensScreen extends Component {
     }
 }
 
-export default TokensScreen
+const mapStateToProps = state => {
+    return {
+        localId: state.user.localId
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onLoad: localId => dispatch(getCards(localId))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreditCardsScreen)
