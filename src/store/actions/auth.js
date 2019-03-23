@@ -141,8 +141,10 @@ export const authGetToken = () => {
 
 export const authAutoSignin = () => {
     return dispatch => {
-            dispatch(userGetId())
-            // dispatch(authGetToken())
+        Promise.all([
+            dispatch(userGetId()),
+            dispatch(authGetToken())
+        ])
         .then(token => {
             startMainTabs()
         })
