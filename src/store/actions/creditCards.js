@@ -3,8 +3,6 @@ import { uiStartLoading, uiStopLoading, authGetToken } from './index'
 
 
 export const addCard = (card, localId) => {
-    console.log("card", card, "localId", localId)
-
     return dispatch => {
         dispatch(uiStartLoading())
         dispatch(authGetToken())
@@ -27,7 +25,6 @@ export const addCard = (card, localId) => {
             })
             .then(res => res.json())
             .then(parsedRes => {
-                console.log(parsedRes)
                 dispatch(uiStopLoading())
             })
             .catch(err => {
@@ -43,13 +40,23 @@ export const getCards = (localId) => {
         let id = localId
         dispatch(authGetToken())
             .then(token => {
-                return fetch(`https://beermo-1552602774929.firebaseio.com/cards.json?auth=${token}&orderBy="localId"&equalTo="${id}"&print=pretty`, 
+                return fetch(`https://beermo-1552602774929.firebaseio.com/cards.json?auth=${token}&orderBy="user"&equalTo="${id}"&print=pretty`, 
                 {
                     method: "GET"
                 })
-                .then(res => console.log("res", res))
+                .then(res => res.json())
+                .then(parsedRes => {
+                    dispatch(listCreditCards(parsedRes))
+                })
                 .catch(err => console.log("err", err))
             })
+    }
+}
+
+export const listCreditCards = cardList => {
+    return {
+        type: GET_CARDS,
+        cardList: cardList
     }
 }
 
