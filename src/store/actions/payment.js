@@ -3,6 +3,7 @@ import { uiStartLoading, uiStopLoading, authGetToken } from './index'
 
 
 export const addCard = (card, localId) => {
+    console.log("card", card, "localId", localId)
 
     return dispatch => {
         dispatch(uiStartLoading())
@@ -39,7 +40,7 @@ export const addCard = (card, localId) => {
 
 export const getCards = (localId) => {
     return dispatch => {
-        
+
     }
 }
 

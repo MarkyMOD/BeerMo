@@ -10,6 +10,7 @@ export const AUTH_SET_TOKEN = 'AUTH_SET_TOKEN'
 export const AUTH_REMOVE_TOKEN = 'AUTH_REMOVE_TOKEN'
 
 export const ADD_CARD = 'ADD_CARD'
+export const GET_CARDS = 'GET_CARDS'
 export const DELETE_CARD = 'DELETE_CARD'
 
 

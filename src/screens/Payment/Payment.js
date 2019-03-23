@@ -5,7 +5,6 @@ import HeadingText from '../../components/UI/HeadingText/HeadingText'
 
 import { addCard } from '../../store/actions/index'
 
-
 import { connect } from 'react-redux' 
 
 class PaymentScreen extends Component {
@@ -18,7 +17,19 @@ class PaymentScreen extends Component {
     constructor(props) {
         super(props)
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
-    }    
+    }   
+    
+    state = {
+        controls: {
+            card: {
+                valid: false,
+                number: null,
+                expMonth: null,
+                expYear: null,
+                cvc: null
+            }
+        }
+    }
 
     onNavigatorEvent = event => {
         if (event.type === "NavBarButtonPress") {
@@ -30,36 +41,53 @@ class PaymentScreen extends Component {
         }
     }
 
-    change = () => {
-
+    reset = () => {
+        return this.setState(prevState => {
+            return {
+                controls: {
+                    card: {
+                        valid: false,
+                        number: null,
+                        expMonth: null,
+                        expYear: null,
+                        cvc: null
+                    }
+                }
+            }   
+        })
     }
-    
 
-    cardAddedHandler = (valid, params) => {
-        // this.props.onAddPlace(
-        //     this.state.controls.placeName.value, 
-        //     this.state.controls.location.value,
-        //     this.state.controls.image.value
-        // )
-        // this.reset()
-        // this.imagePicker.reset()
-        // this.locationPicker.reset()
-        // this.props.navigator.switchToTab({tabIndex: 0})
-        console.log("valid", valid, "params", params)
+    cardAddedHandler = () => {
+        this.props.onAddCard(this.state.controls.card, this.props.localId)
+        this.reset()
+    }
+
+    validHandler = (valid, params) => {
         if (valid) {
-
+            this.setState(prevState => {
+                return {
+                    controls: {
+                        ...prevState.controls,
+                        card: {
+                            valid: true,
+                            number: params.number,
+                            expMonth: params.expMonth,
+                            expYear: params.expYear,
+                            cvc: params.cvc
+                        }
+                    }
+                }
+            })
         }
     }
 
     render() {
         let submitButton = (
             < Button
-                title = "Share Place"
-                onPress = { this.placeAddedHandler }
+                title = "Add Card"
+                onPress = { this.cardAddedHandler }
                 disabled = {
-                    !this.state.controls.placeName.valid ||
-                    !this.state.controls.location.valid ||
-                    !this.state.controls.image.valid
+                    !this.state.controls.card.valid
                 }
             />
         )
@@ -81,8 +109,9 @@ class PaymentScreen extends Component {
                     expirationPlaceholder={"EXP"}
                     cvcPlaceholder={"CVC"}
                     disabled={false}
-                    onParamsChange={this.cardAddedHandler}
+                    onParamsChange={this.validHandler}
                 />
+                {submitButton}
             </View>
         )
     }
@@ -94,10 +123,16 @@ const styles = StyleSheet.create({
     }
 })
 
-const mapDispatchToProps = card => {
+const mapStateToProps = state => {
+    return {
+        localId: state.user.localId
+    }
+}
+
+const mapDispatchToProps = dispatch => {
     return {
         onAddCard: (cardInfo, localId) => dispatch(addCard(cardInfo, localId))
     }
 }
 
-export default connect(null, mapDispatchToProps)(PaymentScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(PaymentScreen)

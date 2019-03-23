@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native'
 
 import { TRY_AUTH, AUTH_SET_TOKEN, AUTH_REMOVE_TOKEN, SIGN_IN } from './actionTypes'
-import { uiStartLoading, uiStopLoading, setLocalId } from './index'
+import { uiStartLoading, uiStopLoading, storeLocalId, userGetId } from './index'
 
 import startMainTabs from '../../screens/MainTabs/startMainTabs'
 import App from '../../../App'
@@ -31,7 +31,7 @@ export const tryAuth = (authData, authMode) => {
             .then(parsedRes => {
                 dispatch(uiStopLoading())
                 if (!parsedRes.idToken) {
-                    alert("Auth failed")
+                    alert("Auth failed 1")
                 } else {
                     dispatch(authStoreToken(
                         parsedRes.idToken,
@@ -40,14 +40,12 @@ export const tryAuth = (authData, authMode) => {
                     ))
                     startMainTabs()
                 }
-                if (parsedRes.localId) {
-                    dispatch(setLocalId(parsedRes.localId))
-                }
                 console.log(parsedRes)
+                dispatch(storeLocalId(parsedRes.localId))
             })
             .catch(err => {
                 console.log(err)
-                alert("Auth failed")
+                alert("Auth failed 2")
                 dispatch(uiStopLoading())
             })
     }
@@ -143,7 +141,10 @@ export const authGetToken = () => {
 
 export const authAutoSignin = () => {
     return dispatch => {
-        dispatch(authGetToken())
+        Promise.all([
+            dispatch(userGetId()),
+            dispatch(authGetToken())
+        ])
         .then(token => {
             startMainTabs()
         })
