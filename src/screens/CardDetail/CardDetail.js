@@ -14,34 +14,10 @@ class CardDetail extends Component {
 
     render () {
         return (
-            <View style={[
-                styles.container,
-                this.state.viewMode === "portrait"
-                ? styles.portraitContainer
-                : styles.landscapeContainer
-                ]} 
-            >
-                <View style={styles.placeDetailContainer} >
-                    <View style={styles.subContainer} >
-                        <Image source={this.props.selectedPlace.image} style={styles.placeImage} />
-                    </View>
-                    <View style={styles.subContainer} >
-                        <MapView 
-                            provider={PROVIDER_GOOGLE}
-                            initialRegion={{
-                                ...this.props.selectedPlace.location,
-                                latitudeDelta: 0.0499,
-                                longitudeDelta: Dimensions.get("window").width / Dimensions.get("window").height * 0.0499
-                            }}
-                            style={styles.map}
-                        >
-                            <MapView.Marker coordinate={this.props.selectedPlace.location} />
-                        </MapView>
-                    </View>
-                </View>
+            <View style={styles.container} >
                 <View style={styles.subContainer}>
                     <View>
-                        <Text style={styles.placeName} >{this.props.selectedPlace.name}</Text>
+                        <Text >{this.props.selectedPlace.number}</Text>
                     </View>
                     <View>
                         <TouchableOpacity onPress={this.placeDeletedHandler} >
@@ -49,11 +25,9 @@ class CardDetail extends Component {
                                 <Icon size={30} name={Platform.OS === "android" ? "md-trash" : "ios-trash"} color="red" />
                             </View>
                         </TouchableOpacity>
-                        {/* <Button title="Close" onPress={props.onModalClosed} /> */}
                     </View>
                 </View>
             </View>
-        // </Modal>
         )
     }
 }
