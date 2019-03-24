@@ -7,7 +7,7 @@ import { addCard } from '../../store/actions/index'
 
 import { connect } from 'react-redux' 
 
-class PaymentScreen extends Component {
+class AddCardScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",
         statusBarColor: "#FF6600",
@@ -136,4 +136,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PaymentScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(AddCardScreen)

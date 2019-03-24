@@ -4,11 +4,13 @@ import thunk from 'redux-thunk'
 import loginReducer from './reducers/login'
 import uiReducer from './reducers/ui'
 import authReducer from './reducers/auth'
+import cardsReducer from './reducers/creditCards'
 
 const rootReducer = combineReducers({
     user: loginReducer,
     ui: uiReducer,
-    auth: authReducer
+    auth: authReducer,
+    cards: cardsReducer
 })
 
 let composeEnhancers = compose

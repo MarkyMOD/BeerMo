@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native'
-import { SIGN_IN } from './actionTypes'
+import { SIGN_IN, LOG_OUT } from './actionTypes'
 
 export const setLocalId = localId => {
     return {
@@ -37,12 +37,20 @@ export const userGetId = () => {
             }           
         })
         .then(localId => {
+
+            AsyncStorage.getItem("beerMo:auth:token")
+                .then(token => {
+                    if (!token) {
+                        dispatch(userClearStorage())
+                    } 
+                })
+                .catch(err => console.log(err))
             if (localId) {
                 console.log("id works")
                 dispatch(storeLocalId(localId))
                 return localId;
             } else {
-                dispatch(userClearStorage());
+                dispatch(userClearStorage())
             }
         })
         promise.catch(err => {
@@ -61,6 +69,13 @@ export const userGetId = () => {
 
 export const userClearStorage = () => {
     return dispatch => {
+        dispatch(userLogOut())
         AsyncStorage.removeItem("beerMo:user:localId")
+    }
+}
+
+export const userLogOut = () => {
+    return {
+        type: LOG_OUT
     }
 }

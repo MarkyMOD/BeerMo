@@ -1,4 +1,4 @@
-import { SIGN_IN } from '../actions/actionTypes'
+import { SIGN_IN, LOG_OUT } from '../actions/actionTypes'
 
 const intialState = {
     localId: null
@@ -11,6 +11,10 @@ const reducer = (state = intialState, action) => {
                 ...state,
                 localId: action.localId
                 }
+        case LOG_OUT:
+            return {
+                localId: null
+            }
         default:
             return state
     }
