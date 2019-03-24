@@ -10,8 +10,8 @@ export const setLocalId = localId => {
 
 export const storeLocalId = localId => {
     return dispatch => {
-        dispatch(setLocalId(localId))
         AsyncStorage.setItem("beerMo:user:localId", localId)
+        dispatch(setLocalId(localId))
     }
 }
 

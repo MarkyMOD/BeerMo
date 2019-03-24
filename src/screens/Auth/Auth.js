@@ -121,21 +121,18 @@ class AuthScreen extends Component {
     }
 
     authHandler = () => {
+
         const authData = {
-            email: this.state.controls.email.value,
-            password: this.state.controls.password.value
-        }
-        const signupData = {
             email: this.state.controls.email.value,
             password: this.state.controls.password.value,
             firstName: this.state.controls.firstName.value,
             lastName: this.state.controls.lastName.value,
             userName: this.state.controls.userName.value,
-            dateOfBirth: this.state.controls.dateOfBirth.value            
+            dateOfBirth: this.state.controls.dateOfBirth.value
         }
         this.props.onTryAuth(authData, this.state.authMode)
         if (this.state.authMode === "signup") {
-            this.props.onUserSignup(signupData)
+            // this.props.onUserSignup(signupData)
         }
     }
 
@@ -188,8 +185,7 @@ class AuthScreen extends Component {
                 color = "#FF6600"
                 onPress={this.authHandler} 
                 disable={
-                    (!this.state.controls.email.valid &&
-                        this.state.authMode === "signup")
+                    !this.state.controls.email.valid
                     || !this.state.controls.password.valid
                     || !this.state.controls.confirmPassword.valid && this.state.authMode === "signup"
                 }
@@ -234,7 +230,6 @@ class AuthScreen extends Component {
                         onChangeText={(val) => this.updateInputState("firstName", val)}
                         valid={this.state.controls.firstName.valid}
                         touched={this.state.controls.firstName.touched}
-                        secureTextEntry
                     />
                     <DefaultInput 
                         placeholder = "Last Name"
@@ -244,7 +239,6 @@ class AuthScreen extends Component {
                         onChangeText={(val) => this.updateInputState("lastName", val)}
                         valid={this.state.controls.lastName.valid}
                         touched={this.state.controls.lastName.touched}
-                        secureTextEntry
                     />
                     <DefaultInput 
                         placeholder = "User Name"
@@ -254,7 +248,6 @@ class AuthScreen extends Component {
                         onChangeText={(val) => this.updateInputState("userName", val)}
                         valid={this.state.controls.userName.valid}
                         touched={this.state.controls.userName.touched}
-                        secureTextEntry
                     />
                     <DefaultInput 
                         placeholder = "Date Of Birth"
@@ -264,7 +257,6 @@ class AuthScreen extends Component {
                         onChangeText={(val) => this.updateInputState("dateOfBirth", val)}
                         valid={this.state.controls.dateOfBirth.valid}
                         touched={this.state.controls.dateOfBirth.touched}
-                        secureTextEntry
                     />
                 </View>
             )

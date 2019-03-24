@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { View, Button, StyleSheet } from 'react-native'
+import { View, Text, Button, StyleSheet } from 'react-native'
 
 import { connect } from 'react-redux'
+
+import HeadingText from '../../components/UI/HeadingText/HeadingText'
 
 class CreditCardsScreen extends Component {
     static navigatorStyle = {
@@ -68,7 +70,9 @@ class CreditCardsScreen extends Component {
                             onPress = { this.savedCardsScreenHandler }
                         />
                     </View>
+                    <HeadingText style={{justifyContent: "center"}} >Send A Beer Token To Another User</HeadingText>
                 </View>
+                
             </View>
         )
     }

@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native'
 
 import { TRY_AUTH, AUTH_SET_TOKEN, AUTH_REMOVE_TOKEN, SIGN_IN } from './actionTypes'
-import { uiStartLoading, uiStopLoading, storeLocalId, userGetId, userLogOut } from './index'
+import { uiStartLoading, uiStopLoading, storeLocalId, userGetId, userLogOut, userSignup } from './index'
 
 import startMainTabs from '../../screens/MainTabs/startMainTabs'
 import App from '../../../App'
@@ -11,16 +11,19 @@ const API_KEY = "AIzaSyCT7U-QQ5ekM5pQb44tx4rk3sv4a3Qi2_M"
 
 export const tryAuth = (authData, authMode) => {
     return dispatch => {
+        let data = authData
+        let mode = authMode
+        let localId = null
         dispatch(uiStartLoading())
         let url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + API_KEY
-        if (authMode === "signup") {
+        if (mode === "signup") {
             url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=" + API_KEY
         }
         fetch(url, {
             method: "POST",
             body: JSON.stringify({
-                email: authData.email,
-                password: authData.password,
+                email: data.email,
+                password: data.password,
                 returnSecureToken: true
             }),
             headers: {
@@ -40,7 +43,6 @@ export const tryAuth = (authData, authMode) => {
                     ))
                     startMainTabs()
                 }
-                console.log(parsedRes)
                 dispatch(storeLocalId(parsedRes.localId))
             })
             .catch(err => {
@@ -141,13 +143,14 @@ export const authGetToken = () => {
 
 export const authAutoSignin = () => {
     return dispatch => {
-        Promise.all([
-            dispatch(userGetId()),
             dispatch(authGetToken())
-        ])
-        .then(token => {
-            startMainTabs()
-        })
+            .then(token => {
+                dispatch(userGetId())
+                .then(token => {
+                    startMainTabs()
+                    // dispatch(userSignup())
+                })
+            })
         .catch(err => console.log("No USER"))
     }
 }
