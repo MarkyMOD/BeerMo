@@ -13,6 +13,7 @@ export const tryAuth = (authData, authMode) => {
     return dispatch => {
         let data = authData
         let mode = authMode
+        let localId = null
         dispatch(uiStartLoading())
         let url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + API_KEY
         if (mode === "signup") {
@@ -42,7 +43,6 @@ export const tryAuth = (authData, authMode) => {
                     ))
                     startMainTabs()
                 }
-                console.log(parsedRes)
                 dispatch(storeLocalId(parsedRes.localId))
             })
             .catch(err => {
