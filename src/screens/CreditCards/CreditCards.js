@@ -63,6 +63,24 @@ class CreditCardsScreen extends Component {
         })
     }
 
+    updateInputState = (value) => {
+        this.setState(prevState => {
+            return {
+                controls: {
+                    ...prevState.controls,
+                    search: {
+                        ...prevState.controls.search,
+                        value: value
+                    }
+                }
+            }
+        })
+    }
+
+    searchUserHandler = () => {
+        
+    }
+
     render() {
         return (
             <View style={styles.mainContainer}>
@@ -86,8 +104,12 @@ class CreditCardsScreen extends Component {
                     <DefaultInput 
                         style={{bottom: 20}} 
                         placeholder = "Search Here"
-                        value={this.state.controls.confirmPassword.value}
-                        onChangeText={(val) => this.updateInputState("confirmPassword", val)} 
+                        value={this.state.controls.search.value}
+                        onChangeText={(val) => this.updateInputState(val)} 
+                    />
+                    <Button 
+                        title = "Search"
+                        onPress = { this.searchUserHandler }
                     />
                 </View>
             </View>
