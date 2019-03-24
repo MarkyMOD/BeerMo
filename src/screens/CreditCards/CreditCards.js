@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Button } from 'react-native'
+import { View, Button, StyleSheet } from 'react-native'
 
 import { connect } from 'react-redux'
 
@@ -51,16 +51,41 @@ class CreditCardsScreen extends Component {
 
     render() {
         return (
-            <View>
-                < Button
-                    title = "Add A Card"
-                    onPress = { this.paymentScreenHandler }
-                />
+            <View style={styles.mainContainer}>
+                <View style={styles.container}>
+                    <View style={styles.subContainer} >
+                        < Button
+                            title = "Add A Card"
+                            onPress = { this.paymentScreenHandler }
+                        />
+                    </View>
+                    <View style={styles.subContainer} >  
+                        < Button
+                            title = "Saved Cards"
+                            onPress = { this.paymentScreenHandler }
+                        />
+                    </View>
+                </View>
                 <CardList cards={this.props.cards} onCardSelected={this.cardSelectedHandler} />
             </View>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    mainContainer: {
+        flex: 1
+    },
+    container: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    subContainer: {
+        flex: 1,
+    }
+})
 
 const mapStateToProps = state => {
     return {
