@@ -29,6 +29,7 @@ export const tryAuth = (authData, authMode) => {
         })
             .then(res => res.json())
             .then(parsedRes => {
+                dispatch(userSignup())
                 dispatch(uiStopLoading())
                 if (!parsedRes.idToken) {
                     alert("Auth failed 1")

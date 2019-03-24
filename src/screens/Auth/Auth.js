@@ -19,7 +19,7 @@ import HeadingText from '../../components/UI/HeadingText/HeadingText'
 import MainText from '../../components/UI/MainText/MainText'
 import CustomButton from '../../components/UI/CustomButton/CustomButton'
 import validate from '../../utility/validation'
-import { tryAuth, authAutoSignin } from '../../store/actions/index'
+import { tryAuth, authAutoSignin, userSignup } from '../../store/actions/index'
 import backgroundImage from '../../assets/images/barleywine.jpg'
 
 class AuthScreen extends Component {
@@ -54,6 +54,39 @@ class AuthScreen extends Component {
                 valid: false,
                 validationRules: {
                     equalTo: "password"
+                },
+                touched: false
+            },
+            firstName: {
+                value: "",
+                valid: false,
+                validationRules: {
+                    inputType: "string"
+                },
+                touched: false
+            },
+            lastName: {
+                value: "",
+                valid: false,
+                validationRules: {
+                    inputType: "string"
+                },
+                touched: false
+            },
+            userName: {
+                value: "",
+                valid: false,
+                validationRules: {
+                    minLength: 3
+                },
+                touched: false
+            },
+            dateOfBirth: {
+                value: "",
+                valid: false,
+                validationRules: {
+                    length: 8,
+                    inputType: "number"
                 },
                 touched: false
             }
@@ -92,7 +125,18 @@ class AuthScreen extends Component {
             email: this.state.controls.email.value,
             password: this.state.controls.password.value
         }
+        const signupData = {
+            email: this.state.controls.email.value,
+            password: this.state.controls.password.value,
+            firstName: this.state.controls.firstName.value,
+            lastName: this.state.controls.lastName.value,
+            userName: this.state.controls.userName.value,
+            dateOfBirth: this.state.controls.dateOfBirth.value            
+        }
         this.props.onTryAuth(authData, this.state.authMode)
+        if (authMode === "signup") {
+            this.props.onUserSignup(signupData)
+        }
     }
 
     updateInputState = (key, value) => {
@@ -296,7 +340,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onTryAuth: (authData, authMode) => dispatch(tryAuth(authData, authMode)),
-        onAutoSignin: () => dispatch(authAutoSignin()) 
+        onAutoSignin: () => dispatch(authAutoSignin()),
+        onUserSignup: signupData => dispatch(userSignup(signupData))
         
     }
 }

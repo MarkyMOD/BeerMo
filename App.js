@@ -8,10 +8,11 @@ import CardDetailScreen from './src/screens/CardDetail/CardDetail'
 import SideDrawer from './src/screens/SideDrawer/SideDrawer'
 import SettingsScreen from './src/screens/Settings/Settings'
 import VenuesScreen from './src/screens/Venues/Venues'
-import PaymentScreen from './src/screens/Payment/Payment'
 import TokensScreen from './src/screens/Tokens/Tokens'
 import CreditCardsScreen from './src/screens/CreditCards/CreditCards'
 import DeleteConfirmationScreen from './src/screens/DeleteConfirmation/DeleteConfirmation'
+import AddCardScreen from './src/screens/AddCard/AddCard'
+import SavedCardsScreen from './src/screens/SavedCards/SavedCards'
 import configureStore from './src/store/configureStore'
 import stripe from 'tipsi-stripe'
 
@@ -29,10 +30,12 @@ Navigation.registerComponent("BeerMo.CardDetailScreen", () => CardDetailScreen, 
 Navigation.registerComponent("BeerMo.SideDrawer", () => SideDrawer, store, Provider)
 Navigation.registerComponent("BeerMo.SettingsScreen", () => SettingsScreen)
 Navigation.registerComponent("BeerMo.VenuesScreen", () => VenuesScreen)
-Navigation.registerComponent("BeerMo.PaymentScreen", () => PaymentScreen, store, Provider)
 Navigation.registerComponent("BeerMo.TokensScreen", () => TokensScreen)
-Navigation.registerComponent("BeerMo.CreditCardsScreen", () => CreditCardsScreen, store, Provider)
 Navigation.registerComponent("BeerMo.DeleteConfirmationScreen", () => DeleteConfirmationScreen, store, Provider)
+Navigation.registerComponent("BeerMo.CreditCardsScreen", () => CreditCardsScreen, store, Provider)
+Navigation.registerComponent("BeerMo.AddCardScreen", () => AddCardScreen, store, Provider)
+Navigation.registerComponent("BeerMo.SavedCardsScreen", () => SavedCardsScreen, store, Provider)
+
 
 export default () => Navigation.startSingleScreenApp({
   screen: {

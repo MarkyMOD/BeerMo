@@ -3,9 +3,6 @@ import { View, Button, StyleSheet } from 'react-native'
 
 import { connect } from 'react-redux'
 
-import CardList from '../../components/CardList/CardList'
-import { getCards } from '../../store/actions';
-
 class CreditCardsScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",
@@ -19,7 +16,7 @@ class CreditCardsScreen extends Component {
     }
 
     componentDidMount() {
-        this.props.onLoad(this.props.localId)
+        return fetch()
     }
 
     onNavigatorEvent = event => {
@@ -32,20 +29,26 @@ class CreditCardsScreen extends Component {
         }
     }
 
-    paymentScreenHandler = key => {
+    addCardScreenHandler = key => {
         this.props.navigator.push({
-            screen: "BeerMo.PaymentScreen"
+            screen: "BeerMo.AddCardScreen"
         })
     }
 
-    cardSelectedHandler = number => {
-        const selPlace = this.props.cards.find(card => card.number === number)
-        this.props.navigator.push({
-            screen: "BeerMo.CardDetailScreen",
-            title: "Saved Card",
-            passProps: {
-                selectedPlace: selPlace
+    onNavigatorEvent = event => {
+        if (event.type === "NavBarButtonPress") {
+            if (event.id === "sideDrawerToggle") {
+                this.props.navigator.toggleDrawer({
+                    side: "left"
+                })
             }
+        }
+    }
+
+    savedCardsScreenHandler = number => {
+        this.props.navigator.push({
+            screen: "BeerMo.SavedCardsScreen",
+            title: "Saved Card"
         })
     }
 
@@ -56,17 +59,16 @@ class CreditCardsScreen extends Component {
                     <View style={styles.subContainer} >
                         < Button
                             title = "Add A Card"
-                            onPress = { this.paymentScreenHandler }
+                            onPress = { this.addCardScreenHandler }
                         />
                     </View>
                     <View style={styles.subContainer} >  
                         < Button
                             title = "Saved Cards"
-                            onPress = { this.paymentScreenHandler }
+                            onPress = { this.savedCardsScreenHandler }
                         />
                     </View>
                 </View>
-                <CardList cards={this.props.cards} onCardSelected={this.cardSelectedHandler} />
             </View>
         )
     }
@@ -79,7 +81,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
-        alignItems: 'center',
+        alignItems: 'stretch',
         justifyContent: 'center'
     },
     subContainer: {
@@ -87,17 +89,4 @@ const styles = StyleSheet.create({
     }
 })
 
-const mapStateToProps = state => {
-    return {
-        localId: state.user.localId,
-        cards: state.cards.cards
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onLoad: localId => dispatch(getCards(localId))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CreditCardsScreen)
+export default connect()(CreditCardsScreen)
