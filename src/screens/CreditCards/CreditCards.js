@@ -4,12 +4,21 @@ import { View, Text, Button, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
 import HeadingText from '../../components/UI/HeadingText/HeadingText'
+import DefaultInput from '../../components/UI/DefaultInput/DefaultInput'
 
 class CreditCardsScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",
         statusBarColor: "#FF6600",
         navBarBackgroundColor: "#FF6600"
+    }
+
+    state = {
+        controls: {
+            search: {
+                value: null
+            }
+        }
     }
 
     constructor(props) {
@@ -70,9 +79,17 @@ class CreditCardsScreen extends Component {
                             onPress = { this.savedCardsScreenHandler }
                         />
                     </View>
-                    <HeadingText style={{justifyContent: "center"}} >Send A Beer Token To Another User</HeadingText>
                 </View>
-                
+                <View style={styles.textContainer} >
+                    <HeadingText style={{fontSize: 20}} >Send A Beer Token To Another User</HeadingText>
+                    <HeadingText style={{fontSize: 20, left: 65, color: "blue"}} >Search by User Name</HeadingText>
+                    <DefaultInput 
+                        style={{bottom: 20}} 
+                        placeholder = "Search Here"
+                        value={this.state.controls.confirmPassword.value}
+                        onChangeText={(val) => this.updateInputState("confirmPassword", val)} 
+                    />
+                </View>
             </View>
         )
     }
@@ -89,7 +106,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     subContainer: {
-        flex: 1,
+        flex: 1
+    },
+    textContainer: {
+        flex: 11
     }
 })
 
