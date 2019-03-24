@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native'
 
 import { TRY_AUTH, AUTH_SET_TOKEN, AUTH_REMOVE_TOKEN, SIGN_IN } from './actionTypes'
-import { uiStartLoading, uiStopLoading, storeLocalId, userGetId } from './index'
+import { uiStartLoading, uiStopLoading, storeLocalId, userGetId, userLogOut } from './index'
 
 import startMainTabs from '../../screens/MainTabs/startMainTabs'
 import App from '../../../App'
@@ -29,7 +29,6 @@ export const tryAuth = (authData, authMode) => {
         })
             .then(res => res.json())
             .then(parsedRes => {
-                dispatch(userSignup())
                 dispatch(uiStopLoading())
                 if (!parsedRes.idToken) {
                     alert("Auth failed 1")
@@ -168,6 +167,7 @@ export const authLogout = () => {
                 App()
             })
         dispatch(authRemoveToken())
+        dispatch(userLogOut())
     }
 }
 

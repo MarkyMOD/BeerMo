@@ -134,7 +134,7 @@ class AuthScreen extends Component {
             dateOfBirth: this.state.controls.dateOfBirth.value            
         }
         this.props.onTryAuth(authData, this.state.authMode)
-        if (authMode === "signup") {
+        if (this.state.authMode === "signup") {
             this.props.onUserSignup(signupData)
         }
     }
@@ -224,6 +224,46 @@ class AuthScreen extends Component {
                         onChangeText={(val) => this.updateInputState("confirmPassword", val)}
                         valid={this.state.controls.confirmPassword.valid}
                         touched={this.state.controls.confirmPassword.touched}
+                        secureTextEntry
+                    />
+                    <DefaultInput 
+                        placeholder = "First Name"
+                        placeholderTextColor = "#FF6600"
+                        style={styles.input}
+                        value={this.state.controls.firstName.value}
+                        onChangeText={(val) => this.updateInputState("firstName", val)}
+                        valid={this.state.controls.firstName.valid}
+                        touched={this.state.controls.firstName.touched}
+                        secureTextEntry
+                    />
+                    <DefaultInput 
+                        placeholder = "Last Name"
+                        placeholderTextColor = "#FF6600"
+                        style={styles.input}
+                        value={this.state.controls.lastName.value}
+                        onChangeText={(val) => this.updateInputState("lastName", val)}
+                        valid={this.state.controls.lastName.valid}
+                        touched={this.state.controls.lastName.touched}
+                        secureTextEntry
+                    />
+                    <DefaultInput 
+                        placeholder = "User Name"
+                        placeholderTextColor = "#FF6600"
+                        style={styles.input}
+                        value={this.state.controls.userName.value}
+                        onChangeText={(val) => this.updateInputState("userName", val)}
+                        valid={this.state.controls.userName.valid}
+                        touched={this.state.controls.userName.touched}
+                        secureTextEntry
+                    />
+                    <DefaultInput 
+                        placeholder = "Date Of Birth"
+                        placeholderTextColor = "#FF6600"
+                        style={styles.input}
+                        value={this.state.controls.dateOfBirth.value}
+                        onChangeText={(val) => this.updateInputState("dateOfBirth", val)}
+                        valid={this.state.controls.dateOfBirth.valid}
+                        touched={this.state.controls.dateOfBirth.touched}
                         secureTextEntry
                     />
                 </View>

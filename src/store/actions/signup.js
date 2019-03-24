@@ -3,6 +3,7 @@ import { uiStartLoading, uiStopLoading } from './index'
 
 export const userSignup = userData => {
     return dispatch => {
+        console.log("hi", userData)
         return fetch('https://beermo-1552602774929.firebaseio.com/users.json', {
             method: "POST",
             body: {
@@ -14,5 +15,7 @@ export const userSignup = userData => {
                 dateOfBirth: userData.dateOfBirth
             }
         })
+        .then(res => console.log("res", res))
+        .catch(err => console.log("err", err))
     }
 }
