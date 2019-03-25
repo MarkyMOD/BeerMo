@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { View, Text, StyleSheet, Button } from 'react-native'
 
 import { connect } from 'react-redux'
+
+import HeadingText from '../../components/UI/HeadingText/HeadingText'
+import CardList from '../../components/CardList/CardList'
 
 class TokensScreen extends Component {
     static navigatorStyle = {
@@ -25,12 +28,40 @@ class TokensScreen extends Component {
         }
     }
 
+    redeemHandler = () => {
+
+    }
+
     render() {
         return (
-            <Text>{this.props.tokens.sentFrom}</Text>
+            <View style={styles.container} >
+                <HeadingText style={styles.tokenInfo1} >Sent From: {this.props.tokens.sentFrom} </HeadingText>
+                <HeadingText style={styles.tokenInfo2} >Received On: {this.props.tokens.dateSent} </HeadingText>
+                <View style={{bottom: 60}}>
+                    <Button title="Redeem" onPress={() => this.redeemHandler} />
+                </View>
+            </View>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        top: 8,
+        marginRight: 8,
+        marginLeft: 8,
+        marginBottom: 8,
+        borderWidth: 3
+    },
+    tokenInfo1: {
+        fontSize: 18,
+        bottom: 20
+    },
+    tokenInfo2: {
+        fontSize: 18,
+        bottom: 40
+    }
+})
 
 const mapStateToProps = state => {
     return {
