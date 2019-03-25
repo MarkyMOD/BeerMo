@@ -2,7 +2,7 @@ import { USER_SEARCH } from './actionTypes'
 
 export const searchUsers = userName => {
     return dispatch => {
-
+        
     }
 }
 
