@@ -35,6 +35,13 @@ class UserSearchScreen extends Component {
     }
 
     render() {
+        if(!this.props.user) {
+            alert("User Not Found")
+            this.props.navigator.switchToTab({tabIndex: 0})
+            return (
+                <HeadingText style={{color: "black"}} >USER NOT FOUND</HeadingText>
+            )
+        }
         return (
             <View style={styles.container}>
                 <View style={styles.placeHolder} >
@@ -44,7 +51,9 @@ class UserSearchScreen extends Component {
                     <HeadingText >{this.props.user.userName}</HeadingText>
                 </View>
                 <View>
-                    <HeadingText style={{fontSize: 18, top: 18, color: "black", right: 4}} >{this.props.user.firstName} {this.props.user.lastName}</HeadingText>
+                    <HeadingText style={{fontSize: 18, top: 18, color: "black", right: 4}} >
+                        {this.props.user.firstName} {this.props.user.lastName}
+                    </HeadingText>
                 </View>
                 <View style={{right: 4}} >
                     <Button 
