@@ -7,16 +7,18 @@ import {
     StyleSheet,
     ScrollView,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    ImageBackground
 } from 'react-native'
 import { connect } from 'react-redux'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import { getUserInfo } from '../../store/actions/index'
 import PlaceInput from '../../components/PlaceInput/PlaceInput'
 import MainText from '../../components/UI/MainText/MainText'
 import HeadingText from '../../components/UI/HeadingText/HeadingText'
 import PickImage from '../../components/PickImage/PickImage'
-import Icon from 'react-native-vector-icons/Ionicons'
+import backgroundImage from '../../assets/images/profile-background1.jpg'
 
 class ProfileScreen extends Component {
     static navigatorStyle = {
@@ -84,52 +86,53 @@ class ProfileScreen extends Component {
     render () {
 
         return (
-            <ScrollView >
-                <View  
-                    style={styles.container}
-                    behavior = "padding" 
-                >
-                    <MainText>
-                        <HeadingText>Profile Picture</HeadingText>
-                    </MainText>
-                    <PickImage 
-                        onImagePicked={this.imagePickedHandler}
-                    />
-                    <View style={styles.iconContainer} >
-                        <HeadingText style={styles.userInfo} >User Name: {this.props.user.userName}</HeadingText>
-                        <TouchableOpacity onPress={this.editUserInfoHandler} >
-                            <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#FF6600" />
-                        </TouchableOpacity>
+            <ImageBackground source={backgroundImage} style={styles.backgroundImage} >
+                <ScrollView >
+                    <View  
+                        style={styles.container}
+                        behavior = "padding" 
+                    >
+                        <MainText>
+                            <HeadingText style={{color: "#070005"}} >Profile Picture</HeadingText>
+                        </MainText>
+                        <PickImage 
+                            onImagePicked={this.imagePickedHandler}
+                        />
+                        <View style={{backgroundColor: "rgba(96, 75, 50, 0.85)", flex: 1}} >
+                            <View style={styles.iconContainer} >
+                                <HeadingText style={styles.userInfo} >User Name: {this.props.user.userName}</HeadingText>
+                                <TouchableOpacity onPress={this.editUserInfoHandler} >
+                                    <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#070005" />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={styles.iconContainer} >
+                                <HeadingText style={styles.userInfo} >First Name: {this.props.user.firstName}</HeadingText>
+                                <TouchableOpacity onPress={this.editUserInfoHandler} >
+                                    <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#070005" />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={styles.iconContainer} >
+                                <HeadingText style={styles.userInfo} >Last Name: {this.props.user.lastName}</HeadingText>
+                                <TouchableOpacity onPress={this.editUserInfoHandler} >
+                                    <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#070005" />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={styles.iconContainer} >
+                                <HeadingText style={styles.userInfo} >Email: {this.props.user.email}</HeadingText>
+                                <TouchableOpacity onPress={this.editUserInfoHandler} >
+                                    <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#070005" />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={styles.iconContainer} >
+                                <HeadingText style={styles.userInfo} >Dat of Birth: {this.props.user.dateOfBirth}</HeadingText>
+                                <TouchableOpacity onPress={this.editUserInfoHandler} >
+                                    <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#070005" />
+                                </TouchableOpacity>
+                            </View>
+                        </View>
                     </View>
-                    <View style={styles.iconContainer} >
-                        <HeadingText style={styles.userInfo} >First Name: {this.props.user.firstName}</HeadingText>
-                        <TouchableOpacity onPress={this.editUserInfoHandler} >
-                            <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#FF6600" />
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.iconContainer} >
-                        <HeadingText style={styles.userInfo} >Last Name: {this.props.user.lastName}</HeadingText>
-                        <TouchableOpacity onPress={this.editUserInfoHandler} >
-                            <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#FF6600" />
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.iconContainer} >
-                        <HeadingText style={styles.userInfo} >Email: {this.props.user.email}</HeadingText>
-                        <TouchableOpacity onPress={this.editUserInfoHandler} >
-                            <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#FF6600" />
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.iconContainer} >
-                        <HeadingText style={styles.userInfo} >Dat of Birth: {this.props.user.dateOfBirth}</HeadingText>
-                        <TouchableOpacity onPress={this.editUserInfoHandler} >
-                            <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#FF6600" />
-                        </TouchableOpacity>
-                    </View>
-
-
-
-                </View>
-            </ScrollView>
+                </ScrollView>
+            </ImageBackground>
         )
     }
 
@@ -140,26 +143,16 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center"
     },
-    placeHolder: {
-        borderWidth: 1,
-        borderColor: "black",
-        backgroundColor: "#eee",
-        width: "80%",
-        height: 150
-    },
-    button: {
-        margin: 8
-    },
-    previewImage: {
-        width: "100%",
-        height: "100%"
-    },
     userInfo: {
-        fontSize: 18
+        fontSize: 18,
+        color: "#070005"
     },
     iconContainer: {
         flex: 1,
         flexDirection: "row"
+    },
+    backgroundImage: {
+        flex: 1
     }
 })
 

@@ -83,6 +83,7 @@ class PickLocation extends Component {
                     region={this.state.focusedLocation}
                     style={styles.map}
                     onPress={this.pickLocationHandler}
+                    showsUserLocation={true}
                     ref={ref => this.map = ref}
                     onLayout={() => { this.mark.showCallout() }}
                 >
