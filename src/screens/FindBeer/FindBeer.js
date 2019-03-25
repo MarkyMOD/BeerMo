@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Animated, ImageBackground } from 'react-native'
 
 import CardList from '../../components/CardList/CardList'
 import PickLocation from '../../components/PickLocation/PickLocation'
+import backgroundImage from '../../assets/images/barleywine.jpg'
 
 
 class FindBeerScreen extends Component {
@@ -120,9 +121,11 @@ class FindBeerScreen extends Component {
             )
         }
         return (
-            <View style={this.state.placesLoaded ? null : styles.buttonContainer} >
-                {content}
-            </View>
+            <ImageBackground source={backgroundImage} style={styles.backgroundImage} >
+                <View style={this.state.placesLoaded ? null : styles.buttonContainer} >
+                    {content}
+                </View>
+            </ImageBackground>
         )
     }
 
@@ -144,6 +147,10 @@ const styles = StyleSheet.create({
         color: "#FF6600",
         fontWeight: "bold",
         fontSize: 26
+    },
+    backgroundImage: {
+        width: "100%",
+        flex: 1
     }
 })
 

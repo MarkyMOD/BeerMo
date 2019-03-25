@@ -19,6 +19,8 @@ import ChooseCardScreen from './src/screens/ChooseCard/ChooseCard.js'
 import configureStore from './src/store/configureStore'
 import stripe from 'tipsi-stripe'
 
+import {YellowBox} from 'react-native'
+console.disableYellowBox = true
 
 stripe.setOptions({
   publishableKey: 'pk_test_DkIxaemOoJsNKejcTXVif5Hs00gjcPuUVn',
