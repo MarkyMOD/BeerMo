@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { View } from 'react-native'
+
+import { connect } from 'react-redux'
 
 class TokensScreen extends Component {
     static navigatorStyle = {
@@ -23,8 +26,16 @@ class TokensScreen extends Component {
     }
 
     render() {
-        return null
+        return (
+            <Text>{this.props.tokens.sentFrom}</Text>
+        )
     }
 }
 
-export default TokensScreen
+const mapStateToProps = state => {
+    return {
+        tokens: state.tokens.tokens
+    }
+}
+
+export default connect(mapStateToProps)(TokensScreen)

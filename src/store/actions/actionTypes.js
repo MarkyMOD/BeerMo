@@ -19,6 +19,8 @@ export const USER_SEARCH = 'USER_SEARCH'
 
 export const USER_INFO = 'USER_INFO'
 
+export const GET_TOKENS = 'GET_TOKENS'
+
 
 
 
