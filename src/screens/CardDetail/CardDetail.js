@@ -34,8 +34,13 @@ class CardDetail extends Component {
                     </View>
                     <View>
                         <TouchableOpacity onPress={this.onDeleteHandler} >
-                            <View style={styles.deleteButton} >
-                                <Icon size={30} name={Platform.OS === "android" ? "md-trash" : "ios-trash"} color="red" />
+                            <View style={{flexDirection: "row", justifyContent: "space-evenly"}}>
+                                <View style={styles.deleteButton} >
+                                    <Icon size={30} name={"ios-trash"} color="red" />
+                                </View>
+                                <View style={styles.deleteButton} >
+                                    <Icon size={30} name={"ios-create"} color="blue" />
+                                </View>
                             </View>
                         </TouchableOpacity>
                     </View>

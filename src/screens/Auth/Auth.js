@@ -268,6 +268,9 @@ class AuthScreen extends Component {
 
         return (
             <ImageBackground source={backgroundImage} style={styles.backgroundImage} >
+                <View style={styles.beerMoContainer} >
+                    <Text style={styles.beerMoFont} >BeerMo</Text>
+                </View>
                 <KeyboardAvoidingView 
                     style={styles.container} 
                     behavior="padding"
@@ -332,7 +335,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        bottom: 15
     },
     inputContainer: {
         width: "80%"
@@ -360,6 +364,16 @@ const styles = StyleSheet.create({
     },
     portraitPasswordWrapper: {
         width: "100%"
+    },
+    beerMoFont: {
+        top: 37,
+        fontSize: 158,
+        fontStyle: "italic",
+        fontFamily: "somethingwild-Regular",
+        color: "#FF6600"
+    },
+    beerMoContainer: {
+        alignItems: "center"
     }
 })
 
