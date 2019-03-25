@@ -3,6 +3,8 @@ import { View, Text, Button, StyleSheet } from 'react-native'
 
 import { connect } from 'react-redux'
 
+import { searchUsers } from '../../store/actions/index'
+
 import HeadingText from '../../components/UI/HeadingText/HeadingText'
 import DefaultInput from '../../components/UI/DefaultInput/DefaultInput'
 
@@ -59,7 +61,7 @@ class CreditCardsScreen extends Component {
     savedCardsScreenHandler = number => {
         this.props.navigator.push({
             screen: "BeerMo.SavedCardsScreen",
-            title: "Saved Card"
+            title: "Saved Cards"
         })
     }
 
@@ -77,8 +79,8 @@ class CreditCardsScreen extends Component {
         })
     }
 
-    searchUserHandler = userName => {
-        this.props.onUserSearch(userName)
+    searchUserHandler = () => {
+        this.props.onUserSearch(this.state.controls.search.value)
         this.props.navigator.push({
             screen: "BeerMo.UserSearchScreen",
             title: "Users Found"

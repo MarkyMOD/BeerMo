@@ -40,10 +40,7 @@ export const getCards = (localId) => {
         let id = localId
         dispatch(authGetToken())
             .then(token => {
-                return fetch(`https://beermo-1552602774929.firebaseio.com/cards.json?auth=${token}&orderBy="user"&equalTo="${id}"&print=pretty`, 
-                {
-                    method: "GET"
-                })
+                return fetch(`https://beermo-1552602774929.firebaseio.com/cards.json?auth=${token}&orderBy="user"&equalTo="${id}"&print=pretty`)
                 .then(res => res.json())
                 .then(parsedRes => {
                     let cardList = []

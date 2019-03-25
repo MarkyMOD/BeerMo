@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
+import { View } from 'react-native'
 
 import { connect } from 'react-redux'
 
-import { getCards } from '../../store/actions'
+import { getCards } from '../../store/actions/index'
 
 import CardList from '../../components/CardList/CardList'
 import HeadingText from '../../components/UI/HeadingText/HeadingText'
 
-class SavedCardsScreen extends Component {
+class ChooseCard extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",
         statusBarColor: "#FF6600",
@@ -23,22 +24,29 @@ class SavedCardsScreen extends Component {
         this.props.onLoad(this.props.localId)
     }
 
-    cardSelectedHandler = number => {
-        const selPlace = this.props.cards.find(card => card.number === number)
-        this.props.navigator.push({
-            screen: "BeerMo.CardDetailScreen",
-            title: "Saved Card",
-            passProps: {
-                selectedPlace: selPlace
+    onNavigatorEvent = event => {
+        if (event.type === "NavBarButtonPress") {
+            if (event.id === "sideDrawerToggle") {
+                this.props.navigator.toggleDrawer({
+                    side: "left"
+                })
             }
-        })
+        }
+    }
+
+    sendBeerTokenHandler = () => {
+        this.props.navigator.pop()
+        this.props.navigator.pop()
     }
 
     render() {
+
         return (
-            
-            <CardList cards={this.props.cards} onCardSelected={this.cardSelectedHandler} />
-        )
+            <View>
+                <HeadingText style={{fontSize: 26}} > Select A Card For Payment </HeadingText>
+                <CardList cards={this.props.cards} onCardSelected={this.sendBeerTokenHandler} />
+            </View>
+        )    
     }
 }
 
@@ -55,4 +63,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SavedCardsScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(ChooseCard)
