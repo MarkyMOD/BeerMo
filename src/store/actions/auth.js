@@ -6,7 +6,7 @@ import { uiStartLoading, uiStopLoading, storeLocalId, userGetId, userLogOut, use
 import startMainTabs from '../../screens/MainTabs/startMainTabs'
 import App from '../../../App'
 
-const API_KEY = "AIzaSyCT7U-QQ5ekM5pQb44tx4rk3sv4a3Qi2_M"
+const API_KEY = process.env.API_KEY
 
 
 export const tryAuth = (authData, authMode) => {

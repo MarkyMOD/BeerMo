@@ -4,12 +4,21 @@ import { View, Text, Button, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
 import HeadingText from '../../components/UI/HeadingText/HeadingText'
+import DefaultInput from '../../components/UI/DefaultInput/DefaultInput'
 
 class CreditCardsScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",
         statusBarColor: "#FF6600",
         navBarBackgroundColor: "#FF6600"
+    }
+
+    state = {
+        controls: {
+            search: {
+                value: null
+            }
+        }
     }
 
     constructor(props) {
@@ -54,6 +63,28 @@ class CreditCardsScreen extends Component {
         })
     }
 
+    updateInputState = (value) => {
+        this.setState(prevState => {
+            return {
+                controls: {
+                    ...prevState.controls,
+                    search: {
+                        ...prevState.controls.search,
+                        value: value
+                    }
+                }
+            }
+        })
+    }
+
+    searchUserHandler = userName => {
+        this.props.onUserSearch(userName)
+        this.props.navigator.push({
+            screen: "BeerMo.UserSearchScreen",
+            title: "Users Found"
+        })
+    }
+
     render() {
         return (
             <View style={styles.mainContainer}>
@@ -70,9 +101,21 @@ class CreditCardsScreen extends Component {
                             onPress = { this.savedCardsScreenHandler }
                         />
                     </View>
-                    <HeadingText style={{justifyContent: "center"}} >Send A Beer Token To Another User</HeadingText>
                 </View>
-                
+                <View style={styles.textContainer} >
+                    <HeadingText style={{fontSize: 20}} >Send A Beer Token To Another User</HeadingText>
+                    <HeadingText style={{fontSize: 20, left: 65, color: "blue"}} >Search by User Name</HeadingText>
+                    <DefaultInput 
+                        style={{bottom: 20}} 
+                        placeholder = "Search Here"
+                        value={this.state.controls.search.value}
+                        onChangeText={(val) => this.updateInputState(val)} 
+                    />
+                    <Button 
+                        title = "Search"
+                        onPress = { this.searchUserHandler }
+                    />
+                </View>
             </View>
         )
     }
@@ -89,8 +132,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     subContainer: {
-        flex: 1,
+        flex: 1
+    },
+    textContainer: {
+        flex: 11
     }
 })
 
-export default connect()(CreditCardsScreen)
+const mapDispatchToProps = dispatch => {
+    return {
+        onUserSearch: userName => dispatch(searchUsers(userName))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CreditCardsScreen)
