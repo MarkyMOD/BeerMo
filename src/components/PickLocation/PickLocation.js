@@ -69,18 +69,23 @@ class PickLocation extends Component {
     }
 
     render () {
-        let marker = <MapView.Marker coordinate={this.state.focusedLocation} />
+        let marker = <MapView.Marker
+            ref={ref => { this.mark = ref; }}
+            title= "Galvanize"
+            coordinate={this.state.focusedLocation} 
+        />
 
         return (
             <View style={styles.container}>
                 <MapView 
-                    text="hi"
                     provider={PROVIDER_GOOGLE}
                     initialRegion={this.state.focusedLocation}
                     region={this.state.focusedLocation}
                     style={styles.map}
                     onPress={this.pickLocationHandler}
+                    showsUserLocation={true}
                     ref={ref => this.map = ref}
+                    onLayout={() => { this.mark.showCallout() }}
                 >
                     {marker}
                 </MapView>

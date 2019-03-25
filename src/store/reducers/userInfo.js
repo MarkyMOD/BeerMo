@@ -1,15 +1,15 @@
-import { USER_SEARCH } from '../actions/actionTypes'
+import { USER_INFO } from '../actions/actionTypes'
 
 const initialState = {
-    userArray: {}
+    user: {}
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case USER_SEARCH:
+        case USER_INFO:
             return {
                 ...state,
-                userArray: action.userArray
+                user: action.user
             }
         default:
             return state

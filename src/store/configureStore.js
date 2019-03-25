@@ -6,13 +6,15 @@ import uiReducer from './reducers/ui'
 import authReducer from './reducers/auth'
 import cardsReducer from './reducers/creditCards'
 import userReducer from './reducers/userSearch'
+import userInfoReducer from './reducers/userInfo'
 
 const rootReducer = combineReducers({
     user: loginReducer,
     ui: uiReducer,
     auth: authReducer,
     cards: cardsReducer,
-    searchedUser: userReducer
+    searchedUser: userReducer,
+    userInfo: userInfoReducer
 })
 
 let composeEnhancers = compose

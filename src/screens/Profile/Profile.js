@@ -7,18 +7,18 @@ import {
     StyleSheet,
     ScrollView,
     Image,
-    KeyboardAvoidingView,
-    ActivityIndicator
+    TouchableOpacity,
+    ImageBackground
 } from 'react-native'
 import { connect } from 'react-redux'
+import Icon from 'react-native-vector-icons/Ionicons'
 
-import { addPlace } from '../../store/actions/index'
+import { getUserInfo } from '../../store/actions/index'
 import PlaceInput from '../../components/PlaceInput/PlaceInput'
 import MainText from '../../components/UI/MainText/MainText'
 import HeadingText from '../../components/UI/HeadingText/HeadingText'
 import PickImage from '../../components/PickImage/PickImage'
-import PickLocation from '../../components/PickLocation/PickLocation'
-import validate from '../../utility/validation'
+import backgroundImage from '../../assets/images/profile-background1.jpg'
 
 class ProfileScreen extends Component {
     static navigatorStyle = {
@@ -30,6 +30,10 @@ class ProfileScreen extends Component {
     constructor(props) {
         super(props)
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
+    }
+
+    componentDidMount() {
+        this.props.onLoad(this.props.localId)
     }
 
     componentWillMount() {
@@ -66,7 +70,6 @@ class ProfileScreen extends Component {
         this.setState(prevState => {
             return {
                 controls: {
-                    ...prevState.controls,
                     image: {
                         value: image,
                         valid: true
@@ -76,53 +79,60 @@ class ProfileScreen extends Component {
         })
     }
 
-    // placeAddedHandler = () => {
-    //     this.props.onUpdateUser(
-    //         this.state.controls.placeName.value, 
-    //         this.state.controls.location.value,
-    //         this.state.controls.image.value
-    //     )
-    //     this.reset()
-    //     this.imagePicker.reset()
-    //     this.locationPicker.reset()
-    //     this.props.navigator.switchToTab({tabIndex: 0})
-    // }
+    editUserInfoHandler = () => {
+        
+    }
 
     render () {
-        // let submitButton = (
-        //     < Button
-        //         title = "Share Place"
-        //         onPress = { this.placeAddedHandler }
-        //         disabled = {
-        //             !this.state.controls.placeName.valid ||
-        //             !this.state.controls.location.valid ||
-        //             !this.state.controls.image.valid
-        //         }
-        //     />
-        // )
-
-        // if (this.props.isLoading) {
-        //     submitButton = <ActivityIndicator />
-        // }
 
         return (
-            <ScrollView >
-                <KeyboardAvoidingView  
-                    style={styles.container}
-                    behavior = "padding" 
-                >
-                    <MainText>
-                        <HeadingText>Profile Picture</HeadingText>
-                    </MainText>
-                    <PickImage 
-                        onImagePicked={this.imagePickedHandler}
-                        // ref = {ref => (this.imagePicker = ref)}
-                    />
-                    {/* <View style={styles.button} >
-                        {submitButton}
-                    </View> */}
-                </KeyboardAvoidingView>
-            </ScrollView>
+            <ImageBackground source={backgroundImage} style={styles.backgroundImage} >
+                <ScrollView >
+                    <View  
+                        style={styles.container}
+                        behavior = "padding" 
+                    >
+                        <MainText>
+                            <HeadingText style={{color: "#070005"}} >Profile Picture</HeadingText>
+                        </MainText>
+                        <PickImage 
+                            onImagePicked={this.imagePickedHandler}
+                        />
+                        <View style={{backgroundColor: "rgba(170, 170, 170, 0.55)", flex: 1}} >
+                            <View style={styles.iconContainer} >
+                                <HeadingText style={styles.userInfo} >User Name: {this.props.user.userName}</HeadingText>
+                                <TouchableOpacity onPress={this.editUserInfoHandler} >
+                                    <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#070005" />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={styles.iconContainer} >
+                                <HeadingText style={styles.userInfo} >First Name: {this.props.user.firstName}</HeadingText>
+                                <TouchableOpacity onPress={this.editUserInfoHandler} >
+                                    <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#070005" />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={styles.iconContainer} >
+                                <HeadingText style={styles.userInfo} >Last Name: {this.props.user.lastName}</HeadingText>
+                                <TouchableOpacity onPress={this.editUserInfoHandler} >
+                                    <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#070005" />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={styles.iconContainer} >
+                                <HeadingText style={styles.userInfo} >Email: {this.props.user.email}</HeadingText>
+                                <TouchableOpacity onPress={this.editUserInfoHandler} >
+                                    <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#070005" />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={styles.iconContainer} >
+                                <HeadingText style={styles.userInfo} >Dat of Birth: {this.props.user.dateOfBirth}</HeadingText>
+                                <TouchableOpacity onPress={this.editUserInfoHandler} >
+                                    <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#070005" />
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </View>
+                </ScrollView>
+            </ImageBackground>
         )
     }
 
@@ -133,31 +143,30 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center"
     },
-    placeHolder: {
-        borderWidth: 1,
-        borderColor: "black",
-        backgroundColor: "#eee",
-        width: "80%",
-        height: 150
+    userInfo: {
+        fontSize: 18,
+        color: "#070005"
     },
-    button: {
-        margin: 8
+    iconContainer: {
+        flex: 1,
+        flexDirection: "row"
     },
-    previewImage: {
-        width: "100%",
-        height: "100%"
+    backgroundImage: {
+        flex: 1
     }
 })
 
 const mapStateToProps = state => {
     return {
         isLoading: state.ui.isLoading,
+        localId: state.user.localId,
+        user: state.userInfo.user
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onUpdateUser: (placeName, location, image) => dispatch(updateUser(placeName, location, image)) 
+        onLoad: localId => dispatch(getUserInfo(localId))
         
     }
 }

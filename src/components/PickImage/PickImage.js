@@ -36,7 +36,7 @@ class PickImage extends Component {
                     <Image source={this.state.pickedImage} style={styles.previewImage}/>
                 </View>
                 <View style={styles.button} >
-                    <Button title="Pick Image" onPress={this.pickedImageHandler} />
+                    <Button title="Pick Image" color = "#ff05bb" onPress={this.pickedImageHandler} />
                 </View>
             </View>
         )
@@ -49,11 +49,12 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     placeHolder: {
+        top: 4,
         borderWidth: 1,
         borderColor: "black",
         backgroundColor: "#eee",
         width: "80%",
-        height: 150
+        height: 250
     },
     button: {
         margin: 8
