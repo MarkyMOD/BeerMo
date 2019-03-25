@@ -13,6 +13,8 @@ import CreditCardsScreen from './src/screens/CreditCards/CreditCards'
 import DeleteConfirmationScreen from './src/screens/DeleteConfirmation/DeleteConfirmation'
 import AddCardScreen from './src/screens/AddCard/AddCard'
 import SavedCardsScreen from './src/screens/SavedCards/SavedCards'
+import UserSearchScreen from './src/screens/UserSearch/UserSearch'
+
 import configureStore from './src/store/configureStore'
 import stripe from 'tipsi-stripe'
 
@@ -35,6 +37,7 @@ Navigation.registerComponent("BeerMo.DeleteConfirmationScreen", () => DeleteConf
 Navigation.registerComponent("BeerMo.CreditCardsScreen", () => CreditCardsScreen, store, Provider)
 Navigation.registerComponent("BeerMo.AddCardScreen", () => AddCardScreen, store, Provider)
 Navigation.registerComponent("BeerMo.SavedCardsScreen", () => SavedCardsScreen, store, Provider)
+Navigation.registerComponent("BeerMo.UserSearchScreen", () => UserSearchScreen, store, Provider)
 
 
 export default () => Navigation.startSingleScreenApp({

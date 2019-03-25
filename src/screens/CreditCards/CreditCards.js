@@ -77,8 +77,12 @@ class CreditCardsScreen extends Component {
         })
     }
 
-    searchUserHandler = () => {
-        
+    searchUserHandler = userName => {
+        this.props.onUserSearch(userName)
+        this.props.navigator.push({
+            screen: "BeerMo.UserSearchScreen",
+            title: "Users Found"
+        })
     }
 
     render() {
@@ -135,4 +139,10 @@ const styles = StyleSheet.create({
     }
 })
 
-export default connect()(CreditCardsScreen)
+const mapDispatchToProps = dispatch => {
+    return {
+        onUserSearch: userName => dispatch(searchUsers(userName))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CreditCardsScreen)
