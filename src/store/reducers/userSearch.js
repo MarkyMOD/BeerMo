@@ -9,7 +9,7 @@ const reducer = (state = initialState, action) => {
         case USER_SEARCH:
             return {
                 ...state,
-                users: action.user
+                user: action.user
             }
         default:
             return state

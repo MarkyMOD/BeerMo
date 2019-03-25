@@ -18,6 +18,6 @@ export const searchUsers = userName => {
 export const storeUserSearchResults = user => {
     return {
         type: USER_SEARCH,
-        user: users
+        user: user
     }
 }

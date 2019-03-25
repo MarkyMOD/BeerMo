@@ -9,7 +9,8 @@ const startTabs = () => {
         Icon.getImageSource(Platform.OS === "android" ? "md-menu" : "ios-menu", 30),
         Icon.getImageSource(Platform.OS === "android" ? "md-menu" : "ios-beer", 30),
         Icon.getImageSource(Platform.OS === "android" ? "md-menu" : "ios-rocket", 30),
-        Icon.getImageSource(Platform.OS === "android" ? "md-menu" : "ios-gift", 30)
+        Icon.getImageSource(Platform.OS === "android" ? "md-menu" : "ios-gift", 30),
+        Icon.getImageSource(Platform.OS === "android" ? "md-menu" : "ios-settings", 30)
     ]).then(sources => {
         Navigation.startTabBasedApp({
             tabs: [
@@ -25,7 +26,11 @@ const startTabs = () => {
                                 title: "Menu",
                                 id: "sideDrawerToggle"
                             }
-                        ]
+                        ],
+                        rightButtons: [{
+                            icon: sources[6],
+                            title: "Settings",
+                        }]
                     }
                 },
                 {
@@ -40,7 +45,11 @@ const startTabs = () => {
                                 title: "Menu",
                                 id: "sideDrawerToggle"
                             }
-                        ]
+                        ],
+                        rightButtons: [{
+                            icon: sources[6],
+                            title: "Settings",
+                        }]
                     }
                 }, 
                 {
@@ -53,6 +62,10 @@ const startTabs = () => {
                             icon: sources[2],
                             title: "Menu",
                             id: "sideDrawerToggle"
+                        }],
+                        rightButtons: [{
+                            icon: sources[6],
+                            title: "Settings",
                         }]
                     }
                 }, 
@@ -66,6 +79,10 @@ const startTabs = () => {
                             icon: sources[2],
                             title: "Menu",
                             id: "sideDrawerToggle"
+                        }],
+                        rightButtons: [{
+                            icon: sources[6],
+                            title: "Settings",
                         }]
                     }
                 }, 
@@ -79,6 +96,10 @@ const startTabs = () => {
                             icon: sources[2],
                             title: "Menu",
                             id: "sideDrawerToggle"
+                        }],
+                        rightButtons: [{
+                            icon: sources[6],
+                            title: "Settings",
                         }]
                     }
                 }

@@ -15,7 +15,7 @@ class PickImage extends Component {
     }
 
     pickedImageHandler = () => {
-        ImagePicker.showImagePicker({title:"Pick an Image", maxWidth: 200, maxHeight: 300}, res => {
+        ImagePicker.showImagePicker({title:"Pick an Image", maxWidth: 200, maxHeight: 500}, res => {
             if (res.didCancel){
                 console.log("user cancelled")
             } else if (res.error){
@@ -45,7 +45,7 @@ class PickImage extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        width: "100%",
+        width: "60%",
         alignItems: "center"
     },
     placeHolder: {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { View, Text, StyleSheet, Image, Button } from 'react-native'
 
 import { connect } from 'react-redux'
 class UserSearchScreen extends Component {
@@ -25,8 +26,16 @@ class UserSearchScreen extends Component {
 
     render() {
         return (
-
+            <View>
+                <Image source={pirateHipster} />
+            </View>
         )
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        user: state.searchedUser.user
     }
 }
 
