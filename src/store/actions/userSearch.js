@@ -7,7 +7,7 @@ export const searchUsers = userName => {
         let user = userName
         dispatch(authGetToken())
         .then(token => {
-            return fetch(`https://beermo-1552602774929.firebaseio.com/users.json?auth=${token}&orderBy="userName"&equalTo="${userName}"&print=pretty`)
+            return fetch(`https://beermo-1552602774929.firebaseio.com/users.json?auth=${token}&orderBy="userName"&equalTo="${user}"&print=pretty`)
         })
         .then(res => res.json())
         .then(parsedRes => console.log(parsedRes))
