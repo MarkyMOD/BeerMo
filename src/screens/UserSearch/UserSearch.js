@@ -44,9 +44,9 @@ class UserSearchScreen extends Component {
                     <HeadingText >{this.props.user.userName}</HeadingText>
                 </View>
                 <View>
-                    <HeadingText style={{fontSize: 18, top: 18, color: "black"}} >{this.props.user.firstName} {this.props.user.lastName}</HeadingText>
+                    <HeadingText style={{fontSize: 18, top: 18, color: "black", right: 4}} >{this.props.user.firstName} {this.props.user.lastName}</HeadingText>
                 </View>
-                <View>
+                <View style={{right: 4}} >
                     <Button 
                     title = "Beer This Adult"
                     onPress = { this.chooseCardHandler }

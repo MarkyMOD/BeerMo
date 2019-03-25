@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 const listItem = (props) => (
     <TouchableOpacity onPress={props.onItemPressed}>
         <View style={styles.listItem} onPress={props.onItemPressed}>
-            <Text >Card Number: {props.number}</Text>   
+            <Text >Card Number: {props.number}          Exp: {props.expMonth}/{props.expYear} </Text>   
             {/* <Text >Card Number:{props.number} Exp:{props.expMonth}/{props.expYear} CVC:{props.cvc}</Text>             */}
 
 
