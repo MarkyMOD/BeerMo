@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import { connect } from 'react-redux'
 class UserSearchScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",
@@ -23,8 +24,10 @@ class UserSearchScreen extends Component {
     }
 
     render() {
-        return null
+        return (
+
+        )
     }
 }
 
-export default UserSearchScreen
+export default connect(mapStateToProps)(UserSearchScreen)

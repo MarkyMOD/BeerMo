@@ -1,7 +1,7 @@
 import { USER_SEARCH } from '../actions/actionTypes'
 
 const initialState = {
-    users: []
+    user: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const reducer = (state = initialState, action) => {
         case USER_SEARCH:
             return {
                 ...state,
-                users: action.userArray
+                users: action.user
             }
         default:
             return state
