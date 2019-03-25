@@ -98,7 +98,7 @@ class ProfileScreen extends Component {
                         <PickImage 
                             onImagePicked={this.imagePickedHandler}
                         />
-                        <View style={{backgroundColor: "rgba(96, 75, 50, 0.85)", flex: 1}} >
+                        <View style={{backgroundColor: "rgba(170, 170, 170, 0.55)", flex: 1}} >
                             <View style={styles.iconContainer} >
                                 <HeadingText style={styles.userInfo} >User Name: {this.props.user.userName}</HeadingText>
                                 <TouchableOpacity onPress={this.editUserInfoHandler} >
