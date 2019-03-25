@@ -1,7 +1,9 @@
 import { USER_SEARCH } from '../actions/actionTypes'
 
+let globalData = null
+
 const initialState = {
-    user: {}
+    userArray: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -9,7 +11,7 @@ const reducer = (state = initialState, action) => {
         case USER_SEARCH:
             return {
                 ...state,
-                user: action.user
+                userArray: action.userArray
             }
         default:
             return state
