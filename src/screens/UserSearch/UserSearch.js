@@ -29,7 +29,7 @@ class UserSearchScreen extends Component {
 
     chooseCardHandler = () => {
         this.props.navigator.push({
-            screen: "BeerMo.UserSearchScreen",
+            screen: "BeerMo.ChooseCardScreen",
             title: "Choose Card"
         })
     }
@@ -42,6 +42,9 @@ class UserSearchScreen extends Component {
                 </View>
                 <View>
                     <HeadingText >{this.props.user.userName}</HeadingText>
+                </View>
+                <View>
+                    <HeadingText style={{fontSize: 18, top: 18, color: "black"}} >{this.props.user.firstName} {this.props.user.lastName}</HeadingText>
                 </View>
                 <View>
                     <Button 

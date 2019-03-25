@@ -61,7 +61,7 @@ class CreditCardsScreen extends Component {
     savedCardsScreenHandler = number => {
         this.props.navigator.push({
             screen: "BeerMo.SavedCardsScreen",
-            title: "Saved Card"
+            title: "Saved Cards"
         })
     }
 
