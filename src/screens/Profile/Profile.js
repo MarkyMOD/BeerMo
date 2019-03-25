@@ -17,8 +17,6 @@ import PlaceInput from '../../components/PlaceInput/PlaceInput'
 import MainText from '../../components/UI/MainText/MainText'
 import HeadingText from '../../components/UI/HeadingText/HeadingText'
 import PickImage from '../../components/PickImage/PickImage'
-import PickLocation from '../../components/PickLocation/PickLocation'
-import validate from '../../utility/validation'
 
 class ProfileScreen extends Component {
     static navigatorStyle = {
@@ -76,34 +74,7 @@ class ProfileScreen extends Component {
         })
     }
 
-    // placeAddedHandler = () => {
-    //     this.props.onUpdateUser(
-    //         this.state.controls.placeName.value, 
-    //         this.state.controls.location.value,
-    //         this.state.controls.image.value
-    //     )
-    //     this.reset()
-    //     this.imagePicker.reset()
-    //     this.locationPicker.reset()
-    //     this.props.navigator.switchToTab({tabIndex: 0})
-    // }
-
     render () {
-        // let submitButton = (
-        //     < Button
-        //         title = "Share Place"
-        //         onPress = { this.placeAddedHandler }
-        //         disabled = {
-        //             !this.state.controls.placeName.valid ||
-        //             !this.state.controls.location.valid ||
-        //             !this.state.controls.image.valid
-        //         }
-        //     />
-        // )
-
-        // if (this.props.isLoading) {
-        //     submitButton = <ActivityIndicator />
-        // }
 
         return (
             <ScrollView >

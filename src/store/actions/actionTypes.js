@@ -17,6 +17,8 @@ export const DELETE_CARD = 'DELETE_CARD'
 
 export const USER_SEARCH = 'USER_SEARCH'
 
+export const USER_INFO = 'USER_INFO'
+
 
 
 
