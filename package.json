@@ -10,9 +10,11 @@
     "postinstall": "./node_modules/react-native-maps/enable-google-maps 'ios/my-frameworks/GoogleMaps/**'"
   },
   "dependencies": {
+    "isaac": "0.0.5",
     "react": "16.6.3",
     "react-devtools-core": "msand/react-devtools-core#4c30959",
     "react-native": "0.58.6",
+    "react-native-bcrypt": "^2.4.0",
     "react-native-elements": "^1.1.0",
     "react-native-image-picker": "^0.28.0",
     "react-native-maps": "^0.23.0",

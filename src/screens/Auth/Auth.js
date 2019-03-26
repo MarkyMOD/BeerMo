@@ -370,7 +370,10 @@ const styles = StyleSheet.create({
         fontSize: 158,
         fontStyle: "italic",
         fontFamily: "somethingwild-Regular",
-        color: "#FF6600"
+        color: "#FF6600",
+        textShadowColor: "#000000",
+        textShadowOffset: {width: -1.5, height: 1.5},
+        textShadowRadius: 1
     },
     beerMoContainer: {
         alignItems: "center"

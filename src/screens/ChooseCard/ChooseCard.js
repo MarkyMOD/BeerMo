@@ -37,6 +37,7 @@ class ChooseCard extends Component {
     sendBeerTokenHandler = () => {
         this.props.navigator.pop()
         this.props.navigator.pop()
+        alert("Token Sent To Beer Buddy!")
     }
 
     render() {

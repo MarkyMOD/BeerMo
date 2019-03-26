@@ -12,7 +12,7 @@ export const addCard = (card, localId) => {
                     number: card.number,
                     expMonth: card.expMonth,
                     expYear: card.expYear,
-                    cvc: card.cvc
+                    cvc: null
                 }
                 return fetch("https://beermo-1552602774929.firebaseio.com/cards.json?auth=" + token, {
                     method: "POST",
