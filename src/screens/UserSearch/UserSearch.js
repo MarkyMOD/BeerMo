@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Image, Button } from 'react-native'
+import { View, Text, StyleSheet, Image, Button, ImageBackground } from 'react-native'
 
 import { connect } from 'react-redux'
 
 import HeadingText from '../../components/UI/HeadingText/HeadingText'
 import pirateHipster from '../../assets/images/BeardEyePatch.jpg'
+import background from '../../assets/images/barrel-stave.jpg'
 class UserSearchScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",
@@ -43,25 +44,28 @@ class UserSearchScreen extends Component {
             )
         }
         return (
-            <View style={styles.container}>
-                <View style={styles.placeHolder} >
-                    <Image source={pirateHipster} style={styles.profilePicture} />
+            <ImageBackground source={background} style={styles.backgroundImage} >
+                <View style={styles.container}>
+                    <View style={styles.placeHolder} >
+                        <Image source={pirateHipster} style={styles.profilePicture} />
+                    </View>
+                    <View>
+                        <HeadingText >{this.props.user.userName}</HeadingText>
+                    </View>
+                    <View>
+                        <HeadingText style={{fontSize: 18, top: 18, color: "#FF6600", right: 4}} >
+                            {this.props.user.firstName} {this.props.user.lastName}
+                        </HeadingText>
+                    </View>
+                    <View style={{right: 4, backgroundColor: "rgba(0, 122, 255, 0.9)"}} >
+                        <Button 
+                        title = "Beer This Adult"
+                        onPress = { this.chooseCardHandler }
+                        color = "rgb(255, 180, 55)"
+                        />
+                    </View>
                 </View>
-                <View>
-                    <HeadingText >{this.props.user.userName}</HeadingText>
-                </View>
-                <View>
-                    <HeadingText style={{fontSize: 18, top: 18, color: "black", right: 4}} >
-                        {this.props.user.firstName} {this.props.user.lastName}
-                    </HeadingText>
-                </View>
-                <View style={{right: 4}} >
-                    <Button 
-                    title = "Beer This Adult"
-                    onPress = { this.chooseCardHandler }
-                    />
-                </View>
-            </View>
+            </ImageBackground>
         )
     }
 }
@@ -87,6 +91,10 @@ const styles = StyleSheet.create({
     textStyling: {
         paddingTop: 20,
         fontSize: 18
+    },
+    backgroundImage: {
+        width: "100%",
+        flex: 1
     }
 })
 

@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     textHeading: {
         fontSize: 28, 
         fontWeight: "bold",
-        color: "#FE6807",
+        color: "#FF6600",
         padding: 20
     }
 })
