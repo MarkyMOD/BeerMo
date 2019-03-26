@@ -7,7 +7,7 @@ import { searchUsers } from '../../store/actions/index'
 
 import HeadingText from '../../components/UI/HeadingText/HeadingText'
 import DefaultInput from '../../components/UI/DefaultInput/DefaultInput'
-import staves from '../../assets/images/staves.jpg'
+import staves from '../../assets/images/staves.png'
 
 class CreditCardsScreen extends Component {
     static navigatorStyle = {
@@ -145,9 +145,10 @@ const styles = StyleSheet.create({
         flex: 11
     },
     backgroundImage: {
+        flex: 1,
         width: "100%",
-        height: 350,
-        bottom: 25
+        height: "60%",
+        bottom: 275
     },
     image: {
         width: "100%",
