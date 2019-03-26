@@ -7,6 +7,7 @@ import authReducer from './reducers/auth'
 import cardsReducer from './reducers/creditCards'
 import userReducer from './reducers/userSearch'
 import userInfoReducer from './reducers/userInfo'
+import tokenReducer from './reducers/tokens'
 
 const rootReducer = combineReducers({
     user: loginReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     auth: authReducer,
     cards: cardsReducer,
     searchedUser: userReducer,
-    userInfo: userInfoReducer
+    userInfo: userInfoReducer,
+    tokens: tokenReducer
 })
 
 let composeEnhancers = compose

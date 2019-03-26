@@ -22,6 +22,14 @@
 {
   [GMSServices provideAPIKey:@"AIzaSyAtMnnixOGm42nTg-2Fj2iVXYpRyY0RN2w"];
   NSURL *jsCodeLocation;
+  for (NSString* family in [UIFont familyNames])
+  {
+    NSLog(@"%@", family);
+    for (NSString* name in [UIFont fontNamesForFamilyName: family])
+    {
+      NSLog(@" %@", name);
+    }
+  }
 #ifdef DEBUG
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 #else

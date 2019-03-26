@@ -43,6 +43,7 @@
 		C182321422349C1100E5B76B /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C182321122349BC700E5B76B /* libRNVectorIcons.a */; };
 		C182321822349CEB00E5B76B /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C182321722349CEB00E5B76B /* Ionicons.ttf */; };
 		C182321F2234BFCE00E5B76B /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C182321E2234BFAC00E5B76B /* libReactNativeNavigation.a */; };
+		C188856E22498A0700909AEC /* somethingwild-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C188856D22498A0600909AEC /* somethingwild-Regular.otf */; };
 		C1CB7AFA223B155600809212 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7AF9223B155600809212 /* Accelerate.framework */; };
 		C1CB7AFC223B156100809212 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7AFB223B156000809212 /* CoreData.framework */; };
 		C1CB7AFE223B156A00809212 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1CB7AFD223B156A00809212 /* CoreGraphics.framework */; };
@@ -420,6 +421,7 @@
 		C18231E622349BC700E5B76B /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		C182321722349CEB00E5B76B /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		C18232192234BFAC00E5B76B /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
+		C188856D22498A0600909AEC /* somethingwild-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "somethingwild-Regular.otf"; sourceTree = "<group>"; };
 		C1CB7AF9223B155600809212 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C1CB7AFB223B156000809212 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C1CB7AFD223B156A00809212 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -725,13 +727,13 @@
 				3D254E8A681414470BACE1E8 /* Pods-rn_Course_try_two.debug.xcconfig */,
 				AE26CC26447718CC91BC4DE6 /* Pods-rn_Course_try_two.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				C1888541224989AA00909AEC /* fonts */,
 				C1CB7B19223B1EE600809212 /* my-frameworks */,
 				C182321722349CEB00E5B76B /* Ionicons.ttf */,
 				13B07FAE1A68108700A75B9A /* rn_Course_try_two */,
@@ -798,6 +800,14 @@
 				C182325B223B10C900E5B76B /* libAirMaps.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C1888541224989AA00909AEC /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C188856D22498A0600909AEC /* somethingwild-Regular.otf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		C1CB7B19223B1EE600809212 /* my-frameworks */ = {
@@ -1351,6 +1361,7 @@
 				C182321822349CEB00E5B76B /* Ionicons.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				C1CB7B22223B20A700809212 /* GoogleMaps.bundle in Resources */,
+				C188856E22498A0700909AEC /* somethingwild-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

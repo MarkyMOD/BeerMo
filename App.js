@@ -15,10 +15,13 @@ import AddCardScreen from './src/screens/AddCard/AddCard'
 import SavedCardsScreen from './src/screens/SavedCards/SavedCards'
 import UserSearchScreen from './src/screens/UserSearch/UserSearch'
 import ChooseCardScreen from './src/screens/ChooseCard/ChooseCard.js'
+import RedemptionScreen from './src/screens/Redemption/Redemption.js'
 
 import configureStore from './src/store/configureStore'
 import stripe from 'tipsi-stripe'
 
+import {YellowBox} from 'react-native'
+console.disableYellowBox = true
 
 stripe.setOptions({
   publishableKey: 'pk_test_DkIxaemOoJsNKejcTXVif5Hs00gjcPuUVn',
@@ -33,13 +36,14 @@ Navigation.registerComponent("BeerMo.CardDetailScreen", () => CardDetailScreen, 
 Navigation.registerComponent("BeerMo.SideDrawer", () => SideDrawer, store, Provider)
 Navigation.registerComponent("BeerMo.SettingsScreen", () => SettingsScreen)
 Navigation.registerComponent("BeerMo.VenuesScreen", () => VenuesScreen)
-Navigation.registerComponent("BeerMo.TokensScreen", () => TokensScreen)
+Navigation.registerComponent("BeerMo.TokensScreen", () => TokensScreen, store, Provider)
 Navigation.registerComponent("BeerMo.DeleteConfirmationScreen", () => DeleteConfirmationScreen, store, Provider)
 Navigation.registerComponent("BeerMo.CreditCardsScreen", () => CreditCardsScreen, store, Provider)
 Navigation.registerComponent("BeerMo.AddCardScreen", () => AddCardScreen, store, Provider)
 Navigation.registerComponent("BeerMo.SavedCardsScreen", () => SavedCardsScreen, store, Provider)
 Navigation.registerComponent("BeerMo.UserSearchScreen", () => UserSearchScreen, store, Provider)
 Navigation.registerComponent("BeerMo.ChooseCardScreen", () => ChooseCardScreen, store, Provider)
+Navigation.registerComponent("BeerMo.RedemptionScreen", () => RedemptionScreen, store, Provider)
 
 
 export default () => Navigation.startSingleScreenApp({

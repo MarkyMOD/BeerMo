@@ -20,6 +20,12 @@ class PickLocation extends Component {
             focusedLocation: {
                 latitude: 40.0164401,
                 longitude: -105.2812565,
+                latitudeDelta: 0.0580,
+                longitudeDelta: Dimensions.get("window").width / Dimensions.get("window").height * 0.0499
+            },
+            secondLocation: {
+                latitude: 40.0265842,
+                longitude: -105.2481427,
                 latitudeDelta: 0.0499,
                 longitudeDelta: Dimensions.get("window").width / Dimensions.get("window").height * 0.0499
             },
@@ -75,6 +81,12 @@ class PickLocation extends Component {
             coordinate={this.state.focusedLocation} 
         />
 
+        let marker2 = <MapView.Marker
+            ref={ref => { this.mark = ref; }}
+            title= "Boulder Beer"
+            coordinate={this.state.secondLocation} 
+        />
+
         return (
             <View style={styles.container}>
                 <MapView 
@@ -87,10 +99,16 @@ class PickLocation extends Component {
                     ref={ref => this.map = ref}
                     onLayout={() => { this.mark.showCallout() }}
                 >
-                    {marker}
+                    <View>
+                        {marker} 
+                    </View>
+                    <View>
+                        {marker2} 
+                    </View>
                 </MapView>
+
                 <View style={styles.button} >
-                    <Button title="Locate Me" onPress={this.getLocationHandler} />
+                    <Button title="Locate Me" color="rgb(255, 180, 55)" onPress={this.getLocationHandler} />
                 </View>
             </View>
         )
@@ -107,7 +125,10 @@ const styles = StyleSheet.create({
         height: 250
     },
     button: {
-        margin: 8
+        margin: 8,
+        backgroundColor: "rgba(0, 122, 255, 0.9)",
+        borderWidth: 2,
+        borderColor: "rgb(0, 122, 255)"
     }
 })
 
