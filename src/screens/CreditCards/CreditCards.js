@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Button, StyleSheet } from 'react-native'
+import { View, Text, Button, Image, StyleSheet, ImageBackground } from 'react-native'
 
 import { connect } from 'react-redux'
 
@@ -7,6 +7,7 @@ import { searchUsers } from '../../store/actions/index'
 
 import HeadingText from '../../components/UI/HeadingText/HeadingText'
 import DefaultInput from '../../components/UI/DefaultInput/DefaultInput'
+import staves from '../../assets/images/staves.png'
 
 class CreditCardsScreen extends Component {
     static navigatorStyle = {
@@ -95,12 +96,14 @@ class CreditCardsScreen extends Component {
                         < Button
                             title = "Add A Card"
                             onPress = { this.addCardScreenHandler }
+                            color = "rgb(255, 180, 55)"
                         />
                     </View>
                     <View style={styles.subContainer} >  
                         < Button
                             title = "Saved Cards"
                             onPress = { this.savedCardsScreenHandler }
+                            color = "rgb(255, 180, 55)"
                         />
                     </View>
                 </View>
@@ -113,10 +116,17 @@ class CreditCardsScreen extends Component {
                         value={this.state.controls.search.value}
                         onChangeText={(val) => this.updateInputState(val)} 
                     />
+                </View>
+                <View style={styles.buttonContainer} >
                     <Button 
                         title = "Search"
                         onPress = { this.searchUserHandler }
+                        color = "rgb(255, 180, 55)"
                     />
+                </View>
+                <View style={styles.backgroundImage}>
+                    <Image source={staves} style={styles.image} >
+                    </Image>
                 </View>
             </View>
         )
@@ -134,10 +144,31 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     subContainer: {
-        flex: 1
+        flex: 1,
+        backgroundColor: "rgba(0, 122, 255, 0.9)",
+        borderWidth: 1,
+        borderColor: "rgba(0, 122, 255, 0.9)",
+        margin: 5
+    },
+    buttonContainer: {
+        backgroundColor: "rgba(0, 122, 255, 0.9)",
+        borderWidth: 1,
+        borderColor: "rgba(0, 122, 255, 0.9)",
+        bottom: 350,
+        marginRight: 85,
+        marginLeft: 85
     },
     textContainer: {
         flex: 11
+    },
+    backgroundImage: {
+        flex: 1,
+        width: "100%",
+        height: "60%",
+        bottom: 275
+    },
+    image: {
+        width: "100%",
     }
 })
 
