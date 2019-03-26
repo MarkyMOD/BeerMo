@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Button, StyleSheet } from 'react-native'
+import { View, Text, Button, Image, StyleSheet, ImageBackground } from 'react-native'
 
 import { connect } from 'react-redux'
 
@@ -7,6 +7,7 @@ import { searchUsers } from '../../store/actions/index'
 
 import HeadingText from '../../components/UI/HeadingText/HeadingText'
 import DefaultInput from '../../components/UI/DefaultInput/DefaultInput'
+import staves from '../../assets/images/staves.jpg'
 
 class CreditCardsScreen extends Component {
     static navigatorStyle = {
@@ -118,6 +119,10 @@ class CreditCardsScreen extends Component {
                         onPress = { this.searchUserHandler }
                     />
                 </View>
+                <View style={styles.backgroundImage}>
+                    <Image source={staves} style={styles.image} >
+                    </Image>
+                </View>
             </View>
         )
     }
@@ -138,6 +143,14 @@ const styles = StyleSheet.create({
     },
     textContainer: {
         flex: 11
+    },
+    backgroundImage: {
+        width: "100%",
+        height: 300,
+        bottom: 25
+    },
+    image: {
+        width: "100%",
     }
 })
 
