@@ -30,8 +30,10 @@ class TokensScreen extends Component {
     }
 
     redeemHandler = () => {
+        console.log("hhbjhvjvjgvhbvhhbkbjhouuivygvhjbhkhhojnjkbhvghhbijgivu54576788908765xdtgfcguvhbojnhvugycfxti")
         this.props.navigator.push({
-            screen: "BeerMo.RedemptionScreen",            
+            screen: "BeerMo.RedemptionScreen",
+            title: ""
         })
     }
 
@@ -42,7 +44,7 @@ class TokensScreen extends Component {
                     <HeadingText style={styles.tokenInfo1} >Sent From: {this.props.tokens.sentFrom} </HeadingText>
                     <HeadingText style={styles.tokenInfo2} >Received On: {this.props.tokens.dateSent} </HeadingText>
                     <View style={styles.buttonContainer}>
-                        <Button title="Redeem" color="#3fcf29" onPress={() => this.redeemHandler} />
+                        <Button title="Redeem" color="rgb(255, 180, 55)" onPress={this.redeemHandler} />
                     </View>
                 </View>
             </ImageBackground>
@@ -62,17 +64,17 @@ const styles = StyleSheet.create({
     tokenInfo1: {
         fontSize: 18,
         bottom: 20,
-        color: "#3fcf29",
-        textShadowColor: "#FF6600",
-        textShadowOffset: {width: -1, height: 1},
+        color: "#FF6600",
+        textShadowColor: "#000000",
+        textShadowOffset: {width: -.9, height: .9},
         textShadowRadius: 1
     },
     tokenInfo2: {
         fontSize: 18,
         bottom: 40,
-        color: "#3fcf29",
-        textShadowColor: "#FF6600",
-        textShadowOffset: {width: -1, height: 1},
+        color: "#FF6600",
+        textShadowColor: "#000000",
+        textShadowOffset: {width: -.9, height: .9},
         textShadowRadius: 1
     },
     backgroundImage: {
@@ -81,11 +83,11 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         borderWidth: 3,
-        borderColor: "#FF6600",
+        borderColor: "rgb(0, 122, 255)",
         marginRight: 20,
         marginLeft: 20,
         bottom: 30,
-        backgroundColor: "rgba(255, 102, 0, 0.35)"
+        backgroundColor: "rgba(0, 122, 255, 0.9)"
     }
 })
 

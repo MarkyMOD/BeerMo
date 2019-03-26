@@ -1,6 +1,4 @@
-import React, {
-    Component
-} from 'react'
+import React, { Component } from 'react'
 
 class RedemptionScreen extends Component {
     static navigatorStyle = {

@@ -93,7 +93,7 @@ class ProfileScreen extends Component {
                         behavior = "padding" 
                     >
                         <MainText>
-                            <HeadingText style={{color: "#070005"}} >Profile Picture</HeadingText>
+                            <HeadingText style={{color: "#FF6600"}} >Profile Picture</HeadingText>
                         </MainText>
                         <PickImage 
                             onImagePicked={this.imagePickedHandler}

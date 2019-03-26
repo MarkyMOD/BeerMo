@@ -108,7 +108,7 @@ class PickLocation extends Component {
                 </MapView>
 
                 <View style={styles.button} >
-                    <Button title="Locate Me" color="rgb(255, 59, 48)" onPress={this.getLocationHandler} />
+                    <Button title="Locate Me" color="rgb(255, 180, 55)" onPress={this.getLocationHandler} />
                 </View>
             </View>
         )
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     },
     button: {
         margin: 8,
-        backgroundColor: "rgba(0, 122, 255, 0.85)",
+        backgroundColor: "rgba(0, 122, 255, 0.9)",
         borderWidth: 2,
         borderColor: "rgb(0, 122, 255)"
     }
