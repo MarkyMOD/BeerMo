@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     },
     backgroundImage: {
         width: "100%",
-        height: 300,
+        height: 350,
         bottom: 25
     },
     image: {
