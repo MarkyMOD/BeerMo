@@ -74,12 +74,14 @@ class AddCardScreen extends Component {
             let number = params.number
 
             for (let i=0; i<number.length; i++) {
-                if (i < 8) {
+                if (i < 12) {
                     cardNumber += "#"
-                } else if (i > 7 && i < 12) {
+                } else if (i > 11 && i < 16) {
                     cardNumber += number[i]
+                    console.log(cardNumber)
                 }
             }
+
             // bcrypt.setRandomFallback((len) => {
             //     const buf = new Uint8Array(len);
 

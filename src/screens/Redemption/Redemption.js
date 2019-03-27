@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import redeem from '../../assets/images/redeem.jpg'
+import { ImageBackground } from 'react-native'
 
 class RedemptionScreen extends Component {
     static navigatorStyle = {
@@ -23,7 +25,9 @@ class RedemptionScreen extends Component {
     }
 
     render() {
-        return null
+        return (
+            <ImageBackground source={redeem} style={{width:"100%", flex:1}} ></ImageBackground>
+        )
     }
 }
 
