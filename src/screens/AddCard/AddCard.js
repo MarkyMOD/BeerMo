@@ -68,7 +68,7 @@ class AddCardScreen extends Component {
 
     validHandler = (valid, params) => {
 
-        console.log("LENGTH ME", params.number.length)
+        console.log("LENGTH ME", params)
         if (valid) {
             let cardNumber = ""
             let number = params.number
@@ -87,7 +87,7 @@ class AddCardScreen extends Component {
             // })
 
             // bcrypt.genSalt(10, function (err, salt) {
-            //     bcrypt.hash(numberToHash, salt, function (err, hash) {
+            //     bcrypt.hash(stringToHash, salt, function (err, hash) {
             //         console.log("hash", hash)
             //     })
             // })
@@ -128,6 +128,12 @@ class AddCardScreen extends Component {
         return (
             <View>
                 <HeadingText>ADD A CARD</HeadingText>
+                <DefaultInput 
+                    placeholder = "    BeerMo Name Will Be Used As The Name On Card"
+                    placeholderTextColor = "red"
+                    style = {styles.nameInput}
+                    editable = {false}
+                />
                 <PaymentCardTextField
                     style={styles.cardInput}
                     cursorColor={"red"}
@@ -140,6 +146,26 @@ class AddCardScreen extends Component {
                     disabled={false}
                     onParamsChange={this.validHandler}
                 />
+                <DefaultInput 
+                    placeholder = "Billing Address"
+                    placeholderTextColor = "#FF6600"
+                    style={styles.input}
+                />
+                <DefaultInput 
+                    placeholder = "State"
+                    placeholderTextColor = "#FF6600"
+                    style={styles.input}
+                />
+                <DefaultInput 
+                    placeholder = "City"
+                    placeholderTextColor = "#FF6600"
+                    style={styles.input}
+                />
+                <DefaultInput 
+                    placeholder = "Zip Code"
+                    placeholderTextColor = "#FF6600"
+                    style={styles.input}
+                />
                 { submitButton }
             </View>
         )
@@ -149,6 +175,14 @@ class AddCardScreen extends Component {
 const styles = StyleSheet.create({
     cardInput: {
         padding: 1,
+    },
+    input: {
+        backgroundColor: "#eee",
+    },
+    nameInput: {
+        backgroundColor: "#eee",
+        borderColor: "red",
+        borderWidth: 1
     }
 })
 
