@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Button, Image, StyleSheet, ImageBackground } from 'react-native'
+import { View, Text, TextInput, Button, Image, StyleSheet, ImageBackground } from 'react-native'
 
 import { connect } from 'react-redux'
 
@@ -86,6 +86,7 @@ class CreditCardsScreen extends Component {
             screen: "BeerMo.UserSearchScreen",
             title: "Users Found"
         })
+        this.textInput.clear()
     }
 
     render() {
@@ -110,11 +111,13 @@ class CreditCardsScreen extends Component {
                 <View style={styles.textContainer} >
                     <HeadingText style={{fontSize: 20}} >Send A Beer Token To Another User</HeadingText>
                     <HeadingText style={{fontSize: 20, left: 65, color: "blue"}} >Search by User Name</HeadingText>
-                    <DefaultInput 
-                        style={{bottom: 20}} 
+                    <TextInput 
+                        style={styles.input} 
                         placeholder = "Search Here"
+                        placeholderTextColor = "#FF6600"
                         value={this.state.controls.search.value}
                         onChangeText={(val) => this.updateInputState(val)} 
+                        ref={input => { this.textInput = input }}
                     />
                 </View>
                 <View style={styles.buttonContainer} >
@@ -169,6 +172,15 @@ const styles = StyleSheet.create({
     },
     image: {
         width: "100%",
+    },
+    input: {
+        width: "100%",
+        borderWidth: 1,
+        borderColor: "#eee",
+        padding: 5,
+        marginTop: 8,
+        marginBottom: 8,
+        bottom: 20
     }
 })
 
