@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, Animated, ImageBackground } from 'react-native'
 
-import CardList from '../../components/CardList/CardList'
 import PickLocation from '../../components/PickLocation/PickLocation'
 import backgroundImage from '../../assets/images/barleywine.jpg'
 

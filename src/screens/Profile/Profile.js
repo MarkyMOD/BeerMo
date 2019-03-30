@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
 import {
     View,
-    Text,
-    TextInput,
-    Button,
     StyleSheet,
     ScrollView,
-    Image,
     TouchableOpacity,
     ImageBackground
 } from 'react-native'
@@ -14,7 +10,6 @@ import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 import { getUserInfo } from '../../store/actions/index'
-import PlaceInput from '../../components/PlaceInput/PlaceInput'
 import MainText from '../../components/UI/MainText/MainText'
 import HeadingText from '../../components/UI/HeadingText/HeadingText'
 import PickImage from '../../components/PickImage/PickImage'

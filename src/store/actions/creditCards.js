@@ -1,4 +1,4 @@
-import { ADD_CARD, DELETE_CARD, GET_CARDS } from './actionTypes'
+import { DELETE_CARD, GET_CARDS } from './actionTypes'
 import { uiStartLoading, uiStopLoading, authGetToken } from './index'
 
 

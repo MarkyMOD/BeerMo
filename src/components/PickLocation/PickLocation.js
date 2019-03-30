@@ -21,13 +21,13 @@ class PickLocation extends Component {
                 latitude: 40.0164401,
                 longitude: -105.2812565,
                 latitudeDelta: 0.0580,
-                longitudeDelta: Dimensions.get("window").width / Dimensions.get("window").height * 0.0499
+                longitudeDelta: 0.0499
             },
             secondLocation: {
                 latitude: 40.0265842,
                 longitude: -105.2481427,
                 latitudeDelta: 0.0499,
-                longitudeDelta: Dimensions.get("window").width / Dimensions.get("window").height * 0.0499
+                longitudeDelta: 0.0499
             },
             locationChosen: false
         })

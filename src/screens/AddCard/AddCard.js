@@ -8,7 +8,7 @@ import { addCard } from '../../store/actions/index'
 
 import { connect } from 'react-redux'
 import bcrypt from 'react-native-bcrypt'
-import issac from 'isaac'
+import isaac from 'isaac'
 
 class AddCardScreen extends Component {
     static navigatorStyle = {
@@ -67,8 +67,6 @@ class AddCardScreen extends Component {
     }
 
     validHandler = (valid, params) => {
-
-        console.log("LENGTH ME", params)
         if (valid) {
             let cardNumber = ""
             let number = params.number
@@ -82,17 +80,17 @@ class AddCardScreen extends Component {
                 }
             }
 
-            // bcrypt.setRandomFallback((len) => {
-            //     const buf = new Uint8Array(len);
+            bcrypt.setRandomFallback((len) => {
+                const buf = new Uint8Array(len);
 
-            //     return buf.map(() => Math.floor(isaac.random() * 256));
-            // })
+                return buf.map(() => Math.floor(isaac.random() * 256));
+            })
 
-            // bcrypt.genSalt(10, function (err, salt) {
-            //     bcrypt.hash(stringToHash, salt, function (err, hash) {
-            //         console.log("hash", hash)
-            //     })
-            // })
+            bcrypt.genSalt(10, function (err, salt) {
+                bcrypt.hash(number, salt, function (err, hash) {
+                    console.log("hash", hash)
+                })
+            })
             
             
             this.setState(prevState => {

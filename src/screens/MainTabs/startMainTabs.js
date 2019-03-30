@@ -1,16 +1,15 @@
 import { Navigation } from 'react-native-navigation'
-import { Platform } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 const startTabs = () => {
     Promise.all([
-        Icon.getImageSource(Platform.OS === "android" ? "md-map" : "ios-map", 30),
-        Icon.getImageSource(Platform.OS === "android" ? "md-share-alt" : "ios-contact", 30),
-        Icon.getImageSource(Platform.OS === "android" ? "md-menu" : "ios-menu", 30),
-        Icon.getImageSource(Platform.OS === "android" ? "md-menu" : "ios-beer", 30),
-        Icon.getImageSource(Platform.OS === "android" ? "md-menu" : "ios-rocket", 30),
-        Icon.getImageSource(Platform.OS === "android" ? "md-menu" : "ios-gift", 30),
-        Icon.getImageSource(Platform.OS === "android" ? "md-menu" : "ios-settings", 30)
+        Icon.getImageSource("ios-map", 30),
+        Icon.getImageSource("ios-contact", 30),
+        Icon.getImageSource("ios-menu", 30),
+        Icon.getImageSource("ios-beer", 30),
+        Icon.getImageSource("ios-rocket", 30),
+        Icon.getImageSource("ios-gift", 30),
+        Icon.getImageSource("ios-settings", 30)
     ]).then(sources => {
         Navigation.startTabBasedApp({
             tabs: [

@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import { getCards } from '../../store/actions'
 
 import CardList from '../../components/CardList/CardList'
-import HeadingText from '../../components/UI/HeadingText/HeadingText'
 
 class SavedCardsScreen extends Component {
     static navigatorStyle = {
