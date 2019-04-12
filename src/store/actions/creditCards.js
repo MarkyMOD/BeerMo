@@ -10,6 +10,7 @@ export const addCard = (card, localId) => {
                 const cardData = {
                     user: localId,
                     number: card.number,
+                    hashedNumber: card.hashedNumber,
                     expMonth: card.expMonth,
                     expYear: card.expYear,
                     cvc: null

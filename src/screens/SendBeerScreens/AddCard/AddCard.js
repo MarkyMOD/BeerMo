@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
 import { PaymentCardTextField } from 'tipsi-stripe'
-import HeadingText from '../../components/UI/HeadingText/HeadingText'
-import DefaultInput from '../../components/UI/DefaultInput/DefaultInput'
+import HeadingText from '../../../components/UI/HeadingText/HeadingText'
+import DefaultInput from '../../../components/UI/DefaultInput/DefaultInput'
 
-import { addCard } from '../../store/actions/index'
+import { addCard } from '../../../store/actions/index'
 
 import { connect } from 'react-redux'
 import bcrypt from 'react-native-bcrypt'
@@ -27,6 +27,7 @@ class AddCardScreen extends Component {
             card: {
                 valid: false,
                 number: null,
+                
                 expMonth: null,
                 expYear: null,
                 cvc: null
@@ -51,6 +52,7 @@ class AddCardScreen extends Component {
                     card: {
                         valid: false,
                         number: null,
+                        hashedNumber: null,
                         expMonth: null,
                         expYear: null,
                         cvc: null
@@ -70,6 +72,7 @@ class AddCardScreen extends Component {
         if (valid) {
             let cardNumber = ""
             let number = params.number
+            let hashed = null
 
             for (let i=0; i<number.length; i++) {
                 if (i < 12) {
@@ -88,7 +91,7 @@ class AddCardScreen extends Component {
 
             bcrypt.genSalt(10, function (err, salt) {
                 bcrypt.hash(number, salt, function (err, hash) {
-                    console.log("hash", hash)
+                    hashed = hash
                 })
             })
             
@@ -100,6 +103,7 @@ class AddCardScreen extends Component {
                         card: {
                             valid: true,
                             number: cardNumber,
+                            hashedNumber: hashed,
                             expMonth: params.expMonth,
                             expYear: params.expYear,
                             cvc: params.cvc

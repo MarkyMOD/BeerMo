@@ -3,7 +3,7 @@ import { Text, View, Dimensions, StyleSheet, TouchableOpacity, Platform } from '
 import Icon from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux';
 
-import { authLogout } from '../../store/actions/index'
+import { authLogout } from '../../../store/actions/index'
 
 class SideDrawer extends Component {
     render () {

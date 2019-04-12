@@ -3,10 +3,10 @@ import { View } from 'react-native'
 
 import { connect } from 'react-redux'
 
-import { getCards } from '../../store/actions/index'
+import { getCards } from '../../../store/actions/index'
 
-import CardList from '../../components/CardList/CardList'
-import HeadingText from '../../components/UI/HeadingText/HeadingText'
+import CardList from '../../../components/CardList/CardList'
+import HeadingText from '../../../components/UI/HeadingText/HeadingText'
 
 class ChooseCard extends Component {
     static navigatorStyle = {

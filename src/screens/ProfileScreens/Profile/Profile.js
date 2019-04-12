@@ -9,11 +9,11 @@ import {
 import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/Ionicons'
 
-import { getUserInfo } from '../../store/actions/index'
-import MainText from '../../components/UI/MainText/MainText'
-import HeadingText from '../../components/UI/HeadingText/HeadingText'
-import PickImage from '../../components/PickImage/PickImage'
-import backgroundImage from '../../assets/images/profile-background1.jpg'
+import { getUserInfo } from '../../../store/actions/index'
+import MainText from '../../../components/UI/MainText/MainText'
+import HeadingText from '../../../components/UI/HeadingText/HeadingText'
+import PickImage from '../../../components/PickImage/PickImage'
+import backgroundImage from '../../../assets/images/profile-background1.jpg'
 
 class ProfileScreen extends Component {
     static navigatorStyle = {
@@ -119,7 +119,7 @@ class ProfileScreen extends Component {
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.iconContainer} >
-                                <HeadingText style={styles.userInfo} >Dat of Birth: {this.props.user.dateOfBirth}</HeadingText>
+                                <HeadingText style={styles.userInfo} >Date of Birth: {this.props.user.dateOfBirth}</HeadingText>
                                 <TouchableOpacity onPress={this.editUserInfoHandler} >
                                     <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#070005" />
                                 </TouchableOpacity>
