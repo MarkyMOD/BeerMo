@@ -1,4 +1,4 @@
-import { ADD_CARD, DELETE_CARD, GET_CARDS } from './actionTypes'
+import { DELETE_CARD, GET_CARDS } from './actionTypes'
 import { uiStartLoading, uiStopLoading, authGetToken } from './index'
 
 
@@ -10,6 +10,7 @@ export const addCard = (card, localId) => {
                 const cardData = {
                     user: localId,
                     number: card.number,
+                    hashedNumber: card.hashedNumber,
                     expMonth: card.expMonth,
                     expYear: card.expYear,
                     cvc: null

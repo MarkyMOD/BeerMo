@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import {
     View,
     Text,
-    Button,
-    TextInput,
     StyleSheet,
     ImageBackground,
     Dimensions,

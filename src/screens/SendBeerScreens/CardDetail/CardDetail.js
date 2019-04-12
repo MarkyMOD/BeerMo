@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import { Modal, View, Image, Button, Text, StyleSheet, TouchableOpacity, Platform, Dimensions } from 'react-native'
+import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
-import MapView, { PROVIDER_GOOGLE} from 'react-native-maps'
 
 import Icon from 'react-native-vector-icons/Ionicons'
-import { deletePlace } from '../../store/actions/index'
+import { deletePlace } from '../../../store/actions/index'
 
 class CardDetail extends Component {
     placeDeletedHandler = () => {
@@ -30,7 +29,6 @@ class CardDetail extends Component {
                     <View>
                         <Text >Card Number: {this.props.selectedPlace.number}</Text>
                         <Text >Expiration: {this.props.selectedPlace.expMonth}/{this.props.selectedPlace.expYear}</Text >
-                        <Text >CVC: {this.props.selectedPlace.cvc}</Text >
                     </View>
                     <View>
                         <TouchableOpacity onPress={this.onDeleteHandler} >

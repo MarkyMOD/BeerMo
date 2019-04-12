@@ -1,4 +1,4 @@
-import { ADD_CARD, DELETE_CARD, GET_CARDS } from '../actions/actionTypes'
+import { DELETE_CARD, GET_CARDS } from '../actions/actionTypes'
 
 const intialState = {
     cards: []

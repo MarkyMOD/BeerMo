@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import redeem from '../../assets/images/redeem.jpg'
+import redeem from '../../../assets/images/redeem.jpg'
 import { ImageBackground } from 'react-native'
 
 class RedemptionScreen extends Component {

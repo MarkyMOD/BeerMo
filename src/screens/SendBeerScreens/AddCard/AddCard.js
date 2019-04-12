@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
 import { PaymentCardTextField } from 'tipsi-stripe'
-import HeadingText from '../../components/UI/HeadingText/HeadingText'
-import DefaultInput from '../../components/UI/DefaultInput/DefaultInput'
+import HeadingText from '../../../components/UI/HeadingText/HeadingText'
+import DefaultInput from '../../../components/UI/DefaultInput/DefaultInput'
 
-import { addCard } from '../../store/actions/index'
+import { addCard } from '../../../store/actions/index'
 
 import { connect } from 'react-redux'
 import bcrypt from 'react-native-bcrypt'
-import issac from 'isaac'
+import isaac from 'isaac'
 
 class AddCardScreen extends Component {
     static navigatorStyle = {
@@ -27,6 +27,7 @@ class AddCardScreen extends Component {
             card: {
                 valid: false,
                 number: null,
+                
                 expMonth: null,
                 expYear: null,
                 cvc: null
@@ -51,6 +52,7 @@ class AddCardScreen extends Component {
                     card: {
                         valid: false,
                         number: null,
+                        hashedNumber: null,
                         expMonth: null,
                         expYear: null,
                         cvc: null
@@ -67,11 +69,10 @@ class AddCardScreen extends Component {
     }
 
     validHandler = (valid, params) => {
-
-        console.log("LENGTH ME", params)
         if (valid) {
             let cardNumber = ""
             let number = params.number
+            let hashed = null
 
             for (let i=0; i<number.length; i++) {
                 if (i < 12) {
@@ -82,17 +83,17 @@ class AddCardScreen extends Component {
                 }
             }
 
-            // bcrypt.setRandomFallback((len) => {
-            //     const buf = new Uint8Array(len);
+            bcrypt.setRandomFallback((len) => {
+                const buf = new Uint8Array(len);
 
-            //     return buf.map(() => Math.floor(isaac.random() * 256));
-            // })
+                return buf.map(() => Math.floor(isaac.random() * 256));
+            })
 
-            // bcrypt.genSalt(10, function (err, salt) {
-            //     bcrypt.hash(stringToHash, salt, function (err, hash) {
-            //         console.log("hash", hash)
-            //     })
-            // })
+            bcrypt.genSalt(10, function (err, salt) {
+                bcrypt.hash(number, salt, function (err, hash) {
+                    hashed = hash
+                })
+            })
             
             
             this.setState(prevState => {
@@ -102,6 +103,7 @@ class AddCardScreen extends Component {
                         card: {
                             valid: true,
                             number: cardNumber,
+                            hashedNumber: hashed,
                             expMonth: params.expMonth,
                             expYear: params.expYear,
                             cvc: params.cvc
