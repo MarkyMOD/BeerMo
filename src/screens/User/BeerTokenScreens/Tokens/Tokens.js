@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, Button, ImageBackground } from 'react-native'
 
 import { connect } from 'react-redux'
 
-import HeadingText from '../../../components/UI/HeadingText/HeadingText'
-import backgroundImage from '../../../assets/images/tokens.jpg'
+import HeadingText from '../../../../components/UI/HeadingText/HeadingText'
+import backgroundImage from '../../../../assets/images/tokens.jpg'
 
 class TokensScreen extends Component {
     static navigatorStyle = {
@@ -29,9 +29,8 @@ class TokensScreen extends Component {
     }
 
     redeemHandler = () => {
-        console.log("hhbjhvjvjgvhbvhhbkbjhouuivygvhjbhkhhojnjkbhvghhbijgivu54576788908765xdtgfcguvhbojnhvugycfxti")
         this.props.navigator.push({
-            screen: "BeerMo.RedemptionScreen",
+            screen: "BeerMo.QRScanScreen",
             title: ""
         })
     }

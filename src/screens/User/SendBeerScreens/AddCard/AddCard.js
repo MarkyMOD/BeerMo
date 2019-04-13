@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
 import { PaymentCardTextField } from 'tipsi-stripe'
-import HeadingText from '../../../components/UI/HeadingText/HeadingText'
-import DefaultInput from '../../../components/UI/DefaultInput/DefaultInput'
+import HeadingText from '../../../../components/UI/HeadingText/HeadingText'
+import DefaultInput from '../../../../components/UI/DefaultInput/DefaultInput'
 
-import { addCard } from '../../../store/actions/index'
+import { addCard } from '../../../../store/actions/index'
 
 import { connect } from 'react-redux'
 import bcrypt from 'react-native-bcrypt'

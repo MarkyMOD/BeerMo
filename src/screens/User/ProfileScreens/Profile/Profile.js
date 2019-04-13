@@ -9,11 +9,11 @@ import {
 import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/Ionicons'
 
-import { getUserInfo } from '../../../store/actions/index'
-import MainText from '../../../components/UI/MainText/MainText'
-import HeadingText from '../../../components/UI/HeadingText/HeadingText'
-import PickImage from '../../../components/PickImage/PickImage'
-import backgroundImage from '../../../assets/images/profile-background1.jpg'
+import { getUserInfo } from '../../../../store/actions/index'
+import MainText from '../../../../components/UI/MainText/MainText'
+import HeadingText from '../../../../components/UI/HeadingText/HeadingText'
+import PickImage from '../../../../components/PickImage/PickImage'
+import backgroundImage from '../../../../assets/images/profile-background1.jpg'
 
 class ProfileScreen extends Component {
     static navigatorStyle = {
