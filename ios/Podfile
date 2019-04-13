@@ -9,4 +9,6 @@ target 'rn_Course_try_two' do
 
   # Stripe
   pod 'Stripe', '~> 14.0.0'
+  pod 'ReactNativePermissions', :path => '../node_modules/react-native-permissions'
+
 end

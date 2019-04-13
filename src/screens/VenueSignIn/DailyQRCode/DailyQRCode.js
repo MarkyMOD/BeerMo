@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import redeem from '../../../assets/images/redeem.jpg'
-import { ImageBackground } from 'react-native'
+import React, {
+    Component
+} from 'react'
 
-class RedemptionScreen extends Component {
+class SettingsScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",
         statusBarColor: "#FF6600",
@@ -25,10 +25,8 @@ class RedemptionScreen extends Component {
     }
 
     render() {
-        return (
-            <ImageBackground source={redeem} style={{width:"100%", flex:1}} ></ImageBackground>
-        )
+        return null
     }
 }
 
-export default RedemptionScreen
+export default SettingsScreen

@@ -3,10 +3,10 @@ import { View, TextInput, Button, Image, StyleSheet } from 'react-native'
 
 import { connect } from 'react-redux'
 
-import { searchUsers } from '../../../store/actions/index'
+import { searchUsers } from '../../../../store/actions/index'
 
-import HeadingText from '../../../components/UI/HeadingText/HeadingText'
-import staves from '../../../assets/images/staves.png'
+import HeadingText from '../../../../components/UI/HeadingText/HeadingText'
+import staves from '../../../../assets/images/staves.png'
 
 class CreditCardsScreen extends Component {
     static navigatorStyle = {

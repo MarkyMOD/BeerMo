@@ -3,9 +3,9 @@ import { View, StyleSheet, Image, Button, ImageBackground } from 'react-native'
 
 import { connect } from 'react-redux'
 
-import HeadingText from '../../../components/UI/HeadingText/HeadingText'
-import pirateHipster from '../../../assets/images/BeardEyePatch.jpg'
-import background from '../../../assets/images/barrel-stave.jpg'
+import HeadingText from '../../../../components/UI/HeadingText/HeadingText'
+import pirateHipster from '../../../../assets/images/BeardEyePatch.jpg'
+import background from '../../../../assets/images/barrel-stave.jpg'
 class UserSearchScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",

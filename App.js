@@ -2,26 +2,27 @@ import { Navigation } from 'react-native-navigation'
 import { Provider } from 'react-redux'
 
 import AuthScreen from './src/screens/Auth/Auth'
-import ProfileScreen from './src/screens/ProfileScreens/Profile/Profile'
-import FindBeerScreen from './src/screens/FindBeerScreens/FindBeer/FindBeer'
-import CardDetailScreen from './src/screens/SendBeerScreens/CardDetail/CardDetail'
+import ProfileScreen from './src/screens/User/ProfileScreens/Profile/Profile'
+import FindBeerScreen from './src/screens/User/FindBeerScreens/FindBeer/FindBeer'
+import CardDetailScreen from './src/screens/User/SendBeerScreens/CardDetail/CardDetail'
 import SideDrawer from './src/screens/SideDrawerScreens/SideDrawer/SideDrawer'
-import SettingsScreen from './src/screens/SettingsScreens/Settings/Settings'
-import VenuesScreen from './src/screens/VenuesScreens/Venues/Venues'
-import TokensScreen from './src/screens/BeerTokenScreens/Tokens/Tokens'
-import CreditCardsScreen from './src/screens/SendBeerScreens/CreditCards/CreditCards'
-import DeleteConfirmationScreen from './src/screens/SendBeerScreens/DeleteConfirmation/DeleteConfirmation'
-import AddCardScreen from './src/screens/SendBeerScreens/AddCard/AddCard'
-import SavedCardsScreen from './src/screens/SendBeerScreens/SavedCards/SavedCards'
-import UserSearchScreen from './src/screens/SendBeerScreens/UserSearch/UserSearch'
-import ChooseCardScreen from './src/screens/SendBeerScreens/ChooseCard/ChooseCard.js'
-import RedemptionScreen from './src/screens/BeerTokenScreens/Redemption/Redemption.js'
+import SettingsScreen from './src/screens/User/SettingsScreens/Settings/Settings'
+import VenuesScreen from './src/screens/User/VenuesScreens/Venues/Venues'
+import TokensScreen from './src/screens/User/BeerTokenScreens/Tokens/Tokens'
+import CreditCardsScreen from './src/screens/User/SendBeerScreens/CreditCards/CreditCards'
+import DeleteConfirmationScreen from './src/screens/User/SendBeerScreens/DeleteConfirmation/DeleteConfirmation'
+import AddCardScreen from './src/screens/User/SendBeerScreens/AddCard/AddCard'
+import SavedCardsScreen from './src/screens/User/SendBeerScreens/SavedCards/SavedCards'
+import UserSearchScreen from './src/screens/User/SendBeerScreens/UserSearch/UserSearch'
+import ChooseCardScreen from './src/screens/User/SendBeerScreens/ChooseCard/ChooseCard.js'
+import RedemptionScreen from './src/screens/User/BeerTokenScreens/Redemption/Redemption.js'
+import QRScanScreen from './src/screens/User/BeerTokenScreens/QRScan/QRScan.js'
 
 import configureStore from './src/store/configureStore'
 import stripe from 'tipsi-stripe'
 
-import {YellowBox} from 'react-native'
-console.disableYellowBox = true
+// import {YellowBox} from 'react-native'
+// console.disableYellowBox = true
 
 stripe.setOptions({
   publishableKey: 'pk_test_DkIxaemOoJsNKejcTXVif5Hs00gjcPuUVn',
@@ -44,6 +45,7 @@ Navigation.registerComponent("BeerMo.SavedCardsScreen", () => SavedCardsScreen, 
 Navigation.registerComponent("BeerMo.UserSearchScreen", () => UserSearchScreen, store, Provider)
 Navigation.registerComponent("BeerMo.ChooseCardScreen", () => ChooseCardScreen, store, Provider)
 Navigation.registerComponent("BeerMo.RedemptionScreen", () => RedemptionScreen, store, Provider)
+Navigation.registerComponent("BeerMo.QRScanScreen", () => QRScanScreen, store, Provider)
 
 
 export default () => Navigation.startSingleScreenApp({

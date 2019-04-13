@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 
-import { getCards } from '../../../store/actions'
+import { getCards } from '../../../../store/actions'
 
-import CardList from '../../../components/CardList/CardList'
+import CardList from '../../../../components/CardList/CardList'
 
 class SavedCardsScreen extends Component {
     static navigatorStyle = {
