@@ -95,31 +95,31 @@ class ProfileScreen extends Component {
                         />
                         <View style={{backgroundColor: "rgba(170, 170, 170, 0.55)", flex: 1}} >
                             <View style={styles.iconContainer} >
-                                <HeadingText style={styles.userInfo} >User Name: {this.props.user.userName}</HeadingText>
+                                <HeadingText style={styles.userInfo} >User Name: {this.props.user.userName ? this.props.user.userName : " "}</HeadingText>
                                 <TouchableOpacity onPress={this.editUserInfoHandler} >
                                     <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#070005" />
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.iconContainer} >
-                                <HeadingText style={styles.userInfo} >First Name: {this.props.user.firstName}</HeadingText>
+                                <HeadingText style={styles.userInfo} >First Name: {this.props.user.firstName ? this.props.user.firstName : ""}</HeadingText>
                                 <TouchableOpacity onPress={this.editUserInfoHandler} >
                                     <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#070005" />
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.iconContainer} >
-                                <HeadingText style={styles.userInfo} >Last Name: {this.props.user.lastName}</HeadingText>
+                                <HeadingText style={styles.userInfo} >Last Name: {this.props.user.lastName ? this.props.user.lastName : ""}</HeadingText>
                                 <TouchableOpacity onPress={this.editUserInfoHandler} >
                                     <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#070005" />
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.iconContainer} >
-                                <HeadingText style={styles.userInfo} >Email: {this.props.user.email}</HeadingText>
+                                <HeadingText style={styles.userInfo} >Email: {this.props.user.email ? this.props.user.email : ""}</HeadingText>
                                 <TouchableOpacity onPress={this.editUserInfoHandler} >
                                     <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#070005" />
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.iconContainer} >
-                                <HeadingText style={styles.userInfo} >Date of Birth: {this.props.user.dateOfBirth}</HeadingText>
+                                <HeadingText style={styles.userInfo} >Date of Birth: {this.props.user.dateOfBirth ? this.props.user.dateOfBirth : ""}</HeadingText>
                                 <TouchableOpacity onPress={this.editUserInfoHandler} >
                                     <Icon style={{top: 15, right: 8}} size={30} name={"ios-create"} color="#070005" />
                                 </TouchableOpacity>
