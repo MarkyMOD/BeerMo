@@ -13,7 +13,6 @@ export const getTokens = userId => {
                     for (let key in parsedRes) {
                         tokenList.push(parsedRes[key])
                     }
-                    console.log(tokenList)
                     dispatch(listTokens(tokenList))
                 })
             })

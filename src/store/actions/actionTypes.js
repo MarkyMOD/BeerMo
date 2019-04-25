@@ -21,6 +21,8 @@ export const USER_INFO = 'USER_INFO'
 
 export const GET_TOKENS = 'GET_TOKENS'
 
+export const GET_VENUES = 'GET_VENUES'
+
 
 
 

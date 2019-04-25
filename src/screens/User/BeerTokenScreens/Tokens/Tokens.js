@@ -38,7 +38,7 @@ class TokensScreen extends Component {
         const beerTokenId = tokenId
         this.props.navigator.push({
             screen: "BeerMo.VenueSelectionScreen",
-            title: "Scan Me",
+            title: "Select Venue",
             passProps: {
                 tokenToRedeem: beerTokenId
             }

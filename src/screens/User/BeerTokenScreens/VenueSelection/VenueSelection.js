@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 
+import { connect } from 'react-redux'
+
+import { getVenues } from '../../../../store/actions/venues'
+
 class VenueSelectionScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",
@@ -22,9 +26,19 @@ class VenueSelectionScreen extends Component {
         }
     }
 
+    componentDidMount() {
+        this.props.onLoad()
+    }
+
     render() {
         return null
     }
 }
 
-export default VenueSelectionScreen
+const mapDispatchToProps = dispatch => {
+    return {
+        onLoad: () => dispatch(getVenues())
+    }
+}
+
+export default connect(null, mapDispatchToProps)(VenueSelectionScreen)
