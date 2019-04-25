@@ -15,6 +15,7 @@ const tokenList = props => {
                 <TokenListItem 
                     sentFrom={info.item.sentFrom} 
                     dateSent={info.item.dateSent}
+                    onItemPressed={() => props.onTokenSelected(info.item.tokenId)}
                 />
             )}
         />

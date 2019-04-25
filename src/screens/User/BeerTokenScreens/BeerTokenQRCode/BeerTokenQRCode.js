@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import QRCode from 'react-native-qrcode'
 import { StyleSheet, View } from 'react-native'
 
-
 class DailyQRCodeScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",

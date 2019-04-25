@@ -34,12 +34,13 @@ class TokensScreen extends Component {
         this.props.onLoad(this.props.localId)
     }
 
-    redeemHandler = () => {
+    setTokenIdHandler = tokenId => {
+        const beerTokenId = tokenId
         this.props.navigator.push({
-            screen: "BeerMo.BeerTokenQRCodeScreen",
+            screen: "BeerMo.VenueSelectionScreen",
             title: "Scan Me",
             passProps: {
-
+                tokenToRedeem: beerTokenId
             }
         })
     }
@@ -48,37 +49,13 @@ class TokensScreen extends Component {
         console.log("tokens", this.props.tokens)
         return (
             <ImageBackground source={backgroundImage} style={styles.backgroundImage} >
-                <TokenList tokens={this.props.tokens} onTokenSelected={this.redeemHandler} />
+                <TokenList tokens={this.props.tokens} onTokenSelected={this.setTokenIdHandler}/>
             </ImageBackground>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    // container: {
-    //     top: 8,
-    //     marginRight: 8,
-    //     marginLeft: 8,
-    //     marginBottom: 8,
-    //     borderWidth: 4,
-    //     borderColor: "#FF6600"
-    // },
-    // tokenInfo1: {
-    //     fontSize: 18,
-    //     bottom: 20,
-    //     color: "#FF6600",
-    //     textShadowColor: "#000000",
-    //     textShadowOffset: {width: -.9, height: .9},
-    //     textShadowRadius: 1
-    // },
-    // tokenInfo2: {
-    //     fontSize: 18,
-    //     bottom: 40,
-    //     color: "#FF6600",
-    //     textShadowColor: "#000000",
-    //     textShadowOffset: {width: -.9, height: .9},
-    //     textShadowRadius: 1
-    // },
     backgroundImage: {
         width: "100%",
         flex: 1

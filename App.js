@@ -18,6 +18,8 @@ import ChooseCardScreen from './src/screens/User/SendBeerScreens/ChooseCard/Choo
 import RedemptionScreen from './src/screens/User/BeerTokenScreens/Redemption/Redemption'
 import BeerTokenQRCodeScreen from './src/screens/User/BeerTokenScreens/BeerTokenQRCode/BeerTokenQRCode'
 import QRScanScreen from './src/screens/VenueSignIn/QRScan/QRScan'
+import TokenListItemComponent from './src/components/TokenListItem/TokenListItem'
+import VenueSelectionScreen from './src/screens/User/BeerTokenScreens/VenueSelection/VenueSelection'
 
 import configureStore from './src/store/configureStore'
 import stripe from 'tipsi-stripe'
@@ -48,6 +50,8 @@ Navigation.registerComponent("BeerMo.ChooseCardScreen", () => ChooseCardScreen, 
 Navigation.registerComponent("BeerMo.RedemptionScreen", () => RedemptionScreen, store, Provider)
 Navigation.registerComponent("BeerMo.BeerTokenQRCodeScreen", () => BeerTokenQRCodeScreen, store, Provider)
 Navigation.registerComponent("BeerMo.QRScanScreen", () => QRScanScreen, store, Provider)
+Navigation.registerComponent("BeerMo.TokenListItemComponent", () => TokenListItemComponent, store, Provider)
+Navigation.registerComponent("BeerMo.VenueSelectionScreen", () => VenueSelectionScreen, store, Provider)
 
 
 export default () => Navigation.startSingleScreenApp({
