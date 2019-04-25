@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 import { getVenues } from '../../../../store/actions/venues'
 
+import VenueList from '../../../../components/VenueList/VenueList'
+
 class VenueSelectionScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",
@@ -30,8 +32,29 @@ class VenueSelectionScreen extends Component {
         this.props.onLoad()
     }
 
+    venueSelectedHandler = venueName => {
+        let tokenId = this.props.tokenToRedeem
+        let venue = venueName
+        this.props.navigator.push({
+            screen: "BeerMo.BeerTokenQRCodeScreen",
+            title: "Scan Me",
+            passProps: {
+                tokenToRedeem: tokenId,
+                venueName: venue
+            }
+        })
+    }
+
     render() {
-        return null
+        return (
+            <VenueList venues={this.props.venues} onVenueSelected={this.venueSelectedHandler} />
+        )
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        venues: state.venues.venues
     }
 }
 
@@ -41,4 +64,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(VenueSelectionScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(VenueSelectionScreen)

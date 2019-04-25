@@ -1,7 +1,7 @@
 import { GET_VENUES } from '../actions/actionTypes'
 
 const initialState = {
-    venueArray: []
+    venues: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const reducer = (state = initialState, action) => {
         case GET_VENUES:
             return {
                 ...state,
-                venueArray: action.venueArray
+                venues: action.venueArray
             }
         default:
             return state

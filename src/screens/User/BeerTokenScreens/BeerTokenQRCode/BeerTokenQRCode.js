@@ -25,6 +25,7 @@ class DailyQRCodeScreen extends Component {
     }
 
     render() {
+        console.log("QR props", this.props)
         let hi = "hi"
         return (
             <View style={styles.qrCode}>

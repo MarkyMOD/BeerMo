@@ -35,7 +35,6 @@ class SavedCardsScreen extends Component {
 
     render() {
         return (
-            
             <CardList cards={this.props.cards} onCardSelected={this.cardSelectedHandler} />
         )
     }
