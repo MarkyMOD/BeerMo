@@ -1,8 +1,6 @@
-import React, {
-    Component
-} from 'react'
-
-class SettingsScreen extends Component {
+import React, { Component } from 'react'
+import QRCodeScanner from 'react-native-qrcode-scanner'
+class QRScanScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",
         statusBarColor: "#FF6600",
@@ -13,7 +11,7 @@ class SettingsScreen extends Component {
         super(props)
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
     }
-
+    
     onNavigatorEvent = event => {
         if (event.type === "NavBarButtonPress") {
             if (event.id === "sideDrawerToggle") {
@@ -24,9 +22,18 @@ class SettingsScreen extends Component {
         }
     }
 
-    render() {
-        return null
+    scanHandler = qrData => {
+        console.log("hi")
+    }
+
+    render () {
+        return (
+                <QRCodeScanner
+                    onRead={(e) => (scanHandler(e.data))}
+            />
+        )
+        
     }
 }
 
-export default SettingsScreen
+export default QRScanScreen

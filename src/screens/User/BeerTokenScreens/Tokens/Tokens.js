@@ -3,7 +3,9 @@ import { View, Text, StyleSheet, Button, ImageBackground } from 'react-native'
 
 import { connect } from 'react-redux'
 
-import HeadingText from '../../../../components/UI/HeadingText/HeadingText'
+import { getTokens } from '../../../../store/actions/index'
+
+import TokenList from '../../../../components/TokenList/TokenList'
 import backgroundImage from '../../../../assets/images/tokens.jpg'
 
 class TokensScreen extends Component {
@@ -28,71 +30,49 @@ class TokensScreen extends Component {
         }
     }
 
-    redeemHandler = () => {
+    componentDidMount() {
+        this.props.onLoad(this.props.localId)
+    }
+
+    setTokenIdHandler = tokenId => {
+        const beerTokenId = tokenId
         this.props.navigator.push({
-            screen: "BeerMo.QRScanScreen",
-            title: ""
+            screen: "BeerMo.VenueSelectionScreen",
+            title: "Select Venue",
+            passProps: {
+                tokenToRedeem: beerTokenId
+            }
         })
     }
 
     render() {
+        console.log("tokens", this.props.tokens)
         return (
             <ImageBackground source={backgroundImage} style={styles.backgroundImage} >
-                <View style={styles.container} >
-                    <HeadingText style={styles.tokenInfo1} >Sent From: {this.props.tokens.sentFrom} </HeadingText>
-                    <HeadingText style={styles.tokenInfo2} >Received On: {this.props.tokens.dateSent} </HeadingText>
-                    <View style={styles.buttonContainer}>
-                        <Button title="Redeem" color="rgb(255, 180, 55)" onPress={this.redeemHandler} />
-                    </View>
-                </View>
+                <TokenList tokens={this.props.tokens} onTokenSelected={this.setTokenIdHandler}/>
             </ImageBackground>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        top: 8,
-        marginRight: 8,
-        marginLeft: 8,
-        marginBottom: 8,
-        borderWidth: 4,
-        borderColor: "#FF6600"
-    },
-    tokenInfo1: {
-        fontSize: 18,
-        bottom: 20,
-        color: "#FF6600",
-        textShadowColor: "#000000",
-        textShadowOffset: {width: -.9, height: .9},
-        textShadowRadius: 1
-    },
-    tokenInfo2: {
-        fontSize: 18,
-        bottom: 40,
-        color: "#FF6600",
-        textShadowColor: "#000000",
-        textShadowOffset: {width: -.9, height: .9},
-        textShadowRadius: 1
-    },
     backgroundImage: {
         width: "100%",
         flex: 1
-    },
-    buttonContainer: {
-        borderWidth: 3,
-        borderColor: "rgb(0, 122, 255)",
-        marginRight: 20,
-        marginLeft: 20,
-        bottom: 30,
-        backgroundColor: "rgba(0, 122, 255, 0.9)"
     }
 })
 
 const mapStateToProps = state => {
     return {
+        localId: state.user.localId,
         tokens: state.tokens.tokens
     }
 }
 
-export default connect(mapStateToProps)(TokensScreen)
+const mapDispatchToProps = dispatch => {
+    return {
+        onLoad: userId => dispatch(getTokens(userId))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TokensScreen)
