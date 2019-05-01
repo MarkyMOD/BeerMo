@@ -24,8 +24,13 @@ class DailyQRCodeScreen extends Component {
         }
     }
 
+    testhandler = () => {
+        return 36
+    }
+
     render() {
-        console.log("QR props", this.props)
+        let beerToken = this.props.tokenToRedeem
+        let venueName = this.props.venueName
         let hi = "hi"
         return (
             <View style={styles.qrCode}>

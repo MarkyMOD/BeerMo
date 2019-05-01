@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import QRCodeScanner from 'react-native-qrcode-scanner'
-
 class QRScanScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",
@@ -23,11 +22,14 @@ class QRScanScreen extends Component {
         }
     }
 
+    scanHandler = qrData => {
+        console.log("hi")
+    }
+
     render () {
         return (
                 <QRCodeScanner
-                    onRead={(e) => (console.log('QR code scanned!', e))}
-                    captureAudio={false}
+                    onRead={(e) => (scanHandler(e.data))}
             />
         )
         

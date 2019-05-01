@@ -69,7 +69,7 @@ const startTabs = () => {
                     }
                 }, 
                 {
-                    screen: "BeerMo.VenuesScreen",
+                    screen: "BeerMo.QRScanScreen",
                     label: "Venues",
                     title: "Venues",
                     icon: sources[4],
