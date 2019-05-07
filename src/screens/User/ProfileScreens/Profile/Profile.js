@@ -28,6 +28,7 @@ class ProfileScreen extends Component {
     }
 
     componentDidMount() {
+        console.log("POTPOT", this.props.user)
         this.props.onLoad(this.props.localId)
     }
 

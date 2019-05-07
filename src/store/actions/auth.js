@@ -32,6 +32,7 @@ export const tryAuth = (authData, authMode) => {
         })
             .then(res => res.json())
             .then(parsedRes => {
+                console.log("POTTSHI DATA", parsedRes)
                 dispatch(uiStopLoading())
                 if (!parsedRes.idToken) {
                     alert("Auth failed 1")
@@ -150,6 +151,7 @@ export const authAutoSignin = () => {
                     startMainTabs()
                     // dispatch(userSignup())
                 })
+                .catch(err => console.log("userGetId", err))
             })
         .catch(err => console.log("No USER"))
     }

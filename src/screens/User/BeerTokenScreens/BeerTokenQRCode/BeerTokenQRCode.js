@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import QRCode from 'react-native-qrcode'
 import { StyleSheet, View } from 'react-native'
+import { connect } from 'react-redux'
+import HeadingText from '../../../../components/UI/HeadingText/HeadingText'
 
 class DailyQRCodeScreen extends Component {
     static navigatorStyle = {
@@ -24,21 +26,22 @@ class DailyQRCodeScreen extends Component {
         }
     }
 
-    testhandler = () => {
-        return 36
-    }
-
     render() {
         let beerToken = this.props.tokenToRedeem
         let venueName = this.props.venueName
-        let hi = "hi"
+        let userId = "USER-" + this.props.localId
+        let venueAndToken = venueName.concat("::", beerToken)
+        let allInfo = venueAndToken.concat("::", userId)
         return (
             <View style={styles.qrCode}>
                 <View style={styles.qr}>
+                    <View >
+                        <HeadingText style={styles.headingText}>{this.props.venueName}</HeadingText>
+                    </View>
                     <View>
                         <QRCode
                             style={{flex:1}}
-                            value={hi}
+                            value={allInfo}
                             size={250}
                             bgColor='#FF6600'
                             fgColor='white'
@@ -54,8 +57,19 @@ const styles = StyleSheet.create({
     qrCode: {
         flex: 1,
         left: 60,
-        top: 200
+        top: 120
+    },
+    headingText: {
+        alignSelf: "center",
+        right: 61,
+        color: "black"
     }
 })
 
-export default DailyQRCodeScreen
+mapStateToProps = state => {
+    return {
+        localId: state.user.localId
+    }
+}
+
+export default connect(mapStateToProps)(DailyQRCodeScreen)

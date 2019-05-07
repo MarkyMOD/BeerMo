@@ -1,5 +1,3 @@
-export const SET_PLACES = 'SET_PLACES'
-
 export const TRY_AUTH = 'TRY_AUTH'
 
 export const SIGN_IN = 'SIGN_IN'
@@ -22,6 +20,8 @@ export const USER_INFO = 'USER_INFO'
 export const GET_TOKENS = 'GET_TOKENS'
 
 export const GET_VENUES = 'GET_VENUES'
+
+export const GET_VENUENAME = 'GET_VENUENAME'
 
 
 
