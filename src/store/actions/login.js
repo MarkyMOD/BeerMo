@@ -46,7 +46,6 @@ export const userGetId = () => {
                 })
                 .catch(err => console.log(err))
             if (localId) {
-                console.log("id works")
                 dispatch(storeLocalId(localId))
                 return localId;
             } else {

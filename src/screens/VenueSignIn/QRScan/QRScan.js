@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import QRCodeScanner from 'react-native-qrcode-scanner'
+
+import { connect } from 'react-redux'
+import { beerTokenToVenue } from '../../../store/actions/index'
 class QRScanScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",
@@ -23,17 +26,56 @@ class QRScanScreen extends Component {
     }
 
     scanHandler = qrData => {
-        console.log("hi")
+        let array = qrData.split("::")
+        console.log("venueName", this.props.venue)
+        let tokenId
+        let userId
+        let venue
+        for (let i=0; i<array.length; i++) {
+            if (array[i].length === 36) {
+                tokenId = array[i]
+            }
+            if (array[i].includes("USER-")) {
+                userId = array[i].substring(5)
+            }
+            if (array[i] === this.props.venue) {
+                venue = array[i]
+            }
+        }
+
+        if (!tokenId) {
+            alert("Beer Token Data Not Received")
+        }
+        if (!userId) {
+            alert("Cannot Determine User Sending Token")
+        }
+        if (!venue) {
+            alert("Venue Name Does Not Match. Make Sure The Customer Has Selected Your Venue")
+        }
+        
+        this.props.sendBeerToken(tokenId, userId, venue)
     }
 
     render () {
         return (
                 <QRCodeScanner
-                    onRead={(e) => (scanHandler(e.data))}
+                    onRead={(e) => (this.scanHandler(e.data))}
             />
         )
         
     }
 }
 
-export default QRScanScreen
+const mapStateToProps = state => {
+    return {
+        venue: state.venueName.venue
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        sendBeerToken: (tokenId, userId, venue) => dispatch(beerTokenToVenue(tokenId, userId, venue))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(QRScanScreen)

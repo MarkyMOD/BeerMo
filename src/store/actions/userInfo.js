@@ -1,6 +1,6 @@
 import { USER_INFO } from './actionTypes'
 
-import { authGetToken } from './index'
+import { authGetToken, getVenueName } from './index'
 
 export const getUserInfo = localId => {
     return dispatch => {
@@ -13,7 +13,11 @@ export const getUserInfo = localId => {
             .then(parsedRes => {
                 let data = Object.values(parsedRes)
                 let useableData = data[0]
-                dispatch(updateUserState(useableData))
+                if (!useableData){
+                    dispatch(getVenueName(localId))
+                } else {
+                    dispatch(updateUserState(useableData))
+                }
             })
             .catch(err => console.log(err))
     }

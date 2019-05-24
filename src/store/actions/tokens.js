@@ -13,9 +13,24 @@ export const getTokens = userId => {
                     for (let key in parsedRes) {
                         tokenList.push(parsedRes[key])
                     }
-                    dispatch(listTokens(tokenList))
+                    dispatch(filterTokens(tokenList))
                 })
             })
+    }
+}
+
+export const filterTokens = tokenList => {
+    return dispatch => {
+        let filteredTokenList = []
+        for (let i = 0; i < tokenList.length; i++) {
+            let values = Object.values(tokenList[i])
+            for (let j = 0; j < values.length; j++) {
+                if (values[j] === true) {
+                    filteredTokenList.push(tokenList[i])
+                }
+            }
+        }
+        dispatch(listTokens(filteredTokenList))
     }
 }
 

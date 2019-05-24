@@ -9,6 +9,7 @@ import userReducer from './reducers/userSearch'
 import userInfoReducer from './reducers/userInfo'
 import tokenReducer from './reducers/tokens'
 import venueReducer from './reducers/venues'
+import venueNameReducer from './reducers/venueSignIn'
 
 const rootReducer = combineReducers({
     user: loginReducer,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
     searchedUser: userReducer,
     userInfo: userInfoReducer,
     tokens: tokenReducer,
-    venues: venueReducer
+    venues: venueReducer,
+    venueName: venueNameReducer
 })
 
 let composeEnhancers = compose

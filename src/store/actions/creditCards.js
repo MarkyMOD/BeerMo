@@ -15,7 +15,7 @@ export const addCard = (card, localId) => {
                     expYear: card.expYear,
                     cvc: null
                 }
-                return fetch("https://beermo-1552602774929.firebaseio.com/cards.json?auth=" + token, {
+                return fetch(`https://beermo-1552602774929.firebaseio.com/cards.json?auth=${token}`, {
                     method: "POST",
                     body: JSON.stringify(cardData)
                 }) 
