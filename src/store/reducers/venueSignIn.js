@@ -9,7 +9,7 @@ const reducer = (state = initialState, action) => {
         case GET_VENUENAME:
             return {
                 ...state,
-                venue: action.venueArray
+                venue: action.venueArray.venueName
             }
         default:
             return state

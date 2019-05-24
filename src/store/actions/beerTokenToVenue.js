@@ -1,3 +1,5 @@
+import { queryToken, authGetToken } from './index'
+
 export const beerTokenToVenue = (tokenId, userId, venueName) => {
     return dispatch => {
         dispatch(authGetToken())
@@ -13,6 +15,18 @@ export const beerTokenToVenue = (tokenId, userId, venueName) => {
                     method: "POST",
                     body: JSON.stringify(tokenInfo)
                 })
-            }
+            })
+            .catch(() => {
+                alert("SCAN FAILED")
+            })
+            .then(res => {
+                res.json()
+            })
+            .then(parsedRes => {
+                dispatch(queryToken(tokenId))
+            })
+            .catch(err => {
+                console.log("VENUETOKEN ERROR", err)
+            })
     }
 }

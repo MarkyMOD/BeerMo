@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import QRCodeScanner from 'react-native-qrcode-scanner'
 
 import { connect } from 'react-redux'
+import { beerTokenToVenue } from '../../../store/actions/index'
 class QRScanScreen extends Component {
     static navigatorStyle = {
         navBarButtonColor: "#FFFF00",
@@ -24,13 +25,9 @@ class QRScanScreen extends Component {
         }
     }
 
-    componentDidMount() {
-
-    }
-
     scanHandler = qrData => {
         let array = qrData.split("::")
-        console.log("venueName", this.props.venue.venueName)
+        console.log("venueName", this.props.venue)
         let tokenId
         let userId
         let venue
@@ -41,7 +38,7 @@ class QRScanScreen extends Component {
             if (array[i].includes("USER-")) {
                 userId = array[i].substring(5)
             }
-            if (array[i] === this.props.venue.venueName) {
+            if (array[i] === this.props.venue) {
                 venue = array[i]
             }
         }
@@ -55,6 +52,7 @@ class QRScanScreen extends Component {
         if (!venue) {
             alert("Venue Name Does Not Match. Make Sure The Customer Has Selected Your Venue")
         }
+        
         this.props.sendBeerToken(tokenId, userId, venue)
     }
 
@@ -76,7 +74,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        sendBeerToken: (tokenId, userId, venue) => dispatch(beerTokenToVenue(tokenId, userId, venue))
     }
 }
 
