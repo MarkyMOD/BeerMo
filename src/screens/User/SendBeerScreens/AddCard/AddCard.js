@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
-import { PaymentCardTextField } from 'tipsi-stripe'
+import stripe, { PaymentCardTextField } from 'tipsi-stripe'
 import HeadingText from '../../../../components/UI/HeadingText/HeadingText'
 import DefaultInput from '../../../../components/UI/DefaultInput/DefaultInput'
 
